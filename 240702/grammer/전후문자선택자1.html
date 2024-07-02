@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  p {
+    counter-increment: rint;
+  }
+  p::before {
+    content: counter(rint) ".";
+  }
+  p::after {
+    content: " - " attr(data-page) 
+    "page"; 
+  }
+</style>
+<body>
+  <h1>Lorem Ipsum</h1>
+  <p data-page="52">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore voluptas commodi debitis, itaque dolores ipsam maiores corporis doloribus, quia, recusandae optio! Vero, ratione sequi eius voluptatum placeat architecto porro qui!
+  </p>
+  <p data-page="273">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quia nesciunt recusandae? Eius nesciunt iusto saepe rem, labore id atque voluptas quaerat corrupti iste hic ipsam repellat temporibus, numquam facere.
+    Amet et quos laboriosam magni error, debitis iste rerum adipisci iure beatae maxime similique expedita nam laudantium reiciendis architecto tempora blanditiis! Inventore rem aperiam eos cupiditate eligendi quae? Odio, delectus?
+    Consectetur perferendis impedit, illo quos voluptates asperiores fugiat ab obcaecati laudantium quae tempora ea provident doloribus blanditiis at est, amet eius, eligendi illum? Praesentium possimus explicabo vel aliquam quaerat repudiandae.
+    Quis corporis laboriosam, nam tempore quos quidem a illo optio ipsam. Recusandae, modi aut enim asperiores necessitatibus laboriosam porro iste blanditiis error corporis eius sint at hic saepe quia illum!
+  </p>
+</body>
+</html>
