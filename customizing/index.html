@@ -6,6 +6,7 @@
   <title>Document</title>
   <script src="https://kit.fontawesome.com/09d57ad258.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./style.css">
+  <script defer type="module" src="./script.js"></script>
 </head>
 <body>
   <aside id="aside">
@@ -16,66 +17,68 @@
       <ul>
         <li>
           <a href="#">Album</a>
-          <ul>
+          <ul class="lnb">
             <li>
               <a href="#">1st album</a>
             </li>
             <li>
-              <a href="#">2st album</a>
+              <a href="#">2nd album</a>
             </li>
             <li>
-              <a href="#">3st album</a>
+              <a href="#">3rd album</a>
             </li>
             <li>
-              <a href="#">4st album</a>
+              <a href="#">4th album</a>
             </li>
             <li>
-              <a href="#">5st album</a>
+              <a href="#">5th album</a>
             </li>
           </ul>
         </li>
         <li>
           <a href="#">Upcoming news</a>
-          <ul>
+          <ul class="lnb">
             <li>
               <a href="#">Premiere</a>
             </li>
             <li>
-              <a href="#">2st album</a>
+              <a href="#">Digital single</a>
             </li>
             <li>
-              <a href="#">3st album</a>
-            </li>
-            <li>
-              <a href="#">4st album</a>
-            </li>
-            <li>
-              <a href="#">5st album</a>
+              <a href="#">Podcast</a>
             </li>
           </ul>
         </li>
         <li>
           <a href="#">Concert</a>
-          <ul>
+          <ul class="lnb">
             <li>
-              <a href="#">Premiere</a>
+              <a href="#">Jun</a>
             </li>
             <li>
-              <a href="#">2st album</a>
+              <a href="#">Junly</a>
             </li>
             <li>
-              <a href="#">3st album</a>
+              <a href="#">August</a>
             </li>
             <li>
-              <a href="#">4st album</a>
-            </li>
-            <li>
-              <a href="#">5st album</a>
+              <a href="#">September</a>
             </li>
           </ul>
         </li>
         <li>
           <a href="#">Video</a>
+          <ul class="lnb">
+            <li>
+              <a href="#">Glaston</a>
+            </li>
+            <li>
+              <a href="#">USA tour</a>
+            </li>
+            <li>
+              <a href="#">Youtube</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
@@ -95,14 +98,19 @@
 
   <section id="album">
     <article class="album_desc">
-      <div class="album_text"></div>
+      <div class="album_text">
+        <h2 class="album_text_title"></h2>
+        <p class="album_text_desc"></p>
+      </div>
       <div class="album_images">
         <div class="album_image">
-          <img src="./image/1st_album.jfif" alt="1st_album">
-          <div class="album_btns">
-            <i class="fa-solid fa-plus"></i>
-            <i class="fa-solid fa-play"></i>
-            <i class="fa-solid fa-ellipsis"></i>
+          <div class="album_image_box">
+            <img src="./image/1st_album.jfif" alt="1st_album">
+            <div class="album_btns">
+              <i class="fa-solid fa-plus"></i>
+              <i class="fa-solid fa-play"></i>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
           </div>
           <div class="album_detail">
             <span>1st Album</span>
@@ -110,11 +118,13 @@
           </div>
         </div>
         <div class="album_image">
-          <img src="./image/2nd_album.jpg" alt="2nd_album">
-          <div class="album_btns">
-            <i class="fa-solid fa-plus"></i>
-            <i class="fa-solid fa-play"></i>
-            <i class="fa-solid fa-ellipsis"></i>
+          <div class="album_image_box">
+            <img src="./image/2nd_album.jpg" alt="2nd_album">
+            <div class="album_btns">
+              <i class="fa-solid fa-plus"></i>
+              <i class="fa-solid fa-play"></i>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
           </div>
           <div class="album_detail">
             <span>2nd Album</span>
@@ -122,11 +132,13 @@
           </div>
         </div>
         <div class="album_image">
-          <img src="./image/3rd_album.jpg" alt="3rd_album">
-          <div class="album_btns">
-            <i class="fa-solid fa-plus"></i>
-            <i class="fa-solid fa-play"></i>
-            <i class="fa-solid fa-ellipsis"></i>
+          <div class="album_image_box">
+            <img src="./image/3rd_album.jpg" alt="3rd_album">
+            <div class="album_btns">
+              <i class="fa-solid fa-plus"></i>
+              <i class="fa-solid fa-play"></i>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
           </div>
           <div class="album_detail">
             <span>3rd Album</span>
@@ -134,11 +146,13 @@
           </div>
         </div>
         <div class="album_image">
-          <img src="./image/4th_album.jpg" alt="4th_album">
-          <div class="album_btns">
-            <i class="fa-solid fa-plus"></i>
-            <i class="fa-solid fa-play"></i>
-            <i class="fa-solid fa-ellipsis"></i>
+          <div class="album_image_box">
+            <img src="./image/4th_album.jpg" alt="4th_album">
+            <div class="album_btns">
+              <i class="fa-solid fa-plus"></i>
+              <i class="fa-solid fa-play"></i>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
           </div>
           <div class="album_detail">
             <span>4th Album</span>
@@ -146,11 +160,13 @@
           </div>
         </div>
         <div class="album_image">
-          <img src="./image/5th_album.jpg" alt="5th_album">
-          <div class="album_btns">
-            <i class="fa-solid fa-plus"></i>
-            <i class="fa-solid fa-play"></i>
-            <i class="fa-solid fa-ellipsis"></i>
+          <div class="album_image_box">
+            <img src="./image/5th_album.jpg" alt="5th_album">
+            <div class="album_btns">
+              <i class="fa-solid fa-plus"></i>
+              <i class="fa-solid fa-play"></i>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
           </div>
           <div class="album_detail">
             <span>5th Album</span>
