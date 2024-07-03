@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./mousestyle.css">
+  <script defer src="./mousescript.js"></script>
+</head>
+<body>
+  <!--
+  mouseover & mouseout : 함께 세트
+  >이벤트 버블링 가능 O
+
+  mouseover & mouseout : 함께 세트
+  >이벤트 버블링 가능 X
+  -->
+
+  <main id="container">
+    <section class="out overout">
+      <h1>over/out</h1>
+      <p>0</p>
+      <div class="in overout">
+        <p>0</p>
+      </div>
+    </section>
+    <section class="out enterleave">
+      <h1>enter/leave</h1>
+      <p>0</p>
+      <div class="in enterleave">
+        <p>0</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

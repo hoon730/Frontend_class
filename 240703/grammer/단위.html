@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      font-size: 30px;
+    }
+
+    div {
+      font-size: 20px;
+    }
+    
+    p:nth-child(2) {
+      font-size: 2em;
+      /* 40px */
+    }
+
+    p:nth-child(3) {
+      font-size: 50px;
+    }
+
+    p:nth-child(4) {
+      font-size: 200%;
+      /* 40px */
+    }
+
+    p:nth-child(5) {
+      font-size: 2rem;
+      /* 60px */
+    }
+  </style>
+</head>
+<body>
+  <!-- CSS3 속성
+  1) 단위: px / rem / em / % / vw / vh
+
+  em : element 약자. 부모요소의 font-size를 기준으로 몇 배수의 크기를 가져가게 할 것인가
+
+  rem : root element 약자. 현재 작업중인 문서 내 최상위 요소의 태그 혹은 그에 준하는 선택자
+
+  실무 : 작업 제품 (*웹페이지)
+  - default : 18px
+  - * || body => font-size : 18px
+  - 0.5rem 
+  - 1.5rem
+
+  vw / vh
+  viewport width / height
+
+  100% => 문서 작성된 컨텐츠 높이만큼 높이 결정
+
+  가변 그리드
+  > grid layout
+
+  2) display 속성 : none / block / inline / inline-block
+  
+  3) visibility 속성 : visible / hidden / collapse
+
+  4) opacity 속성 1 => 100% : 불투명 || 0 => 0% 투명
+  
+  5) margin / padding 속성
+  -1개 : 상하좌우 값이 동일
+  -2개 : 상하 / 좌우
+  -3개 : 상 / 좌우 / 하
+  -4개 : 상부터 시계방향
+
+  6) box 속성
+  - border-box : border / padding => content item width & height 포함
+  - content-box : content item에 적용한 width, height 값을 그대로 유지한채로
+  border / padding 적용
+  (*default값)
+  
+  7) bord 속성
+  - border-width
+  - border-stlye
+  - border-color
+
+  => border width style color
+  => border-radius : 테두리를 동그랗게 생성
+  => 값1개 : 상하좌우 모두 값이 동일
+  => 갑4개 : 상부터 시계방향
+  
+  8) font 속성
+  - font-family
+  - font-size
+  - font-weight
+  - font-style
+  
+  9) background 속성
+
+  10) float 속성
+
+  11) shadow 속성
+
+  12) gradient 속성 -->
+
+  <div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+  </div>
+</body>
+</html>
