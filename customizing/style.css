@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Fugaz+One&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -15,28 +17,38 @@ a{
 
 body {
   display: flex;
+  color: #fff;
 }
 
 /* aside */
 #aside {
   width: 200px;
   height: 100vh;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 5px;
+  border-right: 2px solid #ccc;
+  background-image: linear-gradient(to right, #434343 0%, #111 100%);
 }
 
-#aside  .logo {
+#aside .logo {
+  font-family: "Fugaz One", sans-serif;
+  font-style: italic;
   width: 100%;
-  height: 100px;
-  padding: 15px;
+  height: 60px;
+  text-align: center;
 }
+
 #aside  .logo img {
   width: 100%;
   height: 100%;
 }
-#aside  .gnb {}
+#aside  .gnb {
+  border-radius: 5px;
+}
 
 #aside  .gnb > ul {
   display: flex;
@@ -48,39 +60,47 @@ body {
 
 #aside  .gnb > ul > li {
   width: 100%;
+  &:hover > a {
+    color: #999;
+  }
   &:hover a::before {
     width: 100%;
   }
 }
 
 #aside  .gnb > ul > li > a {
-  display: inline-block;
-  height: 30px;
+  display: block;
   font-size: 20px;
-  position: relative;
 }
 
-#aside  .gnb > ul > li > a::before {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #333;
-  transition: all 0.5s;
-}
 
 #aside  .gnb ul  li .lnb {
   height: 0;
-  overflow: hidden;
+  opacity: 0;
   margin-top: 20px;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+#aside  .gnb ul  li .lnb.active{
+  opacity: 1;
+  height: 100%;
 }
 
 #aside  .gnb ul  li .lnb li {
-  height: 25px;
+  &:hover a{
+    background: #ccc;
+  }
 }
-#aside  .gnb ul  li .lnb li a {}
+#aside  .gnb ul  li .lnb li a {
+  display: block;
+  height: 30px;
+  padding: 5px;
+  margin: 3px 0;
+  text-align: center;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
 
 
 #aside .sns {
@@ -93,17 +113,20 @@ body {
 
 #aside .sns div {
   cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(1.2);
+}
 }
 
 #aside .sns div i {
-  font-size: 22px;
+  font-size: 24px;
 }
 
 /* album */
 #album {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1)),url("./image/1st_bg.jpg") center/cover no-repeat;
 }
 
 #album .album_desc {
@@ -121,6 +144,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  color: #fff;
 }
 
 #album .album_desc .album_images {
@@ -137,7 +161,7 @@ body {
     opacity: 1;
   }
   &:hover .album_detail {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.4);
   }
   &:hover .album_image_box .album_btns {
     opacity: 1;

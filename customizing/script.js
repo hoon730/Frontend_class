@@ -23,8 +23,7 @@ gnbLi.forEach((li) => {
         const lnb = li.querySelector(".lnb");
 
         if(lnb) {
-            lnb.style.transition = "all 0.3s";
-            lnb.style.height = "100%";
+            lnb.classList.add("active");
         }
     })
 
@@ -32,7 +31,7 @@ gnbLi.forEach((li) => {
         const lnb = li.querySelector(".lnb");
 
         if(lnb) {
-            lnb.style.height = "0";
+            lnb.classList.remove("active");
 
         }
     })
@@ -42,7 +41,7 @@ gnbLi.forEach((li) => {
 const bgImgs = ["1st_bg.jpg", "2nd_bg.jpg", "3rd_bg.jpg", "4th_bg.png", "5th_bg.jpg"];
 
 const bgImg = document.querySelector("#album");
-bgImg.style.background = `linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1)), url(./image/${bgImg[0]}) center/cover no-repeat`;
+bgImg.style.background = `radial-gradient(circle, transparent, rgba(0, 0, 0, 1)), url(./image/${bgImgs[0]}) center/cover no-repeat`;
 
 const albumText = document.querySelector(".album_text");
 const albumTit = albumText.querySelector(".album_text_title");
@@ -61,7 +60,7 @@ fetch("./data.json")
     img.addEventListener("click", (e) => {
         e.preventDefault();
         const { title, description } = jsonData.data[index];
-        bgImg.style.background = `linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1)), url(./image/${bgImg[index]}) center/cover no-repeat`;
+        bgImg.style.background = `radial-gradient(circle, transparent, rgba(0, 0, 0, 1)), url(./image/${bgImgs[index]}) center/cover no-repeat`;
         albumTit.innerText = title;
         albumDesc.innerText = description;
     });

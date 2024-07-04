@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    main {
+      width: 300px;
+      height: 2000px;
+      background: tomato;
+      /* position: relative; */
+      div {
+        width: 200px;
+        height: 100px;
+        border: 1px solid #000;
+        background: yellow;
+        text-align: center;
+        line-height: 100px;
+      }
+      div:nth-child(2) {
+        background-color: cyan;
+        opacity: 0.8;
+        /* position: relative;
+        left: 48px;
+        top: 28px; */
+        /* position: fixed;
+        bottom: 8px;
+        right: 16px; */
+        position: sticky;
+        top: 0;
+      }
+    }
+    section {
+      width: 100%;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+  position 
+  
+  - static(*순차적인) : 기본적으로 html 문서를 통해서 tag를 사용하면 기본적으로
+  position속성값이 static
+
+  - relative(*상대적인) : 순차적으로 입.출력된 아이템 요소들 사이에서 상대적인 
+  위치 좌표값을 가지고 싶을 때
+
+  - absolute(*절대적인) : 기존에 작성된 태그들과 다른 차원으로 넘어가기 때문에
+  위치 좌표값을 절대적으로 사용
+  (*부모요소들 중에 누군가가 relative 속성을 가지고 있다면, 해당 부모를 기준으로
+  절대위치 좌표값을 적용)
+
+  - fixed(*고정된) : 설정한 포지션 위치값에 고정으로 붙어있는 경우
+  - sticky(*달라붙는) : 스티커 => 특정 좌표값에서 스티커처럼 붙어 있도록 하고자 할 때
+
+  - z-index : 3차원 공간에 대한 위치 정의
+  x,y / x,y,z축
+  > 크면 클수록 모니터를 기준으로 앞으로 튀어나오는 위치 좌표
+  > 작으면 작을수록 모니터를 기준으로 뒤로 들어가는 위치 좌표
+  속성 -->
+  
+<main>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</main>
+<section></section>
+</body>
+</html>
