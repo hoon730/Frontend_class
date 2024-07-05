@@ -38,6 +38,8 @@ git을 사용하려면
 - 관리자 모드(*전역) : git config --global --unset credential.helper
 - 일반 모드(*로컬) : git config --local --unset credential.helper
 - 시스템 : git config --stystem --unset credential.helper
+- 3가지 방법으로도 안될경우 : 제어판 -> 사용자계정 -> windows 자격증명 관리 
+-> 일반자격증명 > 제거&추가 -> 인터넷 또는 네트워크 주소 : 깃허브 레포지토리 주소
 
 7) 로컬 git 저장소 & 원격 git-hub 저장소 연결
 - git-hub 저장소 : repository (*레파티토리 혹은 레포지토리) => 폴더 생성
@@ -54,11 +56,14 @@ git을 사용하려면
 
 10) 나의 data를 staging area로 input 하고자 할 때!!!
 - git add .
+- git add 파일명 || 폴더명" => 루트 폴더 안에 해당 파일 혹은 폴더만 commit
+(*commit => git 버전 관리 시스템 혹은 원격 저장소에 데이터를 업로드하는 것을 지칭하는 단어)
 - git status
 
 11) commit을 하기 위한 메세지 기록!!
 - 내가 언제 어떤 목적으로 commit 인지하기 위한 목적!!!
 - git commit -m "240628"
+- git log : 그동안 commit 데이터에 대한 목록을 보여주는 명령어
 
 12) 원격 레포지토리로 data를 commit!!!
 - git push origin master
@@ -72,3 +77,23 @@ git을 사용하려면
 - git init 
 - git remote add origin https://github.com/hoon730/Frontend_class.git
 - git pull origin master
+
+15) 학원로컬 / 집로컬 => 상관x
+=> histories
+=> git pull add origin "브랜치명" --allow-related--histories
+
+16) 특정 브랜치 생성
+- git checkout -b "생성하고싶은 브랜치명"
+
+17) git checkout master
+
+18) git-hub 커밋을 잘못한 경우
+- 로컬 컴퓨터 터미널 git reset HEAD^ : 가장 최근 commit한 데이터를 삭제
+- 로컬 컴퓨터 터미널 git -f origin "브랜치명"
+(*깃허브 브랜치에서 삭제가 됨)
+
+19) git-hub 웹하드 :
+커밋할 수 있는 방법 : GUI => 25메가 / CLI => 100메가
+200메가
+
+git-log
