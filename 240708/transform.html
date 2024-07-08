@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    section {
+      margin: 100px;
+      width: 100px;
+      height: 100px;
+      border: 5px solid #000;
+      div {
+        width: 100px;
+        height: 100px;
+        background: #f00;
+        /* transform: rotate(60deg) scale(1.2) skewY(10deg); */
+        /* transform: translateX(50px) rotate(60deg); */
+        /* transform: rotate(60deg) translateX(50px); */
+        /* transform-origin: right bottom; */
+        transform-origin: 100% 100%;
+        transform: rotate(60deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    > transform
+
+    *transition : 어떤 이미지 혹은 아이템 요소가 변환하는데 있어서 변형에 대한 속성값을 제어
+    > 3D 공간 개념
+    *transform : 어떤 이미지 혹은 아이템 요소의 형태 혹은 휘치(*좌표)등 자체를 
+    변환시키기 위한 속성 / 좌표값 / 각도회전 (*웹 좌표계를 중심) / 중심축(*x,y,z)으로부터 회전 / 크기
+
+    rotate(angle deg)
+    scale(x,y) : 크기
+    scaleX() : 크기
+    scaleY() : 크기
+    skew(x,y) : 특정 중심축을 기준으로 기울기
+    skewX() : 특정 중심축을 기준으로 기울기
+    skewY() : 특정 중심축을 기준으로 기울기
+    translate(x,y) : 특정 크기만큼 이동
+    translateX() : 특정 크기만큼 이동
+    translateY() : 특정 크기만큼 이동
+
+    => 1개의 이미지 혹은 도형 요소에 복수의 transform 효과 적용
+    > 적용하는 순서에 따라서 결과값이 완전히 달라질 수 있음
+  -->
+
+  <section>
+    <div>Box</div>
+  </section>
+</body>
+</html>

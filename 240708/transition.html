@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 
+    css3_v2 
+    > transition (*전환 / 변형)
+    => css에서 반응선택자를 사용할 때 주로 사용
+    => 반응 전 / 후 => 상태변화 (*즉각 / 시차)
+    => 반응이 발생되기 전단계에서 속성값을 적용
+
+    1. transition-duration : 변형이 작동할 수 있는 기간 설정
+    2. transition-delay : 반응선택자를 통해서 이벤트 실해 후 얼무 후에 변형 스타일을
+    전용할것인지 설정
+    3. transition-property : 변형 스타일을 적용할 요소를 무엇으로 설정
+    4. transition-timing-function : 가속 혹은 감속에 대한 영향을 줄 수 있는 함수 설정
+    > linear : 가속, 감속 x
+    > ease : 도입부분(in)은 조금 덜 완만하게 / 완료부분(*out)에서는 조금 더 완만하게 / 중간영역에서 급격하게
+    > ease-in : 도입부분(in)에서는 완만하게 시작 / 완료부분(*out)에서는 급격하게 종료
+    > ease-out : 도입부분(in)에서는 완만하게 시작 / 완료부분(*out)에서는 완만하게 종료
+    > ease-in-out : 도입부분(in)과 완료부분(*out)에서는 완만하게 / 중간영역에서 급격하게
+
+    https://cubic-bezier.com
+
+    transition : property / duration / timing-function / delay
+    */
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background: orange;
+      /* 벤더 프리픽스 */
+      /* -webkit-animation-duration: 0.8s; */
+      /* transition-property: width, height;
+      transition-delay: 0.3s;
+      transition-duration: 0.8s;
+      transition-timing-function: cubic-bezier(.2,.64,.87,.48); */
+      transition: background 0.8s ease, width 0.5s ease-out 0.3s, height 0.5s ease-out 0.3s;
+      &:hover {
+        width: 200px;
+        height: 300px;
+      }
+      &:active {
+        background: crimson;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">box</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      position: relative;
+      #box {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: linear-gradient(#cb60d3, #db36a4);
+        text-align: center;
+        /* animation: rint;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate; */
+        animation: rint 2s ease-in-out infinite alternate;
+        h1{
+          line-height: 200px;
+          color: #fff;
+        }
+        &:hover {
+          animation-play-state: paused;
+        }
+      }
+    }
+
+    @keyframes rint {
+      from {
+        left: 0;
+        transform: rotate(0);
+      }
+      50%{
+        left: 500px;
+      }
+      to {
+        left: 500px;
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    > animation 
+    1) animation-duration : 얼마의 기간동안 애니메이션 실행
+    2) animation-delay : 이벤트 발생 후 얼마 후 시점부터 애니메이션 실행
+    3) animation-timing-function : 애니메이션 실행 시, 감속 어떻게 할 것인가
+    4) animation-direction : 애니메이션 실행 방향 설정 (*기본 : 좌 -> 우)
+    5) animation-name : 해당 애니메이션 만의 고유한 이름 설정
+    6) animation-iteration-count : 애니메이션을 얼만큼 반복하게 할 것인가?
+    7) animation-play-state : 애니메이션에 일시정지의 기능을 삽입!!!
+    
+  -->
+
+  <div id="box">
+    <h1>Rotation</h1>
+  </div>
+  
+</body>
+</html>

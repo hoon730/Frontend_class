@@ -22,10 +22,10 @@
       <div id="error_writer" class="error"></div>
       <label for="password1">비밀번호</label>
       <input id="password1" class="inputbox" type="password" name="password1" placeholder="비밀번호를 입력해주세요.">
-      <div id="error_password" class="error"></div>
+      <div id="error_password1" class="error"></div>
       <label for="password2">비밀번호 확인</label>
       <input id="password2" class="inputbox" type="password" name="password2" placeholder="비밀번호를 다시 입력해주세요.">
-      <div id="error_password" class="error"></div>
+      <div id="error_password2" class="error"></div>
       <div class="phone_wrapper">
         <input type="text" name="firstNum" id="phone1" class="phoneNum" onkeyup="onchange()" onchange="changePhone1()">
         -
@@ -34,22 +34,22 @@
         <input type="text" name="lastNum" id="phone3" class="phoneNum" onkeyup="onchange()" onchange="changePhone3()">
       </div>
       <div class="token_wrapper">
-        <div id="token">0000</div>
+        <div id="token"></div>
         <button id="token_button" disabled>인증번호 전송</button>
       </div>
       <div class="token_wrapper">
-        <div id="token_timer">3:00</div>
+        <div id="token_timer"></div>
         <button id="token_timer_confirmBtn" disabled>인증완료</button>
       </div>
       <div class="location_wrapper">
         <select name="location" id="location">
-          <option value="none" selected disabled>지역을 선택하세요</option>
-          <option value="seoul">서울</option>
-          <option value="gyeonggi">경기</option>
-          <option value="incheon">인천</option>
-          <option value="daegu">대구</option>
-          <option value="masan">마산</option>
-          <option value="busan">부산</option>
+          <option selected disabled>지역을 선택하세요</option>
+          <option>서울</option>
+          <option>경기</option>
+          <option>인천</option>
+          <option>대구</option>
+          <option>마산</option>
+          <option>부산</option>
         </select>
       </div>
       <div id="error_location" class="error"></div>
