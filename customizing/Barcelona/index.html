@@ -17,8 +17,8 @@
         <h1 id="logo"></h1>
         <section id="signup">
             <form action="http://localhost:3001" method="get">
-                <div class="signup_title">바르샤의 일원이 되어보아요!</div>
-                <div class="calander_title"></div>
+                <div class="signup_title">바르샤의 일원이 되어보세요!</div>
+                <div class="calander_title">생년월일</div>
                 <article id="signup_calander">
                     <select name="year" id="year">
                         <option value="none" selected disabled>년</option>
@@ -85,10 +85,14 @@
                     </select>                    
                 </article>
                 <article id="gender">
-                    <input type="radio" name="gender" id="gender_male">
-                    <label for="gender_male">남자</label>
-                    <input type="radio" name="gender" id="gender_female">
-                    <label for="gender_female">여자</label>
+                    <div class="male_box">
+                        <input type="radio" name="gender" id="gender_male">
+                        <label for="gender_male">남자</label>
+                    </div>
+                    <div class="female_box">
+                        <input type="radio" name="gender" id="gender_female">
+                        <label for="gender_female">여자</label>
+                    </div>
                 </article>
                 <article id="signup_name">
                     <label for="name">사용자 이름</label>
@@ -102,15 +106,22 @@
                     <label for="password2">비밀번호 확인</label>
                     <input type="password" name="password1" id="password2" placeholder="위 비밀번호를 동일하게 입력해주세요.">
                 </article>
-                <article id="signup_checkbox">
+                <article id="signup_checkbox1">
                     <input type="checkbox" name="policy1" id="policy1">
                     <label for="policy1">이용약관을 검토했으며 이에 동의합니다.</label>
+                </article>
+                <article id="signup_checkbox2">
                     <input type="checkbox" name="policy2" id="policy2">
                     <label for="policy2">개인정보 처리방침에 동의합니다.</label>
                 </article>
                 <article id="signup_button">
                     <input type="submit" value="회원가입">
                 </article>
+                <article id="sinup_sns">
+                    <div class="google"></div>
+                    <div class="facebook"></div>
+                    <div class="apple"></div>
+                </article> 
             </form>
         </section>
     </div>
