@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/09d57ad258.js" crossorigin="anonymous"></script>
+    <!-- css & javascript -->
     <script defer src="./script;.js"></script>
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -14,10 +17,12 @@
                 <input type="submit" value="로그인">
             </form>
         </header>
-        <h1 id="logo"></h1>
         <section id="signup">
             <form action="http://localhost:3001" method="get">
-                <div class="signup_title">바르샤의 일원이 되어보세요!</div>
+                <div class="signup_title">
+                    <h1 id="logo"></h1>
+                    <span>바르샤의 일원이 되어보세요!</span>
+                </div>
                 <div class="calander_title">생년월일</div>
                 <article id="signup_calander">
                     <select name="year" id="year">
@@ -98,13 +103,9 @@
                     <label for="name">사용자 이름</label>
                     <input type="text" name="name" id="name" placeholder="이름을 입력해주세요.">
                 </article>
-                <article id="signup_password1">
-                    <label for="password1">비밀번호</label>
-                    <input type="password" name="password1" id="password1" placeholder="영문알파벳 최소8자 이상.">
-                </article>
-                <article id="signup_password2">
-                    <label for="password2">비밀번호 확인</label>
-                    <input type="password" name="password1" id="password2" placeholder="위 비밀번호를 동일하게 입력해주세요.">
+                <article id="signup_password">
+                    <label for="password">비밀번호</label>
+                    <input type="password" name="password" id="password" placeholder="영문알파벳 최소8자 이상.">
                 </article>
                 <article id="signup_checkbox1">
                     <input type="checkbox" name="policy1" id="policy1">
@@ -118,9 +119,19 @@
                     <input type="submit" value="회원가입">
                 </article>
                 <article id="sinup_sns">
-                    <div class="google"></div>
-                    <div class="facebook"></div>
-                    <div class="apple"></div>
+                    <div class="or"><span>Or</span></div>
+                    <div class="google sns">
+                        <i class="fa-brands fa-google"></i>
+                        <span>구글ID로 계속하기</span>
+                    </div>
+                    <div class="facebook sns">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <span>페이스북ID로 계속하기</span>
+                    </div>
+                    <div class="apple sns">
+                        <i class="fa-brands fa-apple"></i>
+                        <span>애플ID로 계속하기</span>
+                    </div>
                 </article> 
             </form>
         </section>
