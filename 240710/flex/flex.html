@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  /* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    div {
+      width: 100px;
+      height: 100px;
+      background: #000;
+      color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  } */
+
+  body {
+    background: greenyellow;
+    display: flex;
+    justify-content: flex-start;
+    
+    div {
+      width: 100px;
+      height: 100px;
+      background: #000;
+      color: #fff;
+    } 
+  }
+</style>
+<body>
+  <!-- 
+  CSS3 
+  - animation / transition / transform
+  - flex / grid
+  > 기존 css로는 float / margin / padding / table => 레이아웃 정렬 / => 불편함
+  
+  1) 부모 (컨테이너 박스)
+  > display : flex
+  > justify-content => 중심축을 기준 정렬 : 수평정렬
+  - center : 아이템을 전체 너비의 정가운데
+  - flex-start : 플렉스가 시작되어지는 지점을 기준으로 정렬
+  (*웹 모든 그래픽요소 : 좌 => 우) => 왼쪽정렬
+  - flex-end : 우측정렬
+
+  *복수 아이템!!!
+  - space-between
+  - space-around
+  - space-evenly
+
+  > align-items => 교차축을 기준 정렬 : 수직정렬
+  - center
+  - flex-start
+  - flex-end
+  - stretch : 자식요소의 높이값을 별도로 지정하지 않는 경우, 부모요소의 
+  높이를 
+
+  > flex-direction => 중심축 / 교차축을 무엇으로 할 것인가?
+  (*default => row / column)
+  > row(왼쪽부터) // row-reverse(오른쪽부터)
+  => 겉으로 얼핏보면 flex-end & row-reverse가 매우 비슷하게 보이나 
+  엄밀히 다른 기능!!
+
+  > column(상단부터) // column-reverse(하단부터)
+  => 겉으로 얼핏보면 flex-end & column-reverse가 매우 비슷하게 보이나 엄밀히 다른 기능!!
+
+  > flex-wrap => default => no-wrap => 자식 요소의 너비보장x 
+  > align-contents => 자식요소들이 여러개의 행으로 구분이 되어
+  졌을 때 어느 방향으로 모든 자식요소들의 수직정렬을 결정
+  =>수직 정렬을 주고자 할 때
+  - center
+  - flex-start
+  - flex-end
+  - space-between
+  - space-around
+  - space-evenly
+
+  *flex-wrap & flex-direction 하나로 통합해서 작성!!!
+  > flex-flow
+
+  2) 자식 (*플렉스 레이아웃 시스템 문법 적용)
+  > flex-grow : 자식요소들의 너비의 비율 결정!!
+  > flex-shrink : 자식요소들의 너비가 줄어들 때의 비율을 결정
+  > flex-basis : 자식요소들에게 고정 너비값을 부여!!!
+  => flex : flex-grow flex-shrink flex-basis
+  > order : 자식요소들의 포지션 위치 순서 결정!!!
+
+  3) 중심축 / 교차축
+  - 중심축 default => 가로 row
+  - 교차축 default => 세로 column
+
+  *특정 아이템 위치를 조정
+  > transform > translate(*x,y 좌표)
+
+  *margin / padding
+  > 특정 도형 및 요소의 위치를 조정
+  > target하고 있는 도형 및 요소 주변 환경을 활용해서 위치 정렬
+  > 상대적인 지형요소 빛
+
+  1) 결과값 도출 : 1가지 정답x
+
+  2) position : absolute 남발x
+  -->
+
+  <div>Box</div>
+</body>
+</html>
