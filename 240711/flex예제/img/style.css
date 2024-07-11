@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0; 
+  background: dodgerblue;
+  color: #fff;
+
+  .logo {}
+  .gnb {
+    ul {
+      display: flex;
+      gap: 40px;
+
+      & li:hover a{
+        color: #bbb;
+      }
+    }
+  }
+
+  .sns {
+    display: flex;
+    gap: 10px;
+    
+    & i:hover {
+      color: #bbb;
+    }
+  }
+
+  .barmenu{
+    display: none;
+  }
+
+}
+
+.barslide {
+  display: none;
+}
+@media screen and (max-width: 960px) {
+  
+  header {
+    justify-content: space-between;
+    padding: 20px;
+
+    .gnb, .sns {
+      display: none;
+    }
+
+    .barmenu {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+
+      span{
+        width: 20px;
+        height: 2px;
+        background: #fff;
+        transition: all 0.3s;
+        
+      }
+
+      &.active span:nth-child(1) {
+        position: absolute;
+        transform: rotate(45deg);
+      }
+      &.active span:nth-child(2) {
+        display: none;
+      }
+      &.active span:nth-child(3) {
+        position: absolute;
+        transform: rotate(-45deg);
+      }
+
+    }
+  }
+
+  .barslide {
+    display: none;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+
+    &.active {
+      display: block;
+    }
+
+    ul {
+      border-top: 1px solid #eee;
+      li {
+        padding: 10px 0;
+        background: dodgerblue;
+        transition: all 0.3s;
+
+        &:hover {
+          background: #ddd;
+        }
+
+        &:last-child {
+          background: blue;
+          border-top: 1px solid #eee;
+          
+          div {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+          }
+
+          & i:hover {
+            color: #444;
+          }
+        }
+      }
+    }
+  }
+}
+
