@@ -1,0 +1,85 @@
+1. google firebase 배포
+
+2. Node.js 설치
+> 구글 > node.js 검색 > https://nodejs.org/en
+> Download > 설치모드 (* "standalone" / portable)
+
+3. 설치확인
+> cmd > node -v
+
+4. 구글 > firebase 검색 > 로그인 
+시작하기 > 회원가입 (*구글 메일계정)
+
+5. 파이어베이스 > 프로젝트 추가 버튼
+- 프로젝트 이름
+-구글 애널리틱스 X  > 프로젝트 생성
+
+6. 프로젝트 영역
+> 빌드 > Hosting > 시작하기 
+
+7. 호스팅 설정
+1)  npm install -g fire-tools
+
+2) 컴퓨터 > cmd > 관리자 권한으로 실행
+if) npm 명령어를 인식할 수 없다는 뉘앙스의 문자가 나타났다 => node가 정상적으로 설치!!
+
+> 관리자 권한 모드로 가지 않았다
+
+3) 바탕화면 배포용 루트 폴더 > 배포하고자 하는 파일 복사 붙여넣기
+
+4) 코드로 열기 > vscode 이동
+
+5) 터미널 > ctrl + ~ 
+- 명령 프롬프트 모드 설정 변경
+- firebase login > 학원
+--------------------------------
+- firebase init > 집
+
+
+Are you ready to proceed ?  > y (enter)
+
+Hosting: Configure files for - Firebase Hosting and (optionally) set up Gtihub Action deoploys (선택: spacebar)
+
+>Use and existing project 
+
+vscode & firebase 재인증 : firebase login --reauth
+
+What do you want to use as your public Directory? > build
+
+Configure as a single -pageapp (rewrite all urls to / index.html) > no
+
+Set up automatic build and deploys with Github?  > no
+
+build > 배포하고자 한느 모든 데이터를 담아!!!
+> build 폴더안에 있는 404 / index.html 삭제 
+
+라이브서버 체크 /기타 체크
+
+firebase deploy > 터미널 복.붙 엔터
+
+----------------------------------------------------------------------------
+
+배포 후 수정사항!!!
+
+1) build 폴더안에 있는 데이터 삭제
+
+2) 원본데이터 수정
+
+3) 원본데이터 복 => build
+
+4) firebase init ~ 시작!!
+
+=> 수정된 데이터 호스팅 > 주소를 복.붙여 > 주소 
+
+상단 주소 > 왼쪽 쿠키 및 사이트 데이터 > 설정 > 개인정보보호및 보안 > 인터넷 사용기록 삭제 > 
+
+23:59:59 => 슬랙
+
+배포 소스코드 > 깃허브 > 주소 
+
+000입니다 
+
+1. 깃허브 주소: 주소 ~~~
+2. 배포 주소 : 주소~~~
+
+참고사항 코멘트
