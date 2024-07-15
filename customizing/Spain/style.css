@@ -44,16 +44,24 @@ body {
         }
         &.active {
             animation: blur 0.5s linear forwards;
+
+            .txt_box  {
+                top: 30%;
+                opacity: 1;
+            }
         }
         
         .txt_box {
             position: absolute;
-            top: 20%;
+            top: 10%;
             left: 10%;
+            opacity: 0;
+            transition: all 0.8s;
             
             h3 {
                 font-size: 4rem;
             }
+
             p {
                 width: 600px;
                 padding-top: 3%;
