@@ -11,9 +11,8 @@ thumnails.forEach((item, index) => {
         
         const citys = document.querySelectorAll(".city");
         const backgourndImg = item.getAttribute("data-alt");
-        const targetImg = document.getElementById(backgourndImg);
-        
         const wrapper = document.querySelector(".wrapper");
+        
         wrapper.style = `left: ${index * -100}%`
 
         citys.forEach((city) => {
