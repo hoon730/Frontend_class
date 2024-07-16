@@ -20,10 +20,8 @@ thumnails.forEach((item, index) => {
             city.classList.remove("active")
         });
         
-        if(targetImg) {
-            citys[index].style = `background: url('./img/${backgourndImg}.jpg') center/cover no-repeat;`;
-            citys[index].classList.add("active");
-        }
+        citys[index].style = `background: url('./img/${backgourndImg}.jpg') center/cover no-repeat;`;
+        citys[index].classList.add("active");
 
     })
 });
