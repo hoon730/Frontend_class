@@ -41,13 +41,13 @@ thumnails.forEach((item, index) => {
         const wrapper = document.querySelector(".wrapper");
 
         citys.forEach((city) => {
-            city.classList.remove("active")
+            city.classList.remove("active");
         });
 
-        wrapper.style = `left: ${index * -100}%`;
+        wrapper.style = `left: -${index * 100}%`;
 
         if (targetImg) {
-            targetImg.classList.add("active")
+            targetImg.classList.add("active");
             targetImg.style = `background: url('./img/${backgourndImg}.jpg') center/cover no-repeat;`;
         }
     })
