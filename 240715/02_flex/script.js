@@ -14,8 +14,8 @@ window.addEventListener("scroll", () => {
   }
 });
 
-goToTop.addEventListener("click", (e) => {
-  e.preventDefault();
+goToTop.addEventListener("click", () => {
+  // e.preventDefault();
   window.scrollTo({top:0, behavior:"smooth"});
 });
 
@@ -70,3 +70,8 @@ $(".myslider").slick({
   ]
 });
 
+
+ScrollTo 
+$(".gototop, .gnb a").click(function() {
+  $.scrollTo(this.hash || 0, 800)
+});
