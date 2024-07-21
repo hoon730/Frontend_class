@@ -4,9 +4,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+BE+VLG:wght@100..400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
+.active_prev {
+    opacity: 0;
+    transform: translateY(-30%);
+    transition: all 0.5s;
+}
+
+.active_next {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 $color : (
     bg-dark-color: #613F32,
-    bg-light-color: #FDFDFB,
+    bg-light-color: #E9E6DF,
     font-dark-color: #302826,
     font-light-color: #FDFDFB,
 );
@@ -26,6 +37,7 @@ $fontStyle : (
 
 body {
     font-family: map-get($fontStyle, oswald);
+    background: map-get($color, bg-light-color );
 }
 
 .inner {
@@ -38,6 +50,8 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
+    z-index: 9999;
+
     .banner {
         position: relative;
         width: 100%;
@@ -87,22 +101,25 @@ header {
     
     
     nav {
-        width: 1280px;
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 0;
-        margin: 0 auto;
-        
-        .gnb {
+        .inner {
             display: flex;
-            align-items: center;
-            gap: 30px;
-
-            li a {
-                font-size: map-get($fontSize, font-large);
+            justify-content: space-between;
+            padding: 10px 0;
+            
+            .gnb {
+                display: flex;
+                align-items: center;
+                gap: 30px;
+    
+                li a {
+                    font-size: map-get($fontSize, font-large);
+                }
             }
         }
-    
+
+        &.active {
+            background: rgba(255, 255, 255, 0.8);
+        }
     }
 }
 
@@ -148,12 +165,70 @@ main {
             transform: translateX(-30%);
             opacity: 0;
             transition: all 1s;
-            transition-delay: 0.5s;
+            transition-delay: 0.8s;
 
             &.active {
                 transform: translateX(0);
                 opacity: 1;
             }
         }
+    }
+}
+
+/* about */
+#about {
+
+    .about {
+        display: flex;
+        align-items: center;
+        gap: 10%;
+        height: 100vh;
+    
+        .about_img {
+            flex: 2.5;
+            height: 100%;
+            background: url('./img/about7.jpg') center/contain no-repeat;
+            @extend .active_prev;
+        }
+
+
+        .about_desc {
+            flex: 2;
+    
+            .box {
+                border: 3px solid #000;
+                padding: 2px;
+                @extend .active_prev;
+                transition-delay: 0.3s;
+    
+                h3 {
+                    font-size: 36px;
+                    text-transform: capitalize;
+                    border: 2px solid #000;
+                }
+    
+                p {
+                    padding: 5px;
+                    line-height: 2;
+                    font-size: map-get($fontSize, font-large);
+                    text-align: justify;
+                    border: 2px solid #000;
+                }
+            
+                &:nth-child(1) {
+                    margin-bottom: 40px;
+                    text-align: center;
+                }
+                &:nth-child(2) {
+                    transition-delay: 0.3s;
+                }
+            }
+        }
+    }
+
+    &.active .about_img, 
+    &.active .about_desc .box:nth-child(1),
+    &.active .about_desc .box:nth-child(2) {
+        @extend .active_next;
     }
 }

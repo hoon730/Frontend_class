@@ -5,6 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 body {
   font-family: "Oswald";
+  background: #E9E6DF;
 }
 
 .inner {
@@ -17,6 +18,7 @@ header {
   position: fixed;
   width: 100%;
   top: 0;
+  z-index: 9999;
 }
 header .banner {
   position: relative;
@@ -40,7 +42,7 @@ header .banner h3 span {
   transition: all 0.3s;
 }
 header .banner h3 span:hover {
-  color: #FDFDFB;
+  color: #E9E6DF;
 }
 header .banner .banner_btn {
   position: absolute;
@@ -58,20 +60,21 @@ header .banner.active {
   overflow: hidden;
   opacity: 0;
 }
-header nav {
-  width: 1280px;
+header nav .inner {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  margin: 0 auto;
 }
-header nav .gnb {
+header nav .inner .gnb {
   display: flex;
   align-items: center;
   gap: 30px;
 }
-header nav .gnb li a {
+header nav .inner .gnb li a {
   font-size: 18px;
+}
+header nav.active {
+  background: rgba(255, 255, 255, 0.8);
 }
 
 /* main */
@@ -112,9 +115,59 @@ main .main_txt p {
   transform: translateX(-30%);
   opacity: 0;
   transition: all 1s;
-  transition-delay: 0.5s;
+  transition-delay: 0.8s;
 }
 main .main_txt p.active {
   transform: translateX(0);
+  opacity: 1;
+}
+
+/* about */
+#about .about {
+  display: flex;
+  align-items: center;
+  gap: 10%;
+  height: 100vh;
+}
+#about .about .about_img {
+  flex: 2.5;
+  height: 100%;
+  background: url("./img/about7.jpg") center/contain no-repeat;
+  transform: translateY(-30%);
+  opacity: 0;
+  transition: all 0.5s;
+}
+#about .about .about_desc {
+  flex: 2;
+}
+#about .about .about_desc .box {
+  border: 3px solid #000;
+  padding: 2px;
+  opacity: 0;
+  transform: translateY(-30%);
+  transition: all 0.5s;
+  transition-delay: 0.3s;
+}
+#about .about .about_desc .box h3 {
+  font-size: 36px;
+  text-transform: capitalize;
+  border: 2px solid #000;
+}
+#about .about .about_desc .box p {
+  padding: 5px;
+  line-height: 2;
+  font-size: 18px;
+  text-align: justify;
+  border: 2px solid #000;
+}
+#about .about .about_desc .box:nth-child(1) {
+  margin-bottom: 40px;
+  text-align: center;
+}
+#about .about .about_desc .box:nth-child(2) {
+  transition-delay: 0.3s;
+}
+#about.active .about_img, #about.active .about_desc .box:nth-child(1), #about.active .about_desc .box:nth-child(2) {
+  transform: translateY(0);
   opacity: 1;
 }
