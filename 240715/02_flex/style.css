@@ -222,7 +222,6 @@ header {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-      
         .client {
           display: flex;
           justify-content: center;
@@ -241,20 +240,15 @@ header {
           }
         }
         .comment {
-          width: 75%;
+          text-align: center;
+          width: 74%;
           font-size: 16px;
           line-height: 1.6rem;
+          /* padding: 0 100px; */
         }
       }
     }
   }
-}
-
-/* Slick Slider */
-.slick-dots button,
-button.slick-arrow {
-  /* border: 1px solid #f00 !important; */
-  display: none !important;
 }
 
 /* CallAction */
@@ -348,15 +342,19 @@ button.slick-arrow {
           display: flex;
           gap: 20px;
           .post_image {
-            width: 360px;
+            width: 364px;
+            height: 100%;
             border-radius: 30px 0 30px 0;
             overflow: hidden;
+            flex: 1;
             img {
               width: 100%;
+              height: 100%;
               object-fit: cover;
             }
           }
           .post_desc {
+            flex: 1;
             h3 {
               text-transform: uppercase;
               font-size: 24px;
@@ -375,6 +373,7 @@ button.slick-arrow {
         }
       }
       .shared_post_items {
+        flex: 1;
         h6 {
           font-size: 16px;
           text-transform: uppercase;
@@ -383,7 +382,6 @@ button.slick-arrow {
         }
         .post_item {
           display: flex;
-          flex: 1;
           flex-direction: column;
           gap: 20px;
           .post_image {
@@ -514,7 +512,6 @@ footer {
   bottom: -20px;
   opacity: 0;
   transition: all 0.3s;
-
   &.active {
     opacity: 1;
     bottom: 20px;
@@ -522,22 +519,20 @@ footer {
 }
 
 @media screen and (max-width: 770px) {
-/* common */
-.inner {
-  width: 100%;
-  padding: 15px;
-}
+  /* common */
+  .inner {
+    width: 100%;
+    padding: 15px;
+  }
 
-/* Header */
+  /* Header */
   header {
     .banner {
       display: none;
     }
-
     nav {
       width: 100%;
       padding: 0 20px;
-      
       .gnb {
         width: 250px;
         height: 100vh;
@@ -550,12 +545,11 @@ footer {
         padding: 80px 10px 0 0;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         transition: all 0.3s;
-
         li {
           a {
             color: #000;
-            display: block;
             font-size: 18px;
+            display: block;
             padding: 10px;
           }
         }
@@ -564,7 +558,6 @@ footer {
         }
       }
     }
-
     .trigger {
       display: block;
       width: 30px;
@@ -573,14 +566,12 @@ footer {
       position: absolute;
       top: 35px;
       right: 20px;
-
       span {
         width: 100%;
         height: 1px;
         background: #000;
         position: absolute;
         transition: all 0.3s;
-
         &:nth-child(1) {
           top: 0;
         }
@@ -591,7 +582,6 @@ footer {
           top: 100%;
         }
       }
-
       &.active span:nth-child(1) {
         top: 50%;
         transform: rotate(45deg);
@@ -605,124 +595,110 @@ footer {
       }
     }
   }
-}
 
-/* Intro */
-.intro {
-  .heading {
-
-    h1 {
-      font-size: 40px;
-    }
-
-    p {
-      padding: 0;
-    }
-  }
-}
-
-/* About */
-.about_content {
-  flex-direction: column;
-}
-
-/* Ranking */
-.ranking {
-  .ranking_content {
-    padding: 50px 0;
-
-    .items {
-      flex-direction: column;
-
-      .item {
-        width: 100%;
-        border-radius: 7px;
-        margin-bottom: 25px;
-
-        .up-image {
-          width: 100%;
-        }
+  /* Intro */
+  .intro {
+    .heading {
+      h1 {
+        font-size: 40px;
       }
-    }
-  }
-}
-
-/* Testimonial */
-.testimonial {
-  padding: 50px 0;
-  .testimonial_content {
-    h2 {
-      font-size: 24px;
-    }
-  }
-}
-
-/* Callaction */
-.callaction {
-  .callaction_heading {
-    h2 {
-      font-size: 26px;
-    }
-  }
-}
-
-/* Blog */
-.blog {
-  
-  .blog_content {
-
-    .blog_header {
-      text-align: center;
-      
-      h2 {
-        font-size: 36px;
-      }
-
       p {
-        font-size: 20px;
+        padding: 0;
       }
     }
-    .post_content {
-      flex-direction: column;
+  }
 
-      .recent_post_items,
-      .shared_post_items {
+  /* About */
+  .about_content {
+    flex-direction: column;
+  }
 
-        .post_item {
-          flex-direction: column;
-
-          .post_image {
+  /* Ranking */
+  .ranking {
+    .ranking_content {
+      padding: 50px 0;
+      .items {
+        flex-direction: column;
+        .item {
+          width: 100%;
+          border-radius: 7px;
+          margin-bottom: 25px;
+          .up-image {
             width: 100%;
-            border-radius: 7px;
           }
         }
       }
     }
   }
-}
 
-/* Festival */
-.festival {
-  padding: 15px;
-
-  .festival_heading {
-    h3 {
-      font-size: 24px;
-    }
-    .btns {
-
-      a {
-        width: 100%;
-        margin-bottom: 10px;
+  /* Testimonial */
+  .testimonial {
+    padding: 50px 0;
+    .testimonial_content {
+      h2 {
+        font-size: 24px;
       }
     }
   }
-}
 
-/* Footer */
-footer {
-  .footer_content {
-    flex-direction: column;
-    gap: 25px;
+  /* CallAction */
+  .callaction {
+    .callaction_heading {
+      h2 {
+        font-size: 26px;
+      }
+    }
+  }
+
+  /* Blog */
+  .blog {
+    .blog_content {
+      .blog_header {
+        text-align: center;
+        h2 {
+          font-size: 36px;
+        }
+        p {
+          font-size: 20px;
+        }
+      }
+      .post_content {
+        flex-direction: column;
+        .recent_post_items,
+        .shared_post_items {
+          .post_item {
+            flex-direction: column;
+            .post_image {
+              width: 100%;
+              border-radius: 7px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Festival */
+  .festival {
+    padding: 15px;
+    .festival_heading {
+      h3 {
+        font-size: 24px;
+      }
+      .btns {
+        a {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  /* Footer */
+  footer {
+    .footer_content {
+      flex-direction: column;
+      gap: 25px;
+    }
   }
 }

@@ -1,0 +1,159 @@
+/* reset */
+@import url('./reset.css');
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+BE+VLG:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+$color : (
+    bg-dark-color: #613F32,
+    bg-light-color: #FDFDFB,
+    font-dark-color: #302826,
+    font-light-color: #FDFDFB,
+);
+
+$fontSize : (
+    font-extra-small: 12px,
+    font-small: 14px,
+    font-medium: 16px,
+    font-large: 18px,
+    font-extra-large: 20px,
+);
+
+$fontStyle : (
+    playwrite: "Playwrite BE VLG",
+    oswald: "Oswald"
+);
+
+body {
+    font-family: map-get($fontStyle, oswald);
+}
+
+.inner {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+/* header */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    .banner {
+        position: relative;
+        width: 100%;
+        height: 35px;
+        line-height: 35px;
+        background: map-get($color, bg-dark-color );
+        transition: all 0.3s;
+        
+        h3 {
+            width: 100%;
+            text-align: center;
+            text-transform: capitalize;
+            font-size: map-get($fontSize, font-small );
+            
+            span {
+                text-decoration: underline;
+                font-size: map-get($fontSize, font-extra-small );
+                margin-left: 10px;
+                cursor: pointer;
+                transition: all 0.3s;
+                
+                &:hover {
+                    color: map-get($color, bg-light-color);
+                }
+            }
+        }
+    
+        .banner_btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8%;
+            height: 100%;
+            
+            i {
+                color: map-get($color, font-light-color );
+                margin-right: 10px;
+            }
+        }
+
+        &.active {
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+    }
+    
+    
+    nav {
+        width: 1280px;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        margin: 0 auto;
+        
+        .gnb {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            li a {
+                font-size: map-get($fontSize, font-large);
+            }
+        }
+    
+    }
+}
+
+/* main */
+main { 
+    height: 100vh;
+    background: url('./img/main1.jpg') top/cover no-repeat;
+
+    .inner {
+        height: 100%;
+    }
+
+    .main_txt {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: top;
+        align-items: center;
+        padding-top: 12%;
+        color: map-get($color, font-dark-color );
+        
+        h3 {
+            font-size: 56px;
+            text-transform: capitalize;
+            font-family: map-get($fontStyle, playwrite);
+            overflow: hidden;
+
+            .letter {
+                transition: all 0.3s;
+                opacity: 0;
+
+                &.active {
+                    opacity: 1;
+                }
+            }
+        }
+
+        p {
+            padding-top: 10px;
+            text-transform: uppercase;
+            text-align: center;
+            transform: translateX(-30%);
+            opacity: 0;
+            transition: all 1s;
+            transition-delay: 0.5s;
+
+            &.active {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    }
+}
