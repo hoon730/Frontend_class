@@ -41,8 +41,6 @@ window.onload = function() {
 };
 
 // section event 
-
-
 window.addEventListener("scroll", function() {
     let Scroll = this.scrollY;
     const sections = document.querySelectorAll("section");

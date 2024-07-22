@@ -9,7 +9,7 @@
 };
 
 @mixin button-padding($topbottom, $leftright) {
-  padding: $topbottom $leftright
+  padding: $topbottom $leftright;
 };
 
 body {
