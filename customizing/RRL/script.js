@@ -14,7 +14,7 @@ window.addEventListener("scroll", () => {
 });
 
 // main_txt event
-const title = "double rl&co.";
+const title = "Double RL&Co.";
 const mainTitle = document.querySelector(".main_txt h3");
 
 const addText = () => {

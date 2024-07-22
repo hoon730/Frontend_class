@@ -3,6 +3,7 @@
 /* font */
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+BE+VLG:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 .active_prev, #about .about_box .about .about_desc .box, #about .about_box .about .about_img {
   opacity: 0;
   transform: translateY(-30%);
@@ -109,10 +110,9 @@ main .main_txt {
   color: #302826;
 }
 main .main_txt h3 {
-  font-size: 56px;
-  text-transform: capitalize;
-  font-family: "Playwrite BE VLG";
-  overflow: hidden;
+  font-size: 64px;
+  font-family: "Pacifico";
+  font-weight: 400;
 }
 main .main_txt h3 .letter {
   transition: all 0.3s;
@@ -122,7 +122,6 @@ main .main_txt h3 .letter.active {
   opacity: 1;
 }
 main .main_txt p {
-  padding-top: 10px;
   text-transform: uppercase;
   text-align: center;
   transform: translateX(-30%);
@@ -174,6 +173,15 @@ main .main_txt p.active {
   text-align: justify;
   border: 2px solid #000;
 }
+#about .about_box .about .about_desc .box p a {
+  display: block;
+  text-align: right;
+  font-size: 14px;
+  color: #9A020F;
+}
+#about .about_box .about .about_desc .box p a:hover {
+  text-decoration: underline;
+}
 #about .about_box .about .about_desc .box:nth-child(1) {
   margin-bottom: 40px;
   text-align: center;
@@ -183,11 +191,22 @@ main .main_txt p.active {
 }
 /* lookbook */
 #lookbook {
-  margin-top: 50px;
+  margin: 200px 0;
+}
+#lookbook .lookbook_title {
+  text-align: center;
+  font-family: "Pacifico";
+  font-size: 42px;
+  font-weight: 400;
+  margin-bottom: 50px;
+}
+#lookbook .lookbook_title span {
+  font-size: 60px;
 }
 #lookbook .inner {
-  padding: 5px;
+  padding: 1rem;
   border: 3px solid #000;
+  border-radius: 20px 0 20px 0;
 }
 #lookbook .inner .lookbook {
   display: grid;
@@ -198,8 +217,12 @@ main .main_txt p.active {
 }
 #lookbook .inner .lookbook .box {
   border: 3px solid #000;
+  border-radius: 20px 0 20px 0;
   padding: 3px;
   overflow: hidden;
+}
+#lookbook .inner .lookbook .box:hover img {
+  transform: scale(1.05);
 }
 #lookbook .inner .lookbook .box img {
   border: 2px solid #000;
@@ -207,8 +230,8 @@ main .main_txt p.active {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  transform: scale(1.2);
-  transition: all 0.3s;
+  transition: all 0.5s;
+  border-radius: 20px 0 20px 0;
 }
 #lookbook .inner .lookbook .box.box1 {
   grid-area: a;
