@@ -196,12 +196,12 @@ main .main_txt p.active {
 #lookbook .lookbook_title {
   text-align: center;
   font-family: "Pacifico";
-  font-size: 42px;
+  font-size: 50px;
   font-weight: 400;
   margin-bottom: 50px;
 }
 #lookbook .lookbook_title span {
-  font-size: 60px;
+  font-size: 70px;
 }
 #lookbook .inner {
   padding: 1rem;
@@ -219,6 +219,7 @@ main .main_txt p.active {
   border: 3px solid #000;
   border-radius: 20px 0 20px 0;
   padding: 3px;
+  position: relative;
   overflow: hidden;
 }
 #lookbook .inner .lookbook .box:hover img {
@@ -232,6 +233,37 @@ main .main_txt p.active {
      object-fit: cover;
   transition: all 0.5s;
   border-radius: 20px 0 20px 0;
+}
+#lookbook .inner .lookbook .box figcaption {
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  width: 60%;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FDFDFB;
+  border-radius: 10px 0 10px 0;
+}
+#lookbook .inner .lookbook .box figcaption .men {
+  background: #2B3F5A;
+  padding: 3px 15px;
+  border-radius: 10px 0 10px 0;
+}
+#lookbook .inner .lookbook .box figcaption .women {
+  background: #9A020F;
+  padding: 3px 15px;
+  border-radius: 10px 0 10px 0;
+}
+#lookbook .inner .lookbook .box figcaption h3 {
+  padding: 10px 0;
+}
+#lookbook .inner .lookbook .box figcaption p {
+  text-align: justify;
+}
+#lookbook .inner .lookbook .box figcaption a {
+  display: block;
+  text-align: right;
+  padding-right: 10px;
 }
 #lookbook .inner .lookbook .box.box1 {
   grid-area: a;

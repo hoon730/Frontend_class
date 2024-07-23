@@ -52,4 +52,27 @@ window.addEventListener("scroll", function() {
     });
 })
 
+// filling text of lookbook's figcation
+
+const fillFigcaption = () => {
+    const figcaptions = document.querySelectorAll("figcaption");
+    
+    figcaptions.forEach((figcaption) => {
+        const span = figcaption.querySelector("span");
+        
+        if(span.className === "men") {
+            console.log(span.className)
+            span.innerText = `men's`;
+        } else {
+            span.innerText = `women's`;
+        }
+
+        figcaption.querySelector("h3").innerText = `Double RL 24SS`;
+        figcaption.querySelector("p").innerText = `Lorem ipsum dolor sit amet consectetur adipisicing elit.Voluptates quos neque laborum debitis modi magni animi.`;
+    });
+};
+
+fillFigcaption();
+
+
 

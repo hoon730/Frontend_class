@@ -23,6 +23,7 @@
 $color : (
     bg-dark-color: #613F32,
     bg-light-color: #E9E6DF,
+    bg-accent-color: #2B3F5A,
     font-dark-color: #302826,
     font-light-color: #FDFDFB,
     font-accent-color: #9A020F,
@@ -264,12 +265,12 @@ main {
     .lookbook_title {
         text-align: center;
         font-family: map-get($map: $fontStyle, $key: pacifico);
-        font-size: 42px;
+        font-size: 50px;
         font-weight: 400;
         margin-bottom: 50px;
 
         span {
-            font-size: 60px;
+            font-size: 70px;
         }
     }
 
@@ -295,6 +296,7 @@ main {
                 @include border-style(3px, solid, #000);
                 border-radius: 20px 0 20px 0 ;
                 padding: 3px;
+                position: relative;
                 overflow: hidden;
 
                 &:hover img {
@@ -308,6 +310,39 @@ main {
                     object-fit: cover;
                     transition: all 0.5s;
                     border-radius: 20px 0 20px 0 ;
+                }
+
+                figcaption {
+                    position: absolute;
+                    bottom: 3px;
+                    left: 3px;
+                    width: 60%;
+                    padding: 10px;
+                    background: rgba(0, 0, 0, 0.5);
+                    color: map-get($map: $color, $key: font-light-color);
+                    border-radius: 10px 0 10px 0;
+
+                    .men {
+                        background: map-get($map: $color, $key: bg-accent-color);
+                        padding: 3px 15px;
+                        border-radius: 10px 0 10px 0;
+                    }
+                    .women {
+                        background: map-get($map: $color, $key: font-accent-color);
+                        padding: 3px 15px;
+                        border-radius: 10px 0 10px 0;
+                    }
+                    h3 {
+                        padding: 10px 0;
+                    }
+                    p {
+                        text-align: justify;
+                    }
+                    a {
+                        display: block;
+                        text-align: right;
+                        padding-right: 10px;
+                    }
                 }
             
                 &.box1 {
