@@ -19,26 +19,43 @@ a {
   margin: 0 auto;
 }
 
-#header #banenr {
-  background: #3A3A3A;
+body {
+  height: 200vh;
 }
-#header #banenr .banner {
+
+#header {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+#header #banenr.ban {
   height: 33px;
+  background: #3A3A3A;
+  opacity: 1;
+  transition: all 0.3s;
+}
+#header #banenr.ban.active {
+  background: #FFFFFF;
+  opacity: 0;
+  height: 0;
+}
+#header #banenr.ban .banner {
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #ffffff;
   font-size: 12px;
 }
-#header #banenr .banner .banner_left {
+#header #banenr.ban .banner .banner_left {
   display: flex;
   gap: 15px;
 }
-#header #banenr .banner .banner_left a {
+#header #banenr.ban .banner .banner_left a {
   display: flex;
   gap: 5px;
 }
-#header #banenr .banner .banner_right {
+#header #banenr.ban .banner .banner_right {
   display: flex;
   gap: 20px;
 }
@@ -83,39 +100,56 @@ a {
   background-color: #0DCC5A;
   color: #ffffff;
 }
-#header #header_item .header_item .header_top .popular_searchedWord {
+#header #header_item .header_item .header_top .wrapper {
+  position: relative;
+}
+#header #header_item .header_item .header_top .wrapper .popular_searchedWord {
   position: relative;
   width: 193px;
   height: 24px;
   overflow: hidden;
 }
-#header #header_item .header_item .header_top .popular_searchedWord .list {
-  position: absolute;
-  right: 6px;
-  display: block;
-  width: 12px;
-  height: 6px;
-  color: #6D6D6D;
-}
-#header #header_item .header_item .header_top .popular_searchedWord li {
+#header #header_item .header_item .header_top .wrapper .popular_searchedWord li {
   position: absolute;
   top: -24px;
   left: 0;
 }
-#header #header_item .header_item .header_top .popular_searchedWord li.prev {
+#header #header_item .header_item .header_top .wrapper .popular_searchedWord li.prev {
   top: -24px;
   transition: top 0.5s;
 }
-#header #header_item .header_item .header_top .popular_searchedWord li.current {
+#header #header_item .header_item .header_top .wrapper .popular_searchedWord li.current {
   top: 0;
   transition: top 0.5s;
 }
-#header #header_item .header_item .header_top .popular_searchedWord li.next {
+#header #header_item .header_item .header_top .wrapper .popular_searchedWord li.next {
   top: 24px;
 }
-#header #header_item .header_item .header_top .popular_searchedWord li a span {
+#header #header_item .header_item .header_top .wrapper .popular_searchedWord li a span {
   display: inline-block;
   margin-right: 10px;
+}
+#header #header_item .header_item .header_top .wrapper .list_btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  color: #6D6D6D;
+}
+#header #header_item .header_item .header_top .wrapper .list {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 0;
+  padding-left: 40px;
+  text-align: right;
+  background: #FFFFFF;
+  display: none;
+  opacity: 0;
+  transition: all 0.3s;
 }
 #header #header_item .header_item .header_bottom {
   display: flex;

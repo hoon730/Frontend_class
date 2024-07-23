@@ -36,18 +36,35 @@ $fontSize: (
     margin: 0 auto;
 }
 
+body {
+    height: 200vh;
+}
+
 #header {
+    position: fixed;
+    width: 100%;
+    height: 100%;
     
-    #banenr {
+    #banenr.ban {
+        height: 33px;
         background: map-get($map: $color, $key: bg-dark-color);
+        opacity: 1;
+        transition: all 0.3s;
+        
+                &.active {
+                    background: map-get($map: $color,    $key: bg-light-color);
+                    opacity: 0;
+                    height: 0;
+                }
+        
         .banner {
-            height: 33px;
+            height: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             color: map-get($map: $color, $key: font-light-color);
             font-size: map-get($map: $fontSize, $key: font-extra-small);
-
+            
             .banner_left {
                 display: flex;
                 gap: 15px;
@@ -111,44 +128,64 @@ $fontSize: (
                     }
                     
                 }
-    
-                .popular_searchedWord {
+                
+                .wrapper {
                     position: relative;
-                    width: 193px;
-                    height: 24px;
-                    overflow: hidden;
-                    
-                    .list {
+
+                    .popular_searchedWord {
+                        position: relative;
+                        width: 193px;
+                        height: 24px;
+                        overflow: hidden;
+        
+                        li {
+                            position: absolute;
+                            top: -24px;
+                            left: 0;
+                            &.prev {
+                                top: -24px;
+                                transition: top 0.5s;
+                            }
+                            &.current {
+                                top: 0;
+                                transition: top 0.5s;
+                            }
+                            &.next {
+                                top: 24px;
+                            }
+    
+                            a span {
+                                display: inline-block;
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+
+                    .list_btn {
                         position: absolute;
-                        right: 6px;
-                        display: block;
-                        width: 12px;
-                        height: 6px;
+                        top: 50%;
+                        right: 0;
+                        transform: translateY(-50%);
                         color: map-get($map: $color, $key: font-dark-gray);
                     }
-    
-                    li {
-                        position: absolute;
-                        top: -24px;
-                        left: 0;
-                        &.prev {
-                            top: -24px;
-                            transition: top 0.5s;
-                        }
-                        &.current {
-                            top: 0;
-                            transition: top 0.5s;
-                        }
-                        &.next {
-                            top: 24px;
-                        }
 
-                        a span {
-                            display: inline-block;
-                            margin-right: 10px;
-                        }
+                    .list {
+                        position: absolute;
+                        top: 20px;
+                        right: 0;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        padding: 20px 0;
+                        padding-left: 40px;
+                        text-align: right;
+                        background: map-get($map: $color, $key: bg-light-color);
+                        display: none;
+                        opacity: 0;
+                        transition: all 0.3s;
                     }
                 }
+                
             }
 
             .header_bottom {

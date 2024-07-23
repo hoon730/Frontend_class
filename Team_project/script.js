@@ -1,3 +1,16 @@
+// scroll 이동시 banner event
+window.addEventListener("scroll", () => {
+    let scrolling = window.scrollY;
+    const banner = document.querySelector(".ban");
+
+    if(scrolling > 33) {
+        banner.classList.add("active");
+    } else {
+        banner.classList.remove("active");
+    }
+}); 
+
+// popular_searchedWord event
 const rollingCB = () => {
     const prevItem = document.querySelector(".prev");
     prevItem.classList.remove("prev");
