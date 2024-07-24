@@ -1,3 +1,4 @@
+/* reset */
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +14,9 @@ a {
   color: inherit;
 }
 
+/* mixin */
+/* variables */
+/* common */
 .inner {
   width: 1280px;
   height: 100%;
@@ -23,6 +27,7 @@ body {
   height: 200vh;
 }
 
+/* Header */
 #header {
   position: fixed;
   width: 100%;
@@ -99,6 +104,7 @@ body {
   border: none;
   background-color: #0DCC5A;
   color: #ffffff;
+  cursor: pointer;
 }
 #header #header_item .header_item .header_top .wrapper {
   position: relative;
@@ -133,8 +139,12 @@ body {
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translateY(-50%);
+  transform: translateY(-50%) rotate(0);
   color: #6D6D6D;
+  transition: all 0.3s;
+}
+#header #header_item .header_item .header_top .wrapper .list_btn.active {
+  transform: translateY(-50%) rotate(180deg);
 }
 #header #header_item .header_item .header_top .wrapper .list {
   position: absolute;
@@ -142,7 +152,7 @@ body {
   right: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 30px;
   padding: 20px 0;
   padding-left: 40px;
   text-align: right;
@@ -150,6 +160,14 @@ body {
   display: none;
   opacity: 0;
   transition: all 0.3s;
+}
+#header #header_item .header_item .header_top .wrapper .list.active {
+  opacity: 1;
+  display: flex;
+}
+#header #header_item .header_item .header_top .wrapper .list a span {
+  display: inline-block;
+  margin-right: 10px;
 }
 #header #header_item .header_item .header_bottom {
   display: flex;
@@ -168,6 +186,7 @@ body {
   background: #0DCC5A;
   color: #ffffff;
   border-radius: 5px;
+  cursor: pointer;
 }
 #header #header_item .header_item .header_bottom .header_bottom_left .barmenu i {
   font-size: 24px;

@@ -295,3 +295,9 @@ main .main_txt p.active {
 #lookbook .inner .lookbook .box.box10 {
   grid-area: j;
 }
+
+@media screen and (max-width: 1280px) {
+  .inner {
+    width: 100%;
+  }
+}

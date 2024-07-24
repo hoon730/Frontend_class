@@ -10,6 +10,44 @@ window.addEventListener("scroll", () => {
     }
 }); 
 
+// list_btn click시 list event
+const listBtn = document.querySelector(".list_btn");
+
+listBtn.addEventListener("click", () => {
+    const list = document.querySelector(".list");
+
+    listBtn.classList.toggle("active");
+    list.classList.toggle("active");
+});
+
+// list값 추가
+const list = document.querySelector(".list");
+const listArray = ["닌텐도", "아이폰", "화장품", "장난감", "영화티켓", "청바지", "슬리퍼", "운동화" ];
+const popularList = document.querySelector(".popular_searchedWord ul");
+
+
+listArray.forEach((item, index) => {
+    const li = document.createElement("li");
+    const aTag = document.createElement("a");
+    const span = document.createElement("span");
+    
+    if(index === 0) {
+        li.classList.add("current");
+    } else if(index === 1) {
+        li.classList.add("next");
+    }  else if(index === listArray.length - 1) {
+        li.classList.add("prev");
+    }
+
+    span.innerText = `${index + 1}.`;
+    aTag.innerText = item;
+    aTag.prepend(span);
+    li.appendChild(aTag);
+    const li2 = li.cloneNode(true);
+    list.appendChild(li2);
+    popularList.appendChild(li);
+});
+
 // popular_searchedWord event
 const rollingCB = () => {
     const prevItem = document.querySelector(".prev");
@@ -43,3 +81,8 @@ items.forEach((item) => {
     interval = setInterval(rollingCB, 3000);
     });
 });
+
+
+
+
+
