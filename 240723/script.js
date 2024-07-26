@@ -1,4 +1,4 @@
-// Slick Slider
+// Slick Slider History
 $(".history-slider").slick({
   dots: true,
   infinite: true,
@@ -6,3 +6,12 @@ $(".history-slider").slick({
   slidesToShow: 4,
   slidesTo: 2,
 });
+
+// Slick Slider : Project
+$(".project-photo").slick({
+  dots: true,
+  infinite: true,
+  speed: 500,
+  autoplay: true,
+  autoplaySpeed:2000,
+})
