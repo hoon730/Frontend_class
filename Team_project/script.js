@@ -43,7 +43,9 @@ listArray.forEach((item, index) => {
     aTag.innerText = item;
     aTag.prepend(span);
     li.appendChild(aTag);
+
     const li2 = li.cloneNode(true);
+    
     list.appendChild(li2);
     popularList.appendChild(li);
 });
