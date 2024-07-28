@@ -1,4 +1,6 @@
-// header event
+// header, gototop event 
+const goToTop = document.querySelector(".gototop");
+
 window.addEventListener("scroll", () => {
     let windowScroll = window.scrollY;
     const banner = document.querySelector(".banner");
@@ -7,10 +9,24 @@ window.addEventListener("scroll", () => {
     if(windowScroll > 30) {
         banner.classList.add("active");
         nav.classList.add("active");
+        goToTop.classList.add("active")
     } else {
         banner.classList.remove("active");
         nav.classList.remove("active");
+        goToTop.classList.remove("active")
+
     }
+});
+
+// barmenu click event
+
+const barmenu = document.querySelector(".barmenu");
+
+barmenu.addEventListener("click", () => {
+    const gnb = document.querySelector(".gnb");
+
+    barmenu.classList.toggle("active");
+    gnb.classList.toggle("active")
 });
 
 // main_txt event
@@ -41,9 +57,10 @@ window.onload = function() {
 };
 
 // section event 
+const sections = document.querySelectorAll("section");
+
 window.addEventListener("scroll", function() {
     let Scroll = this.scrollY;
-    const sections = document.querySelectorAll("section");
 
     sections.forEach((section) => {
         if(Scroll >= section.offsetHeight - this.window.innerHeight / 5) {
@@ -52,27 +69,80 @@ window.addEventListener("scroll", function() {
     });
 })
 
-// filling text of lookbook's figcation
+// making lookbook's figure  
 
-const fillFigcaption = () => {
-    const figcaptions = document.querySelectorAll("figcaption");
-    
-    figcaptions.forEach((figcaption) => {
-        const span = figcaption.querySelector("span");
-        
-        if(span.className === "men") {
-            console.log(span.className)
-            span.innerText = `men's`;
-        } else {
-            span.innerText = `women's`;
-        }
-
-        figcaption.querySelector("h3").innerText = `Double RL 24SS`;
-        figcaption.querySelector("p").innerText = `Lorem ipsum dolor sit amet consectetur adipisicing elit.Voluptates quos neque laborum debitis modi magni animi.`;
+fetch("./lookbook.json").then((responseLookbook) => responseLookbook.json()).then((lookbookData) => {
+    console.log(lookbookData.data);
+    lookbookData.data.forEach((info, index) => {
+        const lookbook = document.querySelector(".lookbook");
+        const figure = document.createElement("figure");
+        figure.className = `box${index + 1} box`;
+        figure.innerHTML = `
+            <img src="${info.img}" alt="lookbook${index + 1}">
+            <figcaption>
+                <span class="${info.gender}">${info.gender}</span>
+                <h3>Double RL 24SS</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Voluptates quos neque laborum debitis modi magni animi.</p>
+                <a href="#none">explore <i class="fa-solid fa-arrow-right-long"></i></a>
+            </figcaption>
+        `;
+        lookbook.appendChild(figure);
     });
-};
+});
 
-fillFigcaption();
+// making item's each slide
+
+fetch("./item.json").then((responseItem) => responseItem.json()).then((itemData) => {
+    
+    itemData.data.forEach((item) => {
+        
+        const mySlider = document.querySelector(".mySlider");
+        
+        const img = document.createElement("img");
+        const src = document.createAttribute("src");
+        const alt = document.createAttribute("alt");
+        const itemImg = document.createElement("div");
+        
+        src.value = item.img;
+        alt.value = item.alt;
+        img.setAttributeNode(src);
+        img.setAttributeNode(alt);
+        itemImg.appendChild(img);
+        itemImg.className = "item_img";
+
+        const span = document.createElement("span")
+        const p = document.createElement("p")
+        const itemDesc = document.createElement("div");
+
+        span.innerText = item.name;
+        p.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, laboriosam rerum voluptas optio sit asperiores esse quia numquam explicabo ";
+        itemDesc.append(span, p);
+        itemDesc.className = "item_desc";
+
+
+        const div = document.createElement("div");
+
+        div.append(itemImg, itemDesc);
+        mySlider.appendChild(div);
+    });
+});
+
+// scrollTO event
+
+const menu = document.querySelectorAll(".gnb li");
+
+menu.forEach((li, index) => {
+    li.addEventListener("click", () => {
+        window.scrollTo({top:sections[index].offsetTop, behavior: "smooth"});
+    });
+});
+
+goToTop.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({top:0, behavior:"smooth"});
+});
+
+
 
 // Slick Slider
 $(".mySlider").slick({
@@ -109,5 +179,61 @@ $(".mySlider").slick({
     ],
 });
 
+// kakao map
+const bannerBtn = document.querySelector(".banner_btn");
+bannerBtn.addEventListener("click", () => {
+    const kakaoMap = document.querySelector("#map");
+    const kakaoMapBg = document.querySelector("#main");
 
+    kakaoMap.classList.toggle("active");
+    kakaoMapBg.classList.toggle("on");
+});
+
+const container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+const options = { //지도를 생성할 때 필요한 기본 옵션
+	center: new kakao.maps.LatLng(37.5012617, 127.0251333), //지도의 중심좌표.
+	level: 11 //지도의 레벨(확대, 축소 정도)
+};
+
+const map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+// 마커를 표시할 위치와 title 객체 배열입니다 
+const positions = [
+    {
+        title: 'RRL 가로수길점', 
+        latlng: new kakao.maps.LatLng(37.5199672, 127.0228613)
+    },
+    {
+        title: 'RRL 현대무역센터점', 
+        latlng: new kakao.maps.LatLng(37.5086154, 127.0597808)
+    },
+    {
+        title: 'RRL 파주아울렛점', 
+        latlng: new kakao.maps.LatLng(37.7691847, 126.6970148)
+    },
+    {
+        title: 'RRL 시흥아울렛점',
+        latlng: new kakao.maps.LatLng(37.379779, 126.7371423)
+    }
+];
+
+// 마커 이미지의 이미지 주소입니다
+const imageSrc = "./img/location.png";
+const imageSize = new kakao.maps.Size(64, 69); // 마커이미지의 크기입니다
+    
+for (let i = 0; i < positions.length; i ++) {
+    
+    // 마커 이미지의 이미지 크기 입니다
+    const imageSize = new kakao.maps.Size(24, 35); 
+    
+    // 마커 이미지를 생성합니다    
+    const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+    
+    // 마커를 생성합니다
+    let marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng, // 마커를 표시할 위치
+        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image : markerImage // 마커 이미지 
+    });
+}
 

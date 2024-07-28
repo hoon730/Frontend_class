@@ -1,0 +1,44 @@
+{
+    "data": [
+        {
+            "img": "./img/lookbook1.png",
+            "gender": "men"
+        },
+        {
+            "img": "./img/lookbook2.png",
+            "gender": "men"
+        },
+        {
+            "img": "./img/lookbook3.png",
+            "gender": "men"
+        },
+        {
+            "img": "./img/lookbook4.png",
+            "gender": "men"
+        },
+        {
+            "img": "./img/lookbook5.webp",
+            "gender": "men"
+        },
+        {
+            "img": "./img/lookbook6.jpg",
+            "gender": "women"
+        },
+        {
+            "img": "./img/lookbook7.jpg",
+            "gender": "women"
+        },
+        {
+            "img": "./img/lookbook8.webp",
+            "gender": "women"
+        },
+        {
+            "img": "./img/lookbook9.webp",
+            "gender": "women"
+        },
+        {
+            "img": "./img/lookbook10.jpg",
+            "gender": "women"
+        }
+    ]
+}

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- kakao map -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ed955883bdeb93c8aa0f484b6ecbd506"></script>
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/09d57ad258.js" crossorigin="anonymous"></script>
     <!-- custom css & js -->
@@ -11,6 +13,7 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <!-- header -->
     <header id="header">
         <div id="banenr" class="ban">
             <div class="inner">
@@ -90,5 +93,91 @@
             </div>
         </div>
     </header>
+
+    <!-- main -->
+    <main id="main">
+        <div class="inner">
+            <div class="main">
+                <div class="main_img">
+                    <div class="img_wrapper">
+                        <ul>
+                            <li>
+                                <img src="./img/main_img.png" alt="main_img">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="img_icons">
+                        <a href="#none"><span>찜한 목록</span><i class="fa-regular fa-heart"></i></a>
+                        <a href="#none"><span>팔로우</span><i class="fa-solid fa-plus"></i></a>
+                        <a href="#none"><span>공유</span><i class="fa-regular fa-share-from-square"></i></a>
+                        <a href="#none"><span>신고</span><i class="fa-regular fa-bell"></i></a>
+                    </div>
+                </div>
+                <div class="main_desc">
+                    <div class="desc_heading">
+                        <div class="heading_category">
+                            <span>홈</span><i class="fa-solid fa-chevron-right"></i> <span>수입명품</span><i class="fa-solid fa-chevron-right"></i><span>기타 수입명품</span>
+                        </div>
+                        <span class="heading_name">
+                            루이비통 나일론 트랙수트
+                        </span>
+                        <h3 class="heading_price">
+                            200,000원
+                        </h3>
+                        <div class="heading_timeinfo">
+                            <span>1 일전</span>
+                            <span>조회 7</span>
+                            <span>관심 7</span>
+                        </div>
+                    </div>
+                    <div class="desc_user">
+                        <div class="user_img">
+                            <img src="./img/user_img.png" alt="user">
+                        </div>
+                        <div class="user_info">
+                            <h3 class="user_id">코드 분쇄기</h3>
+                            <div class="user_detail">
+                                <div class="detail_barBox">
+                                    <span>거래순환률</span>
+                                    <div class="detail_bar"></div>
+                                </div>
+                                <div class="detail_value">
+                                    <span>27</span>
+                                    /100
+                                    <img src="./img/circulater.png" alt="circulater">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="desc_conditions">
+                        <div class="conditions_box">
+                            <span>제품상태</span>
+                            <span>새상품</span>
+                        </div>
+                        <div class="conditions_box">
+                            <span>거래방식</span>
+                            <span>직거래,택배</span>
+                        </div>
+                        <div class="conditions_box">
+                            <span>배송비</span>
+                            <span>별도</span>
+                        </div>
+                        <div class="conditions_box">
+                            <span>안전거래</span>
+                            <span>미사용</span>
+                        </div>
+                    </div>
+                    <div class="desc_map">
+                        <h3>거래희망지역</h3>
+                        <div id="map"></div>
+                    </div>
+                    <div class="desc_btns">
+                        <button class="chat">채팅하기</button>
+                        <button class="trade">거래하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
