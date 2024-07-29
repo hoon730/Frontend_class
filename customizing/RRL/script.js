@@ -127,6 +127,8 @@ fetch("./lookbook.json").then((responseLookbook) => responseLookbook.json()).the
 //     });
 // });
 
+
+
 // scrollTO event
 
 const menu = document.querySelectorAll(".gnb li");
@@ -190,101 +192,101 @@ bannerBtn.addEventListener("click", () => {
     kakaoMapBg.classList.toggle("on");
 });
 
-const showPosition = (position) => {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
+// const showPosition = (position) => {
+//     const latitude = position.coords.latitude;
+//     const longitude = position.coords.longitude;
 
-    // Kakao Map
-    const container = document.querySelector("#map");
-    const options = {
-    center: new kakao.maps.LatLng(latitude, longitude),
-    level: 3,
-    };
-    const map = new kakao.maps.Map(container, options);
+//     // Kakao Map
+//     const container = document.querySelector("#map");
+//     const options = {
+//     center: new kakao.maps.LatLng(latitude, longitude),
+//     level: 5,
+//     };
+//     const map = new kakao.maps.Map(container, options);
 
-    // Olive Store Info
-    const positions = [
-    {
-        title: 'RRL 가로수길점', 
-        latlng: new kakao.maps.LatLng(37.5199672, 127.0228613),
-        address: "서울시 강남구 강남대로 320",
-        info: "영업시간 : 오전 8시 ~ 저녁 10시",
-    },
-    {
-        title: 'RRL 현대무역센터점', 
-        latlng: new kakao.maps.LatLng(37.5086154, 127.0597808),
-        address: "서울시 강남구 강남대로 374",
-        info: "영업시간 : 오전 9시 ~ 저녁 9시",
-    },
-    {
-        title: 'RRL 파주아울렛점', 
-        latlng: new kakao.maps.LatLng(37.7691847, 126.6970148),
-        address: "서울시 서초구 서초대로 78길",
-        info: "영업시간 : 오전 9시 ~ 저녁 9시",
-    },
-    {
-        title: 'RRL 시흥아울렛점',
-        latlng: new kakao.maps.LatLng(37.379779, 126.7371423),
-        address: "서울시 서초구 서초대로 314",
-        info: "영업시간 : 오전 9시 ~ 저녁 8시",
-    },
-    ];
+//     // Olive Store Info
+//     const positions = [
+//     {
+//         title: 'RRL 가로수길점', 
+//         latlng: new kakao.maps.LatLng(37.5199672, 127.0228613),
+//         address: "서울시 강남구 강남대로 320",
+//         info: "영업시간 : 오전 8시 ~ 저녁 10시",
+//     },
+//     {
+//         title: 'RRL 현대무역센터점', 
+//         latlng: new kakao.maps.LatLng(37.5086154, 127.0597808),
+//         address: "서울시 강남구 강남대로 374",
+//         info: "영업시간 : 오전 9시 ~ 저녁 9시",
+//     },
+//     {
+//         title: 'RRL 파주아울렛점', 
+//         latlng: new kakao.maps.LatLng(37.7691847, 126.6970148),
+//         address: "서울시 서초구 서초대로 78길",
+//         info: "영업시간 : 오전 9시 ~ 저녁 9시",
+//     },
+//     {
+//         title: 'RRL 시흥아울렛점',
+//         latlng: new kakao.maps.LatLng(37.379779, 126.7371423),
+//         address: "서울시 서초구 서초대로 314",
+//         info: "영업시간 : 오전 9시 ~ 저녁 8시",
+//     },
+//     ];
 
-    for (let i = 0; i < positions.length; i++) {
-        let marker = new kakao.maps.Marker({
-        map: map,
-        position: positions[i].latlng,
-    });
+//     for (let i = 0; i < positions.length; i++) {
+//         let marker = new kakao.maps.Marker({
+//         map: map,
+//         position: positions[i].latlng,
+//     });
 
-        const content = `
-        <div class="wrap">
-            <div class="info">
-                <div class="title">${positions[i].title}</div>
-                <div class="body">
-                    <div class="img">
-                        <img src="${positions[i].img}" width="73" height="70">
-                    </div>
-                    <div class="desc">
-                        <div class="ellipsis">${positions[i].address}</div>
-                        <div class="jibun ellipsis">${positions[i].info}</div>
-                        <div><a href="https://www.oliveyoung.co.kr/" target="_blank" class="link">쇼핑몰 바로가기</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>`;
+//         const content = `
+//         <div class="wrap">
+//             <div class="info">
+//                 <div class="title">${positions[i].title}</div>
+//                 <div class="body">
+//                     <div class="img">
+//                         <img src="${positions[i].img}" width="73" height="70">
+//                     </div>
+//                     <div class="desc">
+//                         <div class="ellipsis">${positions[i].address}</div>
+//                         <div class="jibun ellipsis">${positions[i].info}</div>
+//                         <div><a href="https://www.oliveyoung.co.kr/" target="_blank" class="link">쇼핑몰 바로가기</a></div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>`;
 
-        const overlay = new kakao.maps.CustomOverlay({
-            content: content,
-            map: map,
-            position: marker.getPosition(),
-        });
-    }
+//         const overlay = new kakao.maps.CustomOverlay({
+//             content: content,
+//             map: map,
+//             position: marker.getPosition(),
+//         });
+//     }
 
-    // Kakao Marker
-    const markerPosition = new kakao.maps.LatLng(latitude, longitude);
+//     // Kakao Marker
+//     const markerPosition = new kakao.maps.LatLng(latitude, longitude);
 
-    const marker = new kakao.maps.Marker({
-        position: markerPosition,
-    });
+//     const marker = new kakao.maps.Marker({
+//         position: markerPosition,
+//     });
 
-    marker.setMap(map);
+//     marker.setMap(map);
 
-    // Kakao Marker InfoWindow
-    const iwContent = `<div class ="label"><span class="left"></span><span class="center">🎈현재위치</span><span class="right"></span></div>`;
-    const iwPosition = new kakao.maps.LatLng(latitude, longitude);
-    const infowindow = new kakao.maps.CustomOverlay({
-        content: iwContent,
-        position: iwPosition,
-    });
+//     // Kakao Marker InfoWindow
+//     const iwContent = `<div class ="label"><span class="left"></span><span class="center">🎈현재위치</span><span class="right"></span></div>`;
+//     const iwPosition = new kakao.maps.LatLng(latitude, longitude);
+//     const infowindow = new kakao.maps.CustomOverlay({
+//         content: iwContent,
+//         position: iwPosition,
+//     });
 
-    infowindow.setMap(map);
-};
+//     infowindow.setMap(map);
+// };
 
-    const errorPosition = (err) => {
-    alert(err.message);
-};
+//     const errorPosition = (err) => {
+//     alert(err.message);
+// };
 
-navigator.geolocation.getCurrentPosition(showPosition, errorPosition);
+// navigator.geolocation.getCurrentPosition(showPosition, errorPosition);
 
 
 
@@ -306,3 +308,55 @@ navigator.geolocation.getCurrentPosition(showPosition, errorPosition);
 //         latlng: new kakao.maps.LatLng(37.379779, 126.7371423)
 //     }
 // ];
+
+const mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.5012617, 127.0251333), // 지도의 중심좌표
+        level: 7 // 지도의 확대 레벨
+    };
+
+const map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+// 마커를 표시할 위치와 title 객체 배열입니다 
+const positions = [
+    {
+        title: 'RRL 가로수길점', 
+        latlng: new kakao.maps.LatLng(37.5199672, 127.0228613)
+    },
+    {
+        title: 'RRL 현대무역센터점', 
+        latlng: new kakao.maps.LatLng(37.5086154, 127.0597808)
+    },
+    {
+        title: 'RRL 파주아울렛점', 
+        latlng: new kakao.maps.LatLng(37.7691847, 126.6970148)
+    },
+    {
+        title: 'RRL 시흥아울렛점',
+        latlng: new kakao.maps.LatLng(37.379779, 126.7371423)
+    }
+];
+
+// 마커 이미지의 이미지 주소입니다
+const imageSrc = "./img/location.png"; 
+    
+for (let i = 0; i < positions.length; i ++) {
+    
+    // 마커 이미지의 이미지 크기 입니다
+    const imageSize = new kakao.maps.Size(24, 35); 
+    
+    // 마커 이미지를 생성합니다    
+    const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+    
+    // 마커를 생성합니다
+    const marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng, // 마커를 표시할 위치
+        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image : markerImage // 마커 이미지 
+    });
+}
+
+const errorPosition = (err) => {
+    alert(err.message);
+};
