@@ -536,6 +536,8 @@ header {
 
         .mySlider{
             margin-bottom: 100px;
+        
+
             & > div {
                 cursor: pointer;
 
@@ -810,7 +812,7 @@ footer {
 }
 
 .slick-arrow {
-    display: none !important;
+    display: block !important;
 }
 
 

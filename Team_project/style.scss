@@ -55,11 +55,13 @@ body {
 
 /* Header */
 #header {
+    z-index: 3;
     position: fixed;
     width: 100%;
     background: map-get($map: $color, $key: bg-light-color);
+    border-bottom: 1px solid #eee;
 
-    #banenr.ban {
+    #banner.ban {
         height: 33px;
         background: map-get($map: $color, $key: bg-dark-color);
         opacity: 1;
@@ -201,7 +203,7 @@ body {
                         overflow: hidden;
 
                         &.active {
-                            height: 336px;
+                            height: 350px;
                             background: map-get($map: $color, $key: bg-light-color);
                         }
                         
@@ -282,11 +284,13 @@ body {
             padding-top: 80px;
             display: flex;
             gap: 80px;
+            height: 200vh;
 
             .main_img {
                 position: sticky;
                 top: 267px;
                 width: 100%;
+                height: 702px;
 
                 .img_wrapper {
                     margin-bottom: 30px;
@@ -514,59 +518,60 @@ body {
                         }
                     }
                 }
-            }
 
-            .desc_map {
-                margin-bottom: 40px;
-                h3 {
-                    font-size: map-get($map: $fontSize, $key: font-samll);
-                    color: map-get($map: $color, $key: font-dark-gray);
-                    font-weight: normal;
-                    margin-bottom: 33px;
-                    position: relative;
-                    padding-left: 6px;
-
-                    &::before {
-                        content: "";
-                        position: absolute;
-                        top: 50%;
-                        left: 0%;
-                        transform: translateY(-50%);
-                        width: 3px;
-                        height: 3px;
-                        background: map-get($map: $color, $key: font-dark-gray);
-                        border-radius: 50%;
-
+                .desc_map {
+                    margin-bottom: 40px;
+                    h3 {
+                        font-size: map-get($map: $fontSize, $key: font-samll);
+                        color: map-get($map: $color, $key: font-dark-gray);
+                        font-weight: normal;
+                        margin-bottom: 33px;
+                        position: relative;
+                        padding-left: 6px;
+    
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 50%;
+                            left: 0%;
+                            transform: translateY(-50%);
+                            width: 3px;
+                            height: 3px;
+                            background: map-get($map: $color, $key: font-dark-gray);
+                            border-radius: 50%;
+    
+                        }
+                    }
+                    #map {
+                        width: 600px;
+                        height: 140px;
+                        border: 1px solid map-get($map: $color, $key: font-light-gray);
                     }
                 }
-                #map {
-                    width: 600px;
-                    height: 140px;
-                    border: 1px solid map-get($map: $color, $key: font-light-gray);
-                }
-            }
-
-            .desc_btns {
-                display: flex;
-                justify-content: space-between;
-
-                button {
-                    width: 290px;
-                    height: 60px;
-                    border-radius: 5px;
-                    border: 0;
-                    font-size: map-get($map: $fontSize, $key: font-extra-large);
-                    color: map-get($map: $color, $key: font-light-color);
-                    box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
-
-                    &.chat {
-                        background: map-get($map: $color, $key: main-color);
-                    }
-                    &.trade {
-                        background: map-get($map: $color, $key: font-light-gray);
+    
+                .desc_btns {
+                    display: flex;
+                    justify-content: space-between;
+    
+                    button {
+                        width: 290px;
+                        height: 60px;
+                        border-radius: 5px;
+                        border: 0;
+                        font-size: map-get($map: $fontSize, $key: font-extra-large);
+                        color: map-get($map: $color, $key: font-light-color);
+                        box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
+    
+                        &.chat {
+                            background: map-get($map: $color, $key: main-color);
+                        }
+                        &.trade {
+                            background: map-get($map: $color, $key: font-light-gray);
+                        }
                     }
                 }
             }
+
         }
     }
 }

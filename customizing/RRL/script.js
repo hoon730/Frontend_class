@@ -92,40 +92,40 @@ fetch("./lookbook.json").then((responseLookbook) => responseLookbook.json()).the
 
 // making item's each slide
 
-fetch("./item.json").then((responseItem) => responseItem.json()).then((itemData) => {
+// fetch("./item.json").then((responseItem) => responseItem.json()).then((itemData) => {
     
-    itemData.data.forEach((item) => {
+//     itemData.data.forEach((item) => {
         
-        const mySlider = document.querySelector(".mySlider");
+//         const mySlider = document.querySelector(".mySlider");
         
-        const img = document.createElement("img");
-        const src = document.createAttribute("src");
-        const alt = document.createAttribute("alt");
-        const itemImg = document.createElement("div");
+//         const img = document.createElement("img");
+//         const src = document.createAttribute("src");
+//         const alt = document.createAttribute("alt");
+//         const itemImg = document.createElement("div");
         
-        src.value = item.img;
-        alt.value = item.alt;
-        img.setAttributeNode(src);
-        img.setAttributeNode(alt);
-        itemImg.appendChild(img);
-        itemImg.className = "item_img";
+//         src.value = item.img;
+//         alt.value = item.alt;
+//         img.setAttributeNode(src);
+//         img.setAttributeNode(alt);
+//         itemImg.appendChild(img);
+//         itemImg.className = "item_img";
 
-        const span = document.createElement("span")
-        const p = document.createElement("p")
-        const itemDesc = document.createElement("div");
+//         const span = document.createElement("span")
+//         const p = document.createElement("p")
+//         const itemDesc = document.createElement("div");
 
-        span.innerText = item.name;
-        p.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, laboriosam rerum voluptas optio sit asperiores esse quia numquam explicabo ";
-        itemDesc.append(span, p);
-        itemDesc.className = "item_desc";
+//         span.innerText = item.name;
+//         p.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, laboriosam rerum voluptas optio sit asperiores esse quia numquam explicabo ";
+//         itemDesc.append(span, p);
+//         itemDesc.className = "item_desc";
 
 
-        const div = document.createElement("div");
+//         const div = document.createElement("div");
 
-        div.append(itemImg, itemDesc);
-        mySlider.appendChild(div);
-    });
-});
+//         div.append(itemImg, itemDesc);
+//         mySlider.appendChild(div);
+//     });
+// });
 
 // scrollTO event
 
@@ -146,6 +146,7 @@ goToTop.addEventListener("click", (e) => {
 
 // Slick Slider
 $(".mySlider").slick({
+    arrows : true,
     dots: false,
     infinite: true,
     autoplay: true,
@@ -189,51 +190,119 @@ bannerBtn.addEventListener("click", () => {
     kakaoMapBg.classList.toggle("on");
 });
 
-const container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-const options = { //지도를 생성할 때 필요한 기본 옵션
-	center: new kakao.maps.LatLng(37.5012617, 127.0251333), //지도의 중심좌표.
-	level: 11 //지도의 레벨(확대, 축소 정도)
-};
+const showPosition = (position) => {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
 
-const map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-// 마커를 표시할 위치와 title 객체 배열입니다 
-const positions = [
+    // Kakao Map
+    const container = document.querySelector("#map");
+    const options = {
+    center: new kakao.maps.LatLng(latitude, longitude),
+    level: 3,
+    };
+    const map = new kakao.maps.Map(container, options);
+
+    // Olive Store Info
+    const positions = [
     {
         title: 'RRL 가로수길점', 
-        latlng: new kakao.maps.LatLng(37.5199672, 127.0228613)
+        latlng: new kakao.maps.LatLng(37.5199672, 127.0228613),
+        address: "서울시 강남구 강남대로 320",
+        info: "영업시간 : 오전 8시 ~ 저녁 10시",
     },
     {
         title: 'RRL 현대무역센터점', 
-        latlng: new kakao.maps.LatLng(37.5086154, 127.0597808)
+        latlng: new kakao.maps.LatLng(37.5086154, 127.0597808),
+        address: "서울시 강남구 강남대로 374",
+        info: "영업시간 : 오전 9시 ~ 저녁 9시",
     },
     {
         title: 'RRL 파주아울렛점', 
-        latlng: new kakao.maps.LatLng(37.7691847, 126.6970148)
+        latlng: new kakao.maps.LatLng(37.7691847, 126.6970148),
+        address: "서울시 서초구 서초대로 78길",
+        info: "영업시간 : 오전 9시 ~ 저녁 9시",
     },
     {
         title: 'RRL 시흥아울렛점',
-        latlng: new kakao.maps.LatLng(37.379779, 126.7371423)
-    }
-];
+        latlng: new kakao.maps.LatLng(37.379779, 126.7371423),
+        address: "서울시 서초구 서초대로 314",
+        info: "영업시간 : 오전 9시 ~ 저녁 8시",
+    },
+    ];
 
-// 마커 이미지의 이미지 주소입니다
-const imageSrc = "./img/location.png";
-const imageSize = new kakao.maps.Size(64, 69); // 마커이미지의 크기입니다
-    
-for (let i = 0; i < positions.length; i ++) {
-    
-    // 마커 이미지의 이미지 크기 입니다
-    const imageSize = new kakao.maps.Size(24, 35); 
-    
-    // 마커 이미지를 생성합니다    
-    const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-    
-    // 마커를 생성합니다
-    let marker = new kakao.maps.Marker({
-        map: map, // 마커를 표시할 지도
-        position: positions[i].latlng, // 마커를 표시할 위치
-        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-        image : markerImage // 마커 이미지 
+    for (let i = 0; i < positions.length; i++) {
+        let marker = new kakao.maps.Marker({
+        map: map,
+        position: positions[i].latlng,
     });
-}
 
+        const content = `
+        <div class="wrap">
+            <div class="info">
+                <div class="title">${positions[i].title}</div>
+                <div class="body">
+                    <div class="img">
+                        <img src="${positions[i].img}" width="73" height="70">
+                    </div>
+                    <div class="desc">
+                        <div class="ellipsis">${positions[i].address}</div>
+                        <div class="jibun ellipsis">${positions[i].info}</div>
+                        <div><a href="https://www.oliveyoung.co.kr/" target="_blank" class="link">쇼핑몰 바로가기</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+
+        const overlay = new kakao.maps.CustomOverlay({
+            content: content,
+            map: map,
+            position: marker.getPosition(),
+        });
+    }
+
+    // Kakao Marker
+    const markerPosition = new kakao.maps.LatLng(latitude, longitude);
+
+    const marker = new kakao.maps.Marker({
+        position: markerPosition,
+    });
+
+    marker.setMap(map);
+
+    // Kakao Marker InfoWindow
+    const iwContent = `<div class ="label"><span class="left"></span><span class="center">🎈현재위치</span><span class="right"></span></div>`;
+    const iwPosition = new kakao.maps.LatLng(latitude, longitude);
+    const infowindow = new kakao.maps.CustomOverlay({
+        content: iwContent,
+        position: iwPosition,
+    });
+
+    infowindow.setMap(map);
+};
+
+    const errorPosition = (err) => {
+    alert(err.message);
+};
+
+navigator.geolocation.getCurrentPosition(showPosition, errorPosition);
+
+
+
+// const positions = [
+//     {
+//         title: 'RRL 가로수길점', 
+//         latlng: new kakao.maps.LatLng(37.5199672, 127.0228613)
+//     },
+//     {
+//         title: 'RRL 현대무역센터점', 
+//         latlng: new kakao.maps.LatLng(37.5086154, 127.0597808)
+//     },
+//     {
+//         title: 'RRL 파주아울렛점', 
+//         latlng: new kakao.maps.LatLng(37.7691847, 126.6970148)
+//     },
+//     {
+//         title: 'RRL 시흥아울렛점',
+//         latlng: new kakao.maps.LatLng(37.379779, 126.7371423)
+//     }
+// ];
