@@ -552,6 +552,7 @@ body {
                 .desc_btns {
                     display: flex;
                     justify-content: space-between;
+                    margin-bottom: 100px;
     
                     button {
                         width: 290px;
@@ -570,6 +571,64 @@ body {
                         }
                     }
                 }
+
+                .desc_itemInfo {
+                    margin-bottom: 85px;
+
+                    .itemIfo_heading {
+                        margin-bottom: 40px;
+
+                        h3 {
+                            font-size: map-get($map: $fontSize, $key: font-extra-large);
+                            margin-bottom: 32px;
+                        }
+                        .bar {
+                            background: map-get($map: $color, $key: font-light-gray);
+                        }
+                    }
+
+                    .itemIfo_detail {
+
+                        p {
+                            width: 50%;
+                            font-size: map-get($map: $fontSize, $key: font-samll);
+                            text-align: justify;
+                            line-height: 59px;
+                            margin-bottom: 45px;
+                        }
+
+                        h6 {
+                            font-size: map-get($map: $fontSize, $key: font-extra-small);
+                            color: map-get($map: $color, $key: font-dark-gray);
+                            font-weight: 300;
+                            margin-bottom: 10px;
+                        }
+                        .relatedWords {
+                            display: flex;
+                            gap: 25px;
+
+                            span {
+                                padding: 7px 14px;
+                                background: map-get($map: $color, $key: font-light-gray);
+                                font-size: 11px;
+                                font-weight: 500;
+                                border-radius: 5px;
+                            }
+                        }
+                    }
+                }
+
+                .desc_store {
+                    
+                    h3 {
+                        font-size: map-get($map: $fontSize, $key: font-extra-large);
+                        margin-bottom: 32px;
+                    }
+                    .bar {
+                        background: map-get($map: $color, $key: font-light-color);
+                    }
+                }
+
             }
 
         }
