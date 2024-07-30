@@ -284,7 +284,6 @@ body {
             padding-top: 80px;
             display: flex;
             gap: 80px;
-            height: 200vh;
 
             .main_img {
                 position: sticky;
@@ -583,7 +582,8 @@ body {
                             margin-bottom: 32px;
                         }
                         .bar {
-                            background: map-get($map: $color, $key: font-light-gray);
+                            border: none;
+                            border-bottom: 1px solid map-get($map: $color, $key: font-light-gray);
                         }
                     }
 
@@ -619,13 +619,57 @@ body {
                 }
 
                 .desc_store {
-                    
-                    h3 {
-                        font-size: map-get($map: $fontSize, $key: font-extra-large);
-                        margin-bottom: 32px;
+
+                    .store_heading{
+                        margin-bottom: 30px; 
+
+                        h3 {
+                            font-size: map-get($map: $fontSize, $key: font-extra-large);
+                            margin-bottom: 32px;
+    
+                            i {
+                                font-size: map-get($map: $fontSize, $key: font-large);
+                                margin-left: 20px;
+                            }
+                        }
+                        .bar {
+                            border: none;
+                            border-bottom: 1px solid map-get($map: $color, $key: font-light-gray);
+                        }
                     }
-                    .bar {
-                        background: map-get($map: $color, $key: font-light-color);
+
+                    .store_info {
+                        display: inline-flex;
+                        gap: 15px;
+
+                        .info_img {}
+
+                        .info_box {
+                            .box_name {
+                                display: flex;
+                                align-items: center;
+                                gap: 25px;
+
+                                .name {
+                                    font-size: map-get($map: $fontSize, $key: font-large);
+                                    font-weight: 600;
+                                }
+                                
+                                h6 {
+                                    font-size: 10px;
+
+                                    span {
+                                        display: inline-block;
+                                        margin-left: 3px;
+                                        background: map-get($map: $color, $key: main-color);
+
+                                        i {
+                                            color: map-get($map: $color, $key: font-light-color);
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
 

@@ -223,7 +223,6 @@ body {
   padding-top: 80px;
   display: flex;
   gap: 80px;
-  height: 200vh;
 }
 #main .inner .main .main_img {
   position: sticky;
@@ -482,7 +481,8 @@ body {
   margin-bottom: 32px;
 }
 #main .inner .main .main_desc .desc_itemInfo .itemIfo_heading .bar {
-  background: #DCDCDC;
+  border: none;
+  border-bottom: 1px solid #DCDCDC;
 }
 #main .inner .main .main_desc .desc_itemInfo .itemIfo_detail p {
   width: 50%;
@@ -508,10 +508,42 @@ body {
   font-weight: 500;
   border-radius: 5px;
 }
-#main .inner .main .main_desc .desc_store h3 {
+#main .inner .main .main_desc .desc_store .store_heading {
+  margin-bottom: 30px;
+}
+#main .inner .main .main_desc .desc_store .store_heading h3 {
   font-size: 20px;
   margin-bottom: 32px;
 }
-#main .inner .main .main_desc .desc_store .bar {
-  background: #ffffff;
+#main .inner .main .main_desc .desc_store .store_heading h3 i {
+  font-size: 18px;
+  margin-left: 20px;
+}
+#main .inner .main .main_desc .desc_store .store_heading .bar {
+  border: none;
+  border-bottom: 1px solid #DCDCDC;
+}
+#main .inner .main .main_desc .desc_store .store_info {
+  display: inline-flex;
+  gap: 15px;
+}
+#main .inner .main .main_desc .desc_store .store_info .info_box .box_name {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+#main .inner .main .main_desc .desc_store .store_info .info_box .box_name .name {
+  font-size: 18px;
+  font-weight: 600;
+}
+#main .inner .main .main_desc .desc_store .store_info .info_box .box_name h6 {
+  font-size: 10px;
+}
+#main .inner .main .main_desc .desc_store .store_info .info_box .box_name h6 span {
+  display: inline-block;
+  margin-left: 3px;
+  background: #0DCC5A;
+}
+#main .inner .main .main_desc .desc_store .store_info .info_box .box_name h6 span i {
+  color: #ffffff;
 }
