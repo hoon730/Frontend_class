@@ -215,18 +215,18 @@ const positions = [
   },
 ];
 
-// const imageSrc = "./img/location.png";
+const imageSrc = "./img/location.png";
 
 for (let i = 0; i < positions.length; i++) {
-  //   const imageSize = new kakao.maps.Size(24, 35);
+    const imageSize = new kakao.maps.Size(24, 35);
 
-  //   const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+    const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
   let marker = new kakao.maps.Marker({
     map: map,
     position: positions[i].latlng,
     title: positions[i].title,
-    // image: markerImage,
+    image: markerImage,
   });
 }
 

@@ -220,13 +220,13 @@ body {
   padding-top: 187px;
 }
 #main .inner .main {
-  padding-top: 80px;
+  padding-top: 45px;
   display: flex;
   gap: 80px;
 }
 #main .inner .main .main_img {
   position: sticky;
-  top: 267px;
+  top: 232px;
   width: 100%;
   height: 702px;
 }
@@ -508,6 +508,9 @@ body {
   font-weight: 500;
   border-radius: 5px;
 }
+#main .inner .main .main_desc .desc_store {
+  margin-bottom: 50px;
+}
 #main .inner .main .main_desc .desc_store .store_heading {
   margin-bottom: 30px;
 }
@@ -524,26 +527,47 @@ body {
   border-bottom: 1px solid #DCDCDC;
 }
 #main .inner .main .main_desc .desc_store .store_info {
-  display: inline-flex;
+  display: flex;
+  align-items: center;
   gap: 15px;
 }
 #main .inner .main .main_desc .desc_store .store_info .info_box .box_name {
   display: flex;
   align-items: center;
   gap: 25px;
+  margin-bottom: 15px;
 }
 #main .inner .main .main_desc .desc_store .store_info .info_box .box_name .name {
   font-size: 18px;
   font-weight: 600;
 }
-#main .inner .main .main_desc .desc_store .store_info .info_box .box_name h6 {
+#main .inner .main .main_desc .desc_store .store_info .info_box .box_name .certi {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+#main .inner .main .main_desc .desc_store .store_info .info_box .box_name .certi span {
   font-size: 10px;
 }
-#main .inner .main .main_desc .desc_store .store_info .info_box .box_name h6 span {
-  display: inline-block;
-  margin-left: 3px;
+#main .inner .main .main_desc .desc_store .store_info .info_box .box_name .certi .certi_check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15px;
+  height: 15px;
   background: #0DCC5A;
+  border-radius: 3px;
 }
-#main .inner .main .main_desc .desc_store .store_info .info_box .box_name h6 span i {
+#main .inner .main .main_desc .desc_store .store_info .info_box .box_name .certi .certi_check i {
+  font-size: 13px;
   color: #ffffff;
+}
+#main .inner .main .main_desc .desc_store .store_info .info_box a {
+  font-size: 10px;
+  font-weight: 300;
+  padding: 5px 10px;
+  color: #ffffff;
+  background: #0DCC5A;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 }
