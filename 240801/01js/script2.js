@@ -191,26 +191,26 @@
 //   console.log(result);
 // })
 
-new Promise((resolve) => {
-  setTimeout(() => {
-    const name = "에스프레소";
-    console.log(name);
-    resolve(name);
-  }, 500);
-}).then((prevName) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const name = `${prevName} 카페모카`;
-      console.log(name);
-      resolve(name);
-    }, 500);
-  });
-}).then(() => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const name = `${prevName} 카페라떼`;
-      console.log(name);
-      resolve(name);
-    }, 500);
-  });
-});
+// new Promise((resolve) => {
+//   setTimeout(() => {
+//     const name = "에스프레소";
+//     console.log(name);
+//     resolve(name);
+//   }, 500);
+// }).then((prevName) => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       const name = `${prevName} 카페모카`;
+//       console.log(name);
+//       resolve(name);
+//     }, 500);
+//   });
+// }).then(() => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       const name = `${prevName} 카페라떼`;
+//       console.log(name);
+//       resolve(name);
+//     }, 500);
+//   });
+// });

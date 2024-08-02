@@ -16,7 +16,7 @@
 //   alert(`안녕하세요 ${name}님 나이가 ${age}세 이네요!`);
 // }
 
-// function getData() {
+// function getData(callback) {
 //   const userName = prompt("이름을 입력하세요!");
 //   const userAge = Number(prompt("나이를 입력해주세요!"));
 //   callback(userName, userAge);
@@ -48,7 +48,7 @@
 
 // const init = () => {
 //   return (a, b) => {
-//     return a - b > 0 ? a - b : b -a;
+//     return a - b > 0 ? a - b : b - a;
 //   }
 // }
 
