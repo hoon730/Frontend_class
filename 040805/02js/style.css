@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  padding: 20px;
+}
+
+.box {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #eee;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  margin-bottom: 50px;
+}
+.box .box-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.box .box-info button {
+  padding: 7px 10px;
+  background: dodgerblue;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.desc {
+  width: 600px;
+}
+.desc.active {
+  display: none;
+}
+.desc .text {
+  margin-bottom: 50px;
+}
+.desc .text hr {
+  width: 20%;
+}
+.desc .text p {
+  padding: 20px;
+}
