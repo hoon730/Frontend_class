@@ -17,11 +17,41 @@ a {
 }
 
 /* mixin */
-@mixin list_a {
+@mixin list-a {
     display: inline-block;
     margin-right: 10px;
 }
 
+@mixin item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .item-img {
+        cursor: pointer;
+    }
+
+    .item-detail {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .item-name {
+            width: 180px;
+            font-size: map-get($map: $fontSize, $key: font-samll);
+            text-overflow: ellipsis;
+            text-wrap: nowrap;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .item-price {
+            font-size: map-get($map: $fontSize, $key: font-large);
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+}
 /* variables */
 $color: (
     main-color: #0DCC5A,
@@ -81,7 +111,7 @@ body {
             color: map-get($map: $color, $key: font-light-color);
             font-size: map-get($map: $fontSize, $key: font-extra-small);
             
-            .banner_left {
+            .banner-left {
                 display: flex;
                 gap: 15px;
 
@@ -91,28 +121,28 @@ body {
                 }
             }
 
-            .banner_right {
+            .banner-right {
                 display: flex;
                 gap: 20px;
             }
         }
     }
 
-    #header_item {
+    #header-item {
 
-        .header_item {
+        .header-item {
             padding: 25px 0;
             display: flex;
             flex-direction: column;
             gap: 20px;
         
         
-            .header_top {
+            .header-top {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 
-                .search_box {
+                .search-box {
                     form {
                         position: relative;
     
@@ -149,7 +179,7 @@ body {
                 .wrapper {
                     position: relative;
 
-                    .popular_searchedWord {
+                    .popular-searchedWord {
                         position: relative;
                         width: 193px;
                         height: 24px;
@@ -172,12 +202,12 @@ body {
                             }
     
                             a span {
-                                @include list_a;
+                                @include list-a;
                             }
                         }
                     }
 
-                    .list_btn {
+                    .list-btn {
                         position: absolute;
                         top: 50%;
                         right: 0;
@@ -211,7 +241,7 @@ body {
                             padding-top: 20px;
                             
                             a span {
-                                @include list_a;
+                                @include list-a;
                             }
                         }
 
@@ -220,11 +250,11 @@ body {
                 
             }
 
-            .header_bottom {
+            .header-bottom {
                 display: flex;
                 justify-content: space-between;
 
-                .header_bottom_left {
+                .header-bottom-left {
                     display: flex;
                     gap: 40px;
 
@@ -252,7 +282,7 @@ body {
 
                 }
                 
-                .header_bottom_right {
+                .header-bottom-right {
                         display: flex;
                         align-items: center;
                     .lnb {
@@ -276,6 +306,7 @@ body {
 
 #main {
     padding-top: 187px;
+    margin-bottom: 200px;
 
     .inner {
         
@@ -284,19 +315,19 @@ body {
             display: flex;
             gap: 80px;
 
-            .main_img {
+            .main-img {
                 position: sticky;
                 top: 232px;
                 width: 100%;
                 height: 702px;
 
-                .img_wrapper {
+                .img-wrapper {
                     margin-bottom: 30px;
                     border-radius: 16px;
                     overflow: hidden;
                 }
 
-                .img_icons{
+                .img-icons{
                     display: flex;
                     justify-content: space-between;
                     width: 100%;
@@ -344,12 +375,12 @@ body {
                 }
             }
 
-            .main_desc {
+            .main-desc {
                 width: 100%;
-                .desc_heading { 
+                .desc-heading { 
                     margin-bottom: 30px;
 
-                    .heading_category {
+                    .heading-category {
                         display: flex;
                         align-items: center;
                         gap: 8px;
@@ -366,20 +397,20 @@ body {
                         }
                     }
                     
-                    .heading_name {
+                    .heading-name {
                         display: inline-block;
                         font-size: 24px;
                         line-height: 24px;
                         margin-bottom: 15px;
                     }
 
-                    .heading_price {
+                    .heading-price {
                         font-size: 26px;
                         line-height: 26px;
                         margin-bottom: 15px;
                     }
 
-                    .heading_timeinfo {
+                    .heading-timeinfo {
                         
                         span {
                             font-size: map-get($map: $fontSize, $key: font-extra-small);
@@ -401,34 +432,36 @@ body {
                     }
                 }
 
-                .desc_user {
+                .desc-user {
                     display: flex;
                     gap: 15px;
                     margin-bottom: 40px;
 
-                    .user_img {
+                    .user-img {
                         width: 60px;
                         height: 60px;
+                        cursor: pointer;
                     }
 
-                    .user_info {
+                    .user-info {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
                         width: 100%;
-
-                        .user_id {
+                        
+                        .user-id {
                             font-size: map-get($map: $fontSize, $key: font-large);
                             font-weight: 600;
+                            cursor: pointer;
                         }
 
-                        .user_detail {
+                        .user-detail {
                             width: 100%;
                             display: flex;
                             justify-content: space-between;
                             align-items: end;
 
-                            .detail_barBox{
+                            .detail-barBox{
                                 display: flex;
                                 gap: 10px;
 
@@ -437,7 +470,7 @@ body {
                                     color: map-get($map: $color, $key: font-dark-gray);
                                 }
     
-                                .detail_bar {
+                                .detail-bar {
                                     width: 350px;
                                     height: 15px;
                                     background: #F1F4F6;
@@ -458,7 +491,7 @@ body {
                                 }
                             }
 
-                            .detail_value {
+                            .detail-value {
                                 display: flex;
                                 align-items: end;
                                 font-size: map-get($map: $fontSize, $key: font-extra-small);
@@ -475,7 +508,7 @@ body {
                     }
                 }
 
-                .desc_conditions {
+                .desc-conditions {
                     display: flex;
                     align-items: center;
                     height: 90px;
@@ -483,7 +516,7 @@ body {
                     border-radius: 4px;
                     margin-bottom: 35px;
 
-                    .conditions_box {
+                    .conditions-box {
                         display: flex;
                         flex-direction: column;
                         gap: 4px;
@@ -517,7 +550,7 @@ body {
                     }
                 }
 
-                .desc_map {
+                .desc-map {
                     margin-bottom: 40px;
                     h3 {
                         font-size: map-get($map: $fontSize, $key: font-samll);
@@ -547,7 +580,7 @@ body {
                     }
                 }
     
-                .desc_btns {
+                .desc-btns {
                     display: flex;
                     justify-content: space-between;
                     margin-bottom: 100px;
@@ -560,6 +593,7 @@ body {
                         font-size: map-get($map: $fontSize, $key: font-extra-large);
                         color: map-get($map: $color, $key: font-light-color);
                         box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
+                        cursor: pointer;
     
                         &.chat {
                             background: map-get($map: $color, $key: main-color);
@@ -570,10 +604,10 @@ body {
                     }
                 }
 
-                .desc_itemInfo {
+                .desc-itemInfo {
                     margin-bottom: 85px;
 
-                    .itemIfo_heading {
+                    .itemIfo-heading {
                         margin-bottom: 40px;
 
                         h3 {
@@ -586,7 +620,7 @@ body {
                         }
                     }
 
-                    .itemIfo_detail {
+                    .itemIfo-detail {
 
                         p {
                             width: 50%;
@@ -617,10 +651,10 @@ body {
                     }
                 }
 
-                .desc_store {
-                    margin-bottom: 50px;
+                .desc-store {
+                    margin-bottom: 20px;
                     
-                    .store_heading{
+                    .store-heading{
                         margin-bottom: 30px; 
 
                         h3 {
@@ -638,15 +672,16 @@ body {
                         }
                     }
 
-                    .store_info {
+                    .store-info {
                         display: flex;
                         align-items: center;
                         gap: 15px;
                         margin-bottom: 40px;
 
-                        .info_img {
+                        .info-img {
                             width:  60px;
                             height: 60px;
+                            cursor: pointer;
 
                             img {
                                 width: 100%;
@@ -654,13 +689,14 @@ body {
                             }
                         }
 
-                        .info_box {
+                        .info-box {
                         
-                            .box_name {
+                            .box-name {
                                 display: flex;
                                 align-items: center;
                                 gap: 25px;
                                 margin-bottom: 10px;
+                                cursor: pointer;
 
                                 .name {
                                     font-size: map-get($map: $fontSize, $key: font-large);
@@ -676,7 +712,7 @@ body {
                                         font-size: 10px;
                                     }
 
-                                    .certi_check {
+                                    .certi-check {
                                         display: flex;
                                         justify-content: center;
                                         align-items: center;
@@ -706,7 +742,8 @@ body {
                         }
                     }
 
-                    .store_btns{
+                    .store-btns{
+                        margin-bottom: 35px;
                         ul {
                             display: flex;
                             justify-content: space-between;
@@ -723,11 +760,34 @@ body {
                                     height: 2px;
                                     background: map-get($map: $color, $key: main-color);
                                     transition: all 0.3s;
+                                    font-weight: 500;
                                 }
 
                                 &.active::before {
                                     width: 100%;
                                 }
+                            }
+                        }
+                    }
+
+                    .store-contents {
+                        position: relative;
+                        height: 240px;                        
+
+                        & > div {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                        }
+
+                        .selling-items {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .item-info {
+                                @include item-info;
                             }
                         }
                     }
@@ -737,5 +797,123 @@ body {
             }
 
         }
+    }
+}
+
+#event {
+    margin-bottom: 200px;
+    .event {
+        padding: 30px 0;
+
+        .event-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+
+            h3 {
+                font-size: 24px;
+                font-weight: bold;
+            }
+            a {
+                font-size: map-get($map: $fontSize, $key: font-samll);
+                color: map-get($map: $color, $key: font-light-gray);
+
+                span {
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        .event-slider {
+            padding: 30px 0;
+
+            .slide-wrapper {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                height: 155px;
+                margin-bottom: 30px;
+                
+                .slide {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    & div {
+                        border: 1px solid map-get($map: $color, $key: font-light-gray);
+                        border-radius: 10px;
+                        overflow: hidden;
+                    }
+                }
+            }
+
+            .pagers {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
+                .pager {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background-color: map-get($map: $color, $key: font-light-gray);
+
+                    &.active {
+                        background-color: map-get($map: $color, $key: main-color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+#recommendation {
+    .recommendation {
+        display: flex;
+        flex-direction: column;
+        gap: 120px;
+        .related {
+            
+            h3 {
+                font-size: map-get($map: $fontSize, $key: font-extra-large);
+                font-weight: bold;
+                margin-bottom: 40px;
+            }
+
+            .related-items {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .item-info {
+                    @include item-info;
+                }
+            }
+        }
+        .recent {
+            
+            h3 {
+                font-size: map-get($map: $fontSize, $key: font-extra-large);
+                font-weight: bold;
+                margin-bottom: 40px;
+            }
+
+            .recent-items {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .item-info {
+                    @include item-info;
+                }
+            }
+        }
+
     }
 }

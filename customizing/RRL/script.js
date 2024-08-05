@@ -186,6 +186,8 @@ bannerBtn.addEventListener("click", () => {
 
   kakaoMap.classList.toggle("active");
   kakaoMapBg.classList.toggle("on");
+
+  map.relayout();
 });
 
 const mapContainer = document.getElementById("map");
