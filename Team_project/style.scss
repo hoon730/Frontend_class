@@ -22,6 +22,36 @@ a {
     margin-right: 10px;
 }
 
+@mixin item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .item-img {
+        cursor: pointer;
+    }
+
+    .item-detail {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .item-name {
+            width: 180px;
+            font-size: map-get($map: $fontSize, $key: font-samll);
+            text-overflow: ellipsis;
+            text-wrap: nowrap;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .item-price {
+            font-size: map-get($map: $fontSize, $key: font-large);
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+}
 /* variables */
 $color: (
     main-color: #0DCC5A,
@@ -98,7 +128,7 @@ body {
         }
     }
 
-    #header_item {
+    #header-item {
 
         .header-item {
             padding: 25px 0;
@@ -193,12 +223,12 @@ body {
                     .list {
                         position: absolute;
                         top: 20px;
-                        right: 0;
+                        left: 0;
                         width: 100%;
                         height: 0;
                         display: flex;
                         flex-direction: column;
-                        text-align: right;
+                        text-align: left;
                         transition: all 0.5s;
                         overflow: hidden;
 
@@ -209,8 +239,7 @@ body {
                         
                         li {
                             padding-top: 20px;
-                            padding-left: 40px;
-
+                            
                             a span {
                                 @include list-a;
                             }
@@ -277,6 +306,7 @@ body {
 
 #main {
     padding-top: 187px;
+    margin-bottom: 200px;
 
     .inner {
         
@@ -410,6 +440,7 @@ body {
                     .user-img {
                         width: 60px;
                         height: 60px;
+                        cursor: pointer;
                     }
 
                     .user-info {
@@ -417,10 +448,11 @@ body {
                         flex-direction: column;
                         justify-content: space-between;
                         width: 100%;
-
+                        
                         .user-id {
                             font-size: map-get($map: $fontSize, $key: font-large);
                             font-weight: 600;
+                            cursor: pointer;
                         }
 
                         .user-detail {
@@ -561,6 +593,7 @@ body {
                         font-size: map-get($map: $fontSize, $key: font-extra-large);
                         color: map-get($map: $color, $key: font-light-color);
                         box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
+                        cursor: pointer;
     
                         &.chat {
                             background: map-get($map: $color, $key: main-color);
@@ -619,8 +652,9 @@ body {
                 }
 
                 .desc-store {
+                    margin-bottom: 20px;
                     margin-bottom: 50px;
-                    
+
                     .store-heading{
                         margin-bottom: 30px; 
 
@@ -643,10 +677,19 @@ body {
                         display: flex;
                         align-items: center;
                         gap: 15px;
+                        margin-bottom: 40px;
 
                         .info-img {
-                        
+                            width:  60px;
+                            height: 60px;
+                            cursor: pointer;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                            }
                         }
+
 
                         .info-box {
 
@@ -654,7 +697,8 @@ body {
                                 display: flex;
                                 align-items: center;
                                 gap: 25px;
-                                margin-bottom: 15px;
+                                margin-bottom: 10px;
+                                cursor: pointer;
 
                                 .name {
                                     font-size: map-get($map: $fontSize, $key: font-large);
@@ -699,11 +743,179 @@ body {
                             }
                         }
                     }
+
+                    .store-btns{
+                        margin-bottom: 35px;
+                        ul {
+                            display: flex;
+                            justify-content: space-between;
+
+                            li {
+                                position: relative;
+                            
+                                &::before {
+                                    content: "";
+                                    position: absolute;
+                                    bottom: -5px;
+                                    left: 0;
+                                    width: 0%;
+                                    height: 2px;
+                                    background: map-get($map: $color, $key: main-color);
+                                    transition: all 0.3s;
+                                    font-weight: 500;
+                                }
+
+                                &.active::before {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+
+                    .store-contents {
+                        position: relative;
+                        height: 240px;                        
+
+                        & > div {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                        }
+
+                        .selling-items {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .item-info {
+                                @include item-info;
+                            }
+                        }
+                    }
                 }
 
                 
             }
 
         }
+    }
+}
+
+#event {
+    margin-bottom: 200px;
+    .event {
+        padding: 30px 0;
+
+        .event-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+
+            h3 {
+                font-size: 24px;
+                font-weight: bold;
+            }
+            a {
+                font-size: map-get($map: $fontSize, $key: font-samll);
+                color: map-get($map: $color, $key: font-light-gray);
+
+                span {
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        .event-slider {
+            padding: 30px 0;
+
+            .slide-wrapper {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                height: 155px;
+                margin-bottom: 30px;
+                
+                .slide {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    & div {
+                        border: 1px solid map-get($map: $color, $key: font-light-gray);
+                        border-radius: 10px;
+                        overflow: hidden;
+                    }
+                }
+            }
+
+            .pagers {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
+                .pager {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background-color: map-get($map: $color, $key: font-light-gray);
+
+                    &.active {
+                        background-color: map-get($map: $color, $key: main-color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+#recommendation {
+    .recommendation {
+        display: flex;
+        flex-direction: column;
+        gap: 120px;
+        .related {
+            
+            h3 {
+                font-size: map-get($map: $fontSize, $key: font-extra-large);
+                font-weight: bold;
+                margin-bottom: 40px;
+            }
+
+            .related-items {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .item-info {
+                    @include item-info;
+                }
+            }
+        }
+        .recent {
+            
+            h3 {
+                font-size: map-get($map: $fontSize, $key: font-extra-large);
+                font-weight: bold;
+                margin-bottom: 40px;
+            }
+
+            .recent-items {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .item-info {
+                    @include item-info;
+                }
+            }
+        }
+
     }
 }

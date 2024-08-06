@@ -10,8 +10,8 @@ window.addEventListener("scroll", () => {
     }
 }); 
 
-// list_btn click시 list event
-const listBtn = document.querySelector(".list_btn");
+// list-btn click시 list event
+const listBtn = document.querySelector(".list-btn");
 
 listBtn.addEventListener("click", () => {
     const list = document.querySelector(".list");
@@ -23,7 +23,7 @@ listBtn.addEventListener("click", () => {
 // list값 추가
 const list = document.querySelector(".list");
 const listArray = ["닌텐도", "아이폰", "화장품", "장난감", "영화티켓", "청바지", "슬리퍼", "운동화" ];
-const popularList = document.querySelector(".popular_searchedWord ul");
+const popularList = document.querySelector(".popular-searchedWord ul");
 
 
 listArray.forEach((item, index) => {
@@ -50,7 +50,7 @@ listArray.forEach((item, index) => {
     popularList.appendChild(li);
 });
 
-// popular_searchedWord event
+// popular-searchedWord event
 const rollingCB = () => {
     const prevItem = document.querySelector(".prev");
     prevItem.classList.remove("prev");
@@ -62,7 +62,7 @@ const rollingCB = () => {
     const nextItem = document.querySelector(".next");
 
     if (nextItem.nextElementSibling == null) {
-    const firstItem = document.querySelector(".popular_searchedWord ul li:first-child");
+    const firstItem = document.querySelector(".popular-searchedWord ul li:first-child");
     firstItem.classList.add("next");
     } else {
     nextItem.nextElementSibling.classList.add("next");
@@ -74,7 +74,7 @@ const rollingCB = () => {
 
 let interval = setInterval(rollingCB, 3000);
 
-const items = document.querySelectorAll(".popular_searchedWord ul li a");
+const items = document.querySelectorAll(".popular-searchedWord ul li a");
 items.forEach((item) => {
     item.addEventListener("mouseover", () => {
     clearInterval(interval);
