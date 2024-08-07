@@ -29,31 +29,66 @@
 
 // window.addEventListener("load", alert("즐거운 화요일"))
 
-const overout = document.querySelectorAll(".overout");
-const enterleaver = document.querySelectorAll(".enterleaver");
-let i = 0;
-console.log(overout);
+// const overout = document.querySelectorAll(".overout");
+// const enterleaver = document.querySelectorAll(".enterleaver");
+// let i = 0;
+// console.log(overout);
 
-overout.forEach((item, index) => {
-  if(index === 0) {
-    item.addEventListener("mouseover", function() {
-      this.querySelector("p:first-of-type").innerText = "mouseover";
-      this.querySelector("p:last-of-type").innerText = ++i
-    });
-    item.addEventListener("mouseout", function() {
-      this.querySelector("p:first-of-type").innerText = " mouseout";
-    });
-  }  
+// overout.forEach((item, index) => {
+//   if(index === 0) {
+//     item.addEventListener("mouseover", function() {
+//       this.querySelector("p:first-of-type").innerText = "mouseover";
+//       this.querySelector("p:last-of-type").innerText = ++i
+//     });
+//     item.addEventListener("mouseout", function() {
+//       this.querySelector("p:first-of-type").innerText = " mouseout";
+//     });
+//   }  
+// });
+
+// enterleaver.forEach((ele, i) => {
+//   if(i === 0) {
+//     ele.addEventListener("mouseenter", function() {
+//       this.querySelector("p:first-of-type").innerText = "mouseenter";
+//       this.querySelector("p:last-of-type").innerText = ++i
+//     });
+//     ele.addEventListener("mouseleave", function() {
+//       this.querySelector("p:first-of-type").innerText = " mouseleave";
+//     });
+//   }  
+// });
+
+
+// mouseover & mouseout
+let o = 0;
+
+const overoutOut = document.querySelector("div.out.overout");
+overoutOut.addEventListener("mouseover", function() {
+  const pItems = this.querySelectorAll("p");
+  pItems[0].innerText = "mouseover";
+  pItems[3].innerText = ++o;
 });
 
-enterleaver.forEach((ele, i) => {
-  if(i === 0) {
-    ele.addEventListener("mouseenter", function() {
-      this.querySelector("p:first-of-type").innerText = "mouseenter";
-      this.querySelector("p:last-of-type").innerText = ++i
-    });
-    ele.addEventListener("mouseleave", function() {
-      this.querySelector("p:first-of-type").innerText = " mouseleave";
-    });
-  }  
+const overoutIn = document.querySelector("div.in.overout");
+overoutIn.addEventListener("mouseover", function() {
+  const pItems  = this.querySelectorAll("p");
+  pItems[0].innerText = "mouseover";
+  pItems[1].innerText = ++o;
+});
+
+// mouseenter & mouseleave
+let e = 0;
+
+const enterleaveOut = document.querySelector("div.out.enterleaver");
+enterleaveOut.addEventListener("mouseenter", function() {
+  const pItems = this.querySelectorAll("p");
+  pItems[0].innerText = "mouseenter";
+  pItems[3].innerText = ++e;
+});
+
+const enterleaveIn = document.querySelector("div.in.enterleaver");
+enterleaveIn.addEventListener("mouseenter", function() {
+  const pItems  = this.querySelectorAll("p");
+  pItems[0].innerText = "mouseenter";
+  pItems[1].innerText = ++e;
 });
