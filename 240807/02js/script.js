@@ -8,6 +8,7 @@ stars.forEach((star, index) => {
       // if (i <= index) {
       //   item.classList.add("active");
       // }
+      console.log(index, i)
       if(i <= index) {
         item.classList.add("active");
       } else {
@@ -21,23 +22,23 @@ stars.forEach((star, index) => {
     switch(index) {
       case 0:
         message = "별로에요";
-        imageURL = "./img/star-lv1.png"
+        imageURL = "./img/star-lv1.png";
         break;
       case 1:
         message = "보통이에요";
-        imageURL = "./img/star-lv2.png"
+        imageURL = "./img/star-lv2.png";
         break;
       case 2:
         message = "그냥그래요";
-        imageURL = "./img/star-lv3.png"
+        imageURL = "./img/star-lv3.png";
         break;
       case 3:
         message = "맘에들어요";
-        imageURL = "./img/star-lv4.png"
+        imageURL = "./img/star-lv4.png";
         break;
       case 4:
         message = "아주좋아요";
-        imageURL = "./img/star-lv5.png"
+        imageURL = "./img/star-lv5.png";
         break;
     }
 
