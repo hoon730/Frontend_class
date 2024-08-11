@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contaienr {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    transition: all 0.5s;
+
+    &:hover .movie {
+        flex: 1;
+    }
+
+    .movie {
+        flex: 1;    
+        transition: all 0.5s;
+        
+        &.jb {
+            background: url("./img/main-jb.jpg") center/cover no-repeat;
+        }
+        &.kb {
+            background: url("./img/main-kb.jpg") center/cover no-repeat;
+        }
+        &.ib {
+            background: url("./img/main-ib.jpg") center/cover no-repeat;
+        }
+        &.outih {
+            background: url("./img/main-outih5.jpg") center/cover no-repeat;
+        }
+        &.pf {
+            background: url("./img/main-pf.jpg") center/cover no-repeat;
+        }
+        
+        &:hover {
+            flex: 1.3;
+        }
+    }
+}
