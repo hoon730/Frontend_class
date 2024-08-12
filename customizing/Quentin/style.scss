@@ -4,38 +4,78 @@
     box-sizing: border-box;
 }
 
-.contaienr {
+ul, li {
+    list-style: none;
+}
+
+.intro {
     width: 100%;
     height: 100vh;
-    display: flex;
-    transition: all 0.5s;
+    position: relative;
 
-    &:hover .movie {
-        flex: 1;
+    .line-box {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        
+        .line {
+            width: calc(100% /8);
+            height: 100%;
+            background: linear-gradient(90deg, rgba(51,5,0,1) 0%, rgba(168,8,8,1) 45%);
+
+            &.active {
+                animation: movingBar 0.8s ease-in-out forwards;
+                animation-delay: 3s;
+            }
+        }
     }
 
-    .movie {
-        flex: 1;    
-        transition: all 0.5s;
-        
-        &.jb {
-            background: url("./img/main-jb.jpg") center/cover no-repeat;
+    .rolling {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 60px;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+
+        ul {
+            width: 100%;
+            height: 300%;
+
+            li {
+                width: 100%;
+                height: 60px;
+                text-align: center;
+                font-size: 42px;
+                transition: all .8s;
+            }
+
+            &.active {
+                animation: rolling 3s linear forwards;
+            }
         }
-        &.kb {
-            background: url("./img/main-kb.jpg") center/cover no-repeat;
-        }
-        &.ib {
-            background: url("./img/main-ib.jpg") center/cover no-repeat;
-        }
-        &.outih {
-            background: url("./img/main-outih5.jpg") center/cover no-repeat;
-        }
-        &.pf {
-            background: url("./img/main-pf.jpg") center/cover no-repeat;
-        }
-        
-        &:hover {
-            flex: 1.3;
-        }
+
+    }
+}
+
+@keyframes movingBar {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes rolling {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(-200%);
     }
 }
