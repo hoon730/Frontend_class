@@ -1,9 +1,7 @@
 
 window.onload = function() {
   const lines = document.querySelectorAll(".line");
-  const rolling = document.querySelector(".rolling ul");
-
-  // rolling.classList.add("active");
+  const rollings = document.querySelectorAll(".rolling ul li");
 
   lines.forEach((line, index) => {
     setTimeout(() => {
@@ -11,10 +9,11 @@ window.onload = function() {
     },80*(index + 1));
   });
 
-  rolling.querySelectorAll("li").forEach((li, i) => {
+  for(let i = rollings.length - 1; i >= 0 ; i--) {
     setTimeout(() => {
-      li.style.transform = `translateY(-${i * 100}%)`
-    }, 1000*(i + 1));
-  })
+      rollings[i].classList.add("active");
+    }, 80*(i + 1));
+  };
+
 };
 
