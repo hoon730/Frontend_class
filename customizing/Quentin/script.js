@@ -6,13 +6,13 @@ window.onload = function() {
   lines.forEach((line, index) => {
     setTimeout(() => {
       line.classList.add("active");
-    },80*(index + 1));
+    },80 * (index + 1));
   });
 
-  for(let i = rollings.length - 1; i >= 0 ; i--) {
+  for(let i = 0; i < rollings.length; i++) {
     setTimeout(() => {
       rollings[i].classList.add("active");
-    }, 80*(i + 1));
+    }, 250 * (i + 1));
   };
 
 };
