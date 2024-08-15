@@ -32,17 +32,15 @@ body {
   background: #000;
 }
 .intro .line-box .line.active {
-  animation: movingBar 0.8s ease-in-out forwards;
-  animation-delay: 1s;
+  animation: movingBar 0.8s 2s ease-in-out both;
 }
-.intro .rolling {
+.intro .rising {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.intro .rolling ul li {
-  background: #000;
+.intro .rising ul .rising-text {
   font-family: "Ysabeau SC", sans-serif;
   font-size: 50px;
   font-weight: 800;
@@ -55,14 +53,28 @@ body {
   transform: translateY(100%);
   transition: all 0.5s;
 }
-.intro .rolling ul li:nth-child(3), .intro .rolling ul li:nth-child(4) {
+.intro .rising ul .rising-text:nth-child(3), .intro .rising ul .rising-text:nth-child(4) {
   font-size: 70px;
 }
-.intro .rolling ul li.active {
+.intro .rising ul .rising-text.active {
   opacity: 1;
   transform: translateY(0%);
 }
 
+@keyframes risingText {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200%);
+  }
+}
 @keyframes movingBar {
   0% {
     transform: translateY(0);

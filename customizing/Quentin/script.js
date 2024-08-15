@@ -1,7 +1,7 @@
 
 window.onload = function() {
   const lines = document.querySelectorAll(".line");
-  const rollings = document.querySelectorAll(".rolling ul li");
+  const risingTexts = document.querySelectorAll(".rising-text");
 
   lines.forEach((line, index) => {
     setTimeout(() => {
@@ -9,11 +9,10 @@ window.onload = function() {
     },80 * (index + 1));
   });
 
-  for(let i = 0; i < rollings.length; i++) {
+  risingTexts.forEach((risingText, i) => {
     setTimeout(() => {
-      rollings[i].classList.add("active");
+      risingText.classList.add("active");
     }, 250 * (i + 1));
-  };
-
+  });
 };
 

@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ysabeau+SC:wght@1..1000&display=swap');
+
+/* reset */
+@import "./reset.scss";
+
+/* built-in-function */
+$color: (
+  bg-dark-color: #000,
+  bg-gray-color: #808080,
+  bg-light-color: #fff,
+  accent-color: #efda1c,
+  theme-color: #55b2e4,
+);
+
+$size: 14px;
+
+/* common */
+body {
+  color: map-get($map: $color, $key: bg-light-color);
+}
+.background {
+  width: 100%;
+  height: 100vh;
+  background: url("./img/main-bg-kb6.jpg") center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .outerbox {
+    width: 808px;
+    height: 544px;
+    backdrop-filter: blur(15px);
+    background: rgba($color: #000, $alpha: 0.7);
+    border-radius: 8px;
+    position: relative;
+    .wrapper {
+      display: flex;
+      padding: 36px;
+      
+    }
+  }
+}
+
+/* intro */
+.intro {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 2;
+  animation: intro 0.8s 2.2s ease-in-out both;
+  
+  .line-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    
+    .line {
+      width: calc(100% /8);
+      height: 100%;
+      border-right: 1px solid #EDC10E;
+      border-bottom: 1px solid #EDC10E;
+          background: #000;
+
+          &.active {
+              animation: movingBar 0.8s 2s ease-in-out both;
+          }
+      }
+  }
+
+  .rising {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    ul {
+      transform: scale(0);
+      opacity: 0;
+      transition: all 0.8s;
+        li {
+            font-family: "Ysabeau SC", sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -1px;
+            text-align: center;
+            transition: all .8s;
+            text-shadow: 2px 1px 0px rgba($color: #ff8800, $alpha: 1);
+            color: #EDC10E;
+            // opacity: 0;
+            // transform: translateY(100%);
+            // transform: scale(0);
+            // transition: all 0.8s;
+
+
+            &:nth-child(3),
+            &:nth-child(4) {
+              font-weight: 900;
+              font-size: 70px;
+              text-shadow: 2px 3px 0px rgba($color: #ff8800, $alpha: 1);
+            }
+
+          }
+        }
+        
+    &.active ul {
+      transform: scale(1);
+      opacity: 1;
+
+      li {
+        // opacity: 1;
+        // transform: scale(1);
+        // transform: translateY(0%);
+      }
+    }
+  }
+}
+
+@keyframes intro {
+  0% {
+      display: block;
+      transform: translateY(0%);
+  }
+  100% {
+      display: none;
+      transform: translateY(-100%);
+  }
+}
+
+@keyframes movingBar {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-100%);
+  }
+}
+
+
+/* wrapper_left */
+.wrapper_left {
+  width: 203px;
+  height: 472px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10px;
+
+  .wrapper_left_header {
+    width: 100%;
+    font-size: $size;
+    display: flex;
+
+    .movie-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+
+      span:nth-child(1) {}
+      span:nth-child(2),
+      span:nth-child(3) {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .wrapper_left_body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+
+    .left_body_header {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 15px;
+
+      .left_body_header_gray {
+        width: 100%;
+        height: 265px;
+        background: url("./img/kb-poster.jpg") center/cover no-repeat;
+        border-radius: 8px;
+      }
+      .left_body_header_line {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px;
+
+        .line1 {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          span {
+            font-size: 12px;
+          }
+        }
+        .line2 {
+          span {
+            display: inline-block;
+            padding: 5px 15px;
+            border: 1px solid map-get($color, bg-gray-color);
+            border-radius: 15px;
+            font-size: 12px;
+            transition: all 0.3s;
+  
+            &:hover {
+              background: #444;
+            }
+          }
+        }
+        }
+
+    }
+    .left_body_profile {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .profile_detail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+
+        h3 {
+          font-size: 14px;
+        }
+
+        .detail_box {
+          display: flex;
+          font-size: 12px;
+          gap: 5px;
+
+          i {
+            color: map-get($map: $color, $key: accent-color);
+          }
+
+          .stars {
+            display: flex;
+            align-items: center;
+            .fa-star{
+              color: #333;
+              cursor: pointer;
+              &.active {
+                color: yellow;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* wrapper_right */
+.wrapper_right {
+  width: 524px;
+  height: 472px;
+  padding: 0 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .wrapper_right_header {
+    .right_header_title {
+      font-size: 14px;
+      text-align: right;
+    }
+  }
+  .wrapper_right_body {
+    width: 100%;
+    height: 100%;
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: $size/2;
+    }
+  }
+}
+
+/* navigation */
+.navigation {
+  width: 70px;
+  height: 110px;
+  position: absolute;
+  top: 20%;
+  right: -69px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .navigation_item {
+    width: 100%;
+    height: 33px;
+    background: linear-gradient(to bottom, map-get($color, accent-color),#aa9c17, #55510F);
+    color: map-get($color, bg-dark-color);
+    text-align: center;
+    line-height: 30px;
+    border-radius: 0 5px 5px 0;
+    font-size: $size;
+    font-weight: bold;
+    border: 1px solid map-get($color, bg-dark-color);
+    cursor: pointer;
+  }
+}
