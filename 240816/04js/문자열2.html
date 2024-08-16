@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script defer src="./문자열2.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <form action="http://127.0.0.1:58664" method="get">
+    <label for="userEmail"><input type="email" name="userEmail" id="userEmail" placeholder="이메일 주소를 입력하세요."></label>
+    <input type="submit" value="입력">
+  </form>
+  <div id="result"></div>
+</body>
+</html>

@@ -4,13 +4,24 @@ window.onload = function() {
   const rising = document.querySelector(".rising");
   const intro = document.querySelector(".intro");
 
-  lines.forEach((line, index) => {
-    setTimeout(() => {
-      line.classList.add("active");
-    },80 * (index + 1));
-  });
-  rising.classList.add("active");
-  intro.classList.add("active")
+  // lines.forEach((line, index) => {
+  //   setTimeout(() => {
+  //     line.classList.add("active");
+  //   },80 * (index + 1));
+  // });
+  // rising.classList.add("active");
+  // intro.classList.add("active");
+
+  for(let i = 0; i <= lines.length; i++) {
+    rising.classList.add("active");
+    
+    if(i === lines.length) {
+      intro.classList.add("active");
+    } else {
+      lines[i].classList.add("active");
+    }
+  };
+
 };
 
 

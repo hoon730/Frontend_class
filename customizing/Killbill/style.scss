@@ -22,7 +22,7 @@ body {
 .background {
   width: 100%;
   height: 100vh;
-  background: url("./img/main-bg-kb6.jpg") center/cover;
+  background: url("./img/main-bg-kb5.jpg") center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,7 +47,11 @@ body {
   height: 100vh;
   position: absolute;
   z-index: 2;
+  // animation: intro 0.8s 2.2s ease-in-out both;
+
+  &.active {
   animation: intro 0.8s 2.2s ease-in-out both;
+  }
   
   .line-box {
     width: 100%;
@@ -77,6 +81,7 @@ body {
       transform: scale(0);
       opacity: 0;
       transition: all 0.8s;
+
         li {
             font-family: "Ysabeau SC", sans-serif;
             font-size: 28px;
@@ -99,18 +104,17 @@ body {
               text-shadow: 2px 3px 0px rgba($color: #ff8800, $alpha: 1);
             }
 
+            &.active {
+              // opacity: 1;
+              // transform: scale(1);
+              // transform: translateY(0%);
+            }
           }
         }
         
     &.active ul {
       transform: scale(1);
       opacity: 1;
-
-      li {
-        // opacity: 1;
-        // transform: scale(1);
-        // transform: translateY(0%);
-      }
     }
   }
 }
