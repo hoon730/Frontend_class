@@ -35,6 +35,7 @@ body {
     position: relative;
     .wrapper {
       display: flex;
+      justify-content: space-between;
       padding: 36px;
       
     }
@@ -265,9 +266,9 @@ body {
 .wrapper_right {
   width: 524px;
   height: 472px;
-  padding: 0 5px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 10px;
   .wrapper_right_header {
     .right_header_title {

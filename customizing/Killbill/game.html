@@ -4,46 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/09d57ad258.js" crossorigin="anonymous"></script>
   <!-- game css -->
   <script defer src="./game.js"></script>
   <link rel="stylesheet" href="./game.css">
 </head>
 <body>
   <div class="wrapper">
-    <div class="wrapper_header">
-      <div class="contents_title">
-        <div class="title">잼나는 GAME</div>
-        <div class="subtitle">TODAY CHOICE</div>
+    <div class="score-box">
+      <div class="audience-score">
+        <h3>실관람객 평점</h3>
+        <span class="score">8.31 <em>/ 10</em></span>
+        <ul class="stars">
+          <li><i class="fa-solid fa-star"></i></li>
+          <li><i class="fa-solid fa-star"></i></li>
+          <li><i class="fa-solid fa-star"></i></li>
+          <li><i class="fa-solid fa-star"></i></li>
+          <li><i class="fa-solid fa-star"></i></li>
+        </ul>
+        <span class="participants">2317명 참여</span>
+        <div class="gender-box">
+          <div class="male">
+            <h6>남자</h6>
+            <span><i class="fa-solid fa-person"></i>8.46</span>            
+          </div>
+          <div class="female">
+            <h6>여자</h6>
+            <span><i class="fa-solid fa-person-dress"></i>8.18</span>            
+          </div>
+        </div>
       </div>
-      <div class="divideLine"></div>
+      <div class="score-ratio">
+        <h3>점수별 비율</h3>
+        <div class="ratio-box">
+          <i class="fa-solid fa-star"></i>
+          <span class="ratio">9-10</span>
+          <div class="bar">
+            <div class="user-ber"></div>
+          </div>
+          <span class="perentage">22%</span>
+        </div>
+        <div class="ratio-box">
+          <i class="fa-solid fa-star"></i>
+          <span class="ratio">7-8</span>
+          <div class="bar">
+            <div class="user-ber"></div>
+          </div>
+          <span class="perentage">63%</span>
+        </div>
+        <div class="ratio-box">
+          <i class="fa-solid fa-star"></i>
+          <span class="ratio">5-6</span>
+          <div class="bar">
+            <div class="user-ber"></div>
+          </div>
+          <span class="perentage">15%</span>
+        </div>
+        <div class="ratio-box">
+          <i class="fa-solid fa-star"></i>
+          <span class="ratio">3-4</span>
+          <div class="bar">
+            <div class="user-ber"></div>
+          </div>
+          <span class="perentage">0%</span>
+        </div>
+        <div class="ratio-box">
+          <i class="fa-solid fa-star"></i>
+          <span class="ratio">1-2</span>
+          <div class="bar">
+            <div class="user-ber"></div>
+          </div>
+          <span class="perentage">0%</span>
+        </div>
+      </div>
     </div>
-    <div class="game_container">
-      <img src="./contents/word.png" alt="wordgame">
-      <div class="game_title">끝말잇기</div>
-      <div class="game_subtitle">제시어 : <span id="word">산기슭</span></div>
-      <div class="word_text">
-        <form name="wordgame" action="https://localhost:3000" method="post">
-          <input type="text" name="myword" id="myword" class="textbox" placeholder="단어를 입력하세요">
-          <input type="submit" value="입력" class="search">
-        </form>
+    <div class="review-box">
+      <div class="container">
+        <div class="user-review">
+          <div class="rate-stars">
+            <h3>별점을 선택해주세요</h3>
+            <ul class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </ul>
+          </div>
+          <div class="form-box">
+            <form action="http://127.0.0.1:5500/" method="get">
+              <input type="text" name="review" id="review" placeholder="관람평을 입력해주세요.">
+              <input type="submit" value="등록">
+            </form>
+          </div>
+        </div>
+        <ul class="reviews">
+          <li>
+            <div class="result-stars">
+              <ul class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </ul>
+              <div class="print">10</div>
+            </div>
+            <div class="result-review-box">
+              <div class="result-user">염*훈</div>
+              <span class="result-review">감독이 좋아하는 걸 찍었을 따름인데 모두가 열광한다.</span>
+            </div>
+            <div class="result-time">
+              <span>2022.10.07. 07:39</span>
+            </div>
+          </li>
+        </ul>
       </div>
-      <div id="result" class="word_result">결과!</div>
-    </div>
-    <div class="game_container">
-      <img src="./contents/lotto.png" alt="lottogame">
-      <div class="game_title">LOTTO</div>
-      <div class="game_subtitle">클릭해주요~!!</div>
-      <div class="game_lotto_number">
-        <span>3</span>
-        <span>5</span>
-        <span>10</span>
-        <span>30</span>
-        <span>24</span>
-        <span>14</span>
-      </div>
-      <button class="wrapper_lotto_btn">클릭!</button>
     </div>
   </div>
 </body>
 </html>
-+

@@ -1,28 +1,27 @@
 // intro
-window.onload = function() {
-  const lines = document.querySelectorAll(".line");
-  const rising = document.querySelector(".rising");
-  const intro = document.querySelector(".intro");
+// window.onload = function() {
+//   const lines = document.querySelectorAll(".line");
+//   const rising = document.querySelector(".rising");
+//   const intro = document.querySelector(".intro");
 
-  // lines.forEach((line, index) => {
-  //   setTimeout(() => {
-  //     line.classList.add("active");
-  //   },80 * (index + 1));
-  // });
-  // rising.classList.add("active");
-  // intro.classList.add("active");
+//   // lines.forEach((line, index) => {
+//   //   setTimeout(() => {
+//   //     line.classList.add("active");
+//   //   },80 * (index + 1));
+//   // });
+//   // rising.classList.add("active");
+//   // intro.classList.add("active");
 
-  for(let i = 0; i <= lines.length; i++) {
-    rising.classList.add("active");
+//   for(let i = 0; i <= lines.length; i++) {
+//     rising.classList.add("active");
     
-    if(i === lines.length) {
-      intro.classList.add("active");
-    } else {
-      lines[i].classList.add("active");
-    }
-  };
-
-};
+//     if(i === lines.length) {
+//       intro.classList.add("active");
+//     } else {
+//       lines[i].classList.add("active");
+//     }
+//   };
+// };
 
 
 // Ranking Kill bill movie
@@ -69,6 +68,8 @@ const menuHome = document.querySelector("#menuHome");
 const menuGame = document.querySelector("#menuGame");
 const menuJukebox = document.querySelector("#menuJukebox");
 const contentFrame = document.querySelector("#contentFrame");
+const titleList = ["트레일러 & 스토리", "리뷰 & 평점", "BGM & OST"];
+const rightTitle = document.querySelector(".right_header_title");
 
 const homeChange = () => {
   contentFrame.setAttribute("src", "./home.html");
@@ -78,6 +79,7 @@ const homeChange = () => {
   color: #000;`;
   menuJukebox.style =`background: linear-gradient(to bottom, #efda1c, #aa9c17, #55510F);
   color: #000;`;
+  rightTitle.innerText = titleList[0];
 };
 const gameChange = () => {
   contentFrame.setAttribute("src", "./game.html");
@@ -87,6 +89,7 @@ const gameChange = () => {
   color: #efda1c; border: 1px solid #efda1c`;
   menuJukebox.style =  `background: linear-gradient(to bottom, #efda1c, #aa9c17, #55510F);
   color: #000;`;
+  rightTitle.innerText = titleList[1];
 };
 const jukeboxChange = () => {
   contentFrame.setAttribute("src", "./jukebox.html");
@@ -96,8 +99,12 @@ const jukeboxChange = () => {
   color: #000;`;
   menuJukebox.style =`background: #000;
   color: #efda1c; border: 1px solid #efda1c`;
+  rightTitle.innerText = titleList[2];
 };
 
 menuHome.addEventListener("click", homeChange);
 menuGame.addEventListener("click", gameChange);
 menuJukebox.addEventListener("click", jukeboxChange);
+
+
+

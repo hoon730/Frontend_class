@@ -1,93 +1,94 @@
-// 끝말잇기 게임
 
-// 1. 제시어의 끝단어 확인
-// 1_1 컴퓨터에게 최초의 제시어가 무엇인지 알려줘야 함!
-// 1_2 3_1에서 이벤트의 시작을 알리는 "입력버튼"이 무엇인지 알려줘야 함!
-
-// 2. 끝단어로 시작하는 단어를 입력
-// 2.1 사용자가 입력한 단어 무엇인지를 알아야함!!
-// 2.2 끝단어로 시작하는 단어 == 사용자가 입력한 단어
-
-
-// 3. 단어 입력 후 입력
-// 3_1. 입력버튼이 클릭 => 검증 (*이벤트)
-
-// 4. 문제 여부 판단 => 문제없다 !!! 문제있다 !!!
-// 4_1 조건에 따라서 값을 어떻게 출력
-
-// const button = document.querySelector(".search");
-
-// button.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   console.log("입력버튼 클릭!")
-// });
-
-
-// Word Game
-const gameStart = (e) => {
-  e.preventDefault();
-  let word = document.querySelector("#word").innerText;
-  let myword = document.querySelector("#myword").value;
-  let lastWord = word[word.length - 1];
-  let firstWord = myword[0];
-
-  if(lastWord === firstWord) {
-    document.querySelector("#result").innerText = "정답입니다!";
-    document.querySelector("#word").innerText = myword;
-    document.querySelector("#myword").value = ""
-  } else {
-    document.querySelector("#result").innerText = "틀렸습니다!";
-    document.querySelector("#myword").value = ""
+  window.onload = function() {
+    
+    const userBars = document.querySelectorAll(".user-ber");
+    userBars.forEach((bar) => {
+      bar.classList.add("active");
+    });
   }
+  
+
+const form = document.querySelector("form");
+const input = document.querySelector("input[type='text']");
+const ul = document.querySelector(".reviews");
+
+let todos = [];
+
+const save = () => {
+  localStorage.setItem("todos", JSON.stringify(todos));
+};
+
+const delItem = (e) => {
+  const target = e.target.parentElement;
+  target.remove();
+  todos = todos.filter((todo) => todo.id != target.id);
+  save();
+  target.remove();
 }
 
-const button = document.querySelector(".word_text form");
+const addItem = (todo) => {
+  if(todo.text !== "") {
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    const button = document.createElement("button");
+    const time = document.createElement("span");
 
-button.addEventListener("submit", gameStart);
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth() + 1;
+    const date = today.getDate();
+    
+    let hrs = today.getHours();
+    let mins = today.getMinutes();
 
+    // month = (month < 10) ? `0${month}` : month;  
+    // date = (date < 10) ? `0${date}` : date;  
+    // hrs = (hrs < 10) ? `0${hrs}` : hrs;  
+    // mins = (mins < 10) ? `0${mins}` : mins;  
 
-//Lotto Game
+    time.innerText = `${year}.${month}.${date} ${hrs}.${mins}`;
+    time.className = "result-time";
+    span.innerText = todo.text;
+    span.className = "result-review";
+    button.innerText = "삭제";
+    button.addEventListener("click", delItem);
 
-//1부터 45까지의 6개의 숫자가 중복없이 랜덤으로 동시에 추출이되어야 함
-// 1. 클릭! 버튼이 무엇인지를 컴퓨터에게 알려줘야 함
-
-// 2. 클릭! 버튼 클릭시, 숫자 생성되어야 함 (*이벤트)
-
-// 3. JS > 내장 객체 > 숫자를 랜덤으로 생서해주는 함수
-// 3_1. random() => 0~1미만의 실수 & 난수 생성!!
-// 0.9999999999999999999999999999 = 45 || 44
-// (*실수 : 소수점을 가지고 있는 숫자)
-// (*난수 : 불규칙적으로 숫자를 생성하는 행위)
-// (*소수점을 없애야하는 필요 : floor() => 소수점을 버림 // ceil() => 소수점을 올림 // round() => 소수점을 반올림)
-
-// 4. 중복x
-// 4_1 set() 클래스 => 무작위로 생성된 숫자를 배열에 한개씩 담을 예정 => 중복된 값이 생성되는 경우, 1개로 합쳐주는 역할
-// 4_2 6개의 숫자 완성 => 2번째 & 4번째 숫자,같은 경우
-// 조건문 => 재추첨을 하겠습니다!!!
-
-const lottoButton = document.querySelector(".wrapper_lotto_btn");
-const result = document.querySelector(".game_lotto_number");
-console.log(result)
-
-const luckyNumber = {
-  digitCount: 6,
-  maxNumber: 44,
-};
-
-const startLotto = () => {
-  const { digitCount, maxNumber } = luckyNumber;
-  // const digitcount = luckyNumber.digitCount;
-  // const maxNumber = luckyNumber.maxNumber;
-  
-  let myNumber = new Set();
-  for(let i = 0; i < digitCount; i++) {
-    myNumber.add(Math.floor(Math.random() * maxNumber) + 1);
-  }
-  if(myNumber.size === 6) {
-    result.innerText = `${[...myNumber]}`; // ... : 전개 연산자 => 문자열로 치환 
-  } else {
-    result.innerText = "재추첨 하겠습니다!";
+    li.appendChild(span);
+    li.appendChild(time);
+    li.appendChild(button);
+    ul.appendChild(li);
+    li.id = todo.id;
   }
 };
 
-lottoButton.addEventListener("click", startLotto);
+const handler = (e) => {
+  e.preventDefault();
+
+  const todo = {
+    id: Date.now(),
+    text: input.value,
+  };
+
+  todos.push(todo);
+  addItem(todo);
+  save();
+
+  input.value = "";
+
+};
+
+const init = () => {
+  //다시 불러올때 객체의 형태로 가져와야 하므로 parse 함수를 사용한다.
+  const userTodos = JSON.parse(localStorage.getItem(`todos`));
+
+  if(userTodos) {
+    userTodos.forEach((todo) => {
+      addItem(todo);
+    });
+    todos = userTodos;
+  }
+};
+
+init();
+
+form.addEventListener("submit", handler);
