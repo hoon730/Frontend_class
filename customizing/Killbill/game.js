@@ -20,6 +20,30 @@ stars.forEach((star, index) => {
       bar.classList.add("active");
     });
   }
+
+  let number = 0;
+  let currentIndex = 0;
+  const numbers = [22, 63, 15];
+  
+  const startNumbering = (numb) => {
+    console.log(currentIndex)
+    const percentages = document.querySelectorAll(".percentage");
+    number++;
+    percentages[currentIndex].innerText = `${number}%`;
+
+    if (number < numb) {
+      setTimeout(startNumbering, 5);
+    }
+  };
+
+  const sendingNumbers = () => {
+    numbers.forEach((num) => {
+      startNumbering(num);
+      currentIndex++
+    });
+  }
+
+  sendingNumbers();
   
 
 const form = document.querySelector("form");
@@ -42,36 +66,59 @@ const delItem = (e) => {
 
 const addItem = (todo) => {
   if(todo.text !== "") {
+    const div = document.createElement("div");
     const li = document.createElement("li");
     const span = document.createElement("span");
     const button = document.createElement("button");
     const time = document.createElement("span");
+    const resultId = document.createElement("span");
+    
 
+    //time
     const today = new Date();
     const year = today.getFullYear();
-    const month = today.getMonth() + 1;
-    const date = today.getDate();
+    let month = today.getMonth() + 1;
+    let date = today.getDate();
+
+    month = (month < 10) ? `0${month}` : month;  
+    date = (date < 10) ? `0${date}` : date;  
     
     let hrs = today.getHours();
     let mins = today.getMinutes();
 
-    // month = (month < 10) ? `0${month}` : month;  
-    // date = (date < 10) ? `0${date}` : date;  
-    // hrs = (hrs < 10) ? `0${hrs}` : hrs;  
-    // mins = (mins < 10) ? `0${mins}` : mins;  
+    hrs = (hrs < 10) ? `0${hrs}` : hrs;  
+    mins = (mins < 10) ? `0${mins}` : mins;  
 
+    resultId.className = "result-user";
     time.innerText = `${year}.${month}.${date} ${hrs}.${mins}`;
     time.className = "result-time";
     span.innerText = todo.text;
     span.className = "result-review";
     button.innerText = "삭제";
     button.addEventListener("click", delItem);
+    div.className = "result-review-box";
+    li.className = "new-review";
 
-    li.appendChild(span);
+    
+    div.appendChild(resultId);
+    div.appendChild(span);
+    li.appendChild(div)
     li.appendChild(time);
     li.appendChild(button);
     ul.appendChild(li);
     li.id = todo.id;
+    
+    // email
+    const userId = document.querySelector("#userId");
+
+    if(userId.value !== "") {
+      let userName = userId.value.split("@")[0];
+      userName = userName.slice(0, 2);
+      const domain = userId.value.split("@")[1];
+      document.querySelector(".new-review .result-user").innerText = `${userName}**@${domain}`;
+      userId.value = "";
+    }
+
   }
 };
 

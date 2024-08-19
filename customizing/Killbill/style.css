@@ -186,6 +186,7 @@ body {
   border-radius: 15px;
   font-size: 12px;
   transition: all 0.3s;
+  cursor: pointer;
 }
 .wrapper_left .wrapper_left_body .left_body_header .left_body_header_line .line2 span:hover {
   background: #444;

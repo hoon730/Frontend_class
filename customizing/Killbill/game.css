@@ -75,13 +75,10 @@ body {
 .wrapper .score-box .audience-score .stars li i {
   font-size: 13px;
   position: relative;
-  color: #333;
-  overflow: hidden;
-}
-.wrapper .score-box .audience-score .stars li i::before {
-  content: "\f005";
-  font-family: "fontawesome";
   color: #ffe400;
+}
+.wrapper .score-box .audience-score .stars li:nth-child(5) i {
+  color: #333;
 }
 .wrapper .score-box .audience-score .participants {
   font-size: 14px;
@@ -153,7 +150,7 @@ body {
   border-radius: 5px;
   transition: all 0.5s;
 }
-.wrapper .score-box .score-ratio .ratio-box .perentage {
+.wrapper .score-box .score-ratio .ratio-box .percentage {
   text-align: right;
   width: 30px;
 }
@@ -173,45 +170,53 @@ body {
   gap: 10px;
   margin-bottom: 15px;
 }
-.wrapper .review-box .container .user-review .rate-stars {
-  display: flex;
-  justify-content: space-between;
-}
-.wrapper .review-box .container .user-review .rate-stars h3 {
-  font-size: 16px;
-  font-weight: 400;
-}
-.wrapper .review-box .container .user-review .rate-stars .stars {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.wrapper .review-box .container .user-review .rate-stars .stars .fa-star {
-  color: #333;
-  cursor: pointer;
-}
-.wrapper .review-box .container .user-review .rate-stars .stars .fa-star.active {
-  color: yellow;
-}
 .wrapper .review-box .container .user-review .form-box {
   width: 100%;
 }
-.wrapper .review-box .container .user-review .form-box form {
+.wrapper .review-box .container .user-review .form-box form ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.wrapper .review-box .container .user-review .form-box form ul li {
   width: 100%;
   display: flex;
   border-radius: 5px;
   overflow: hidden;
 }
-.wrapper .review-box .container .user-review .form-box form input[type=text] {
+.wrapper .review-box .container .user-review .form-box form ul:first-child {
+  justify-content: space-between;
+  align-items: center;
+}
+.wrapper .review-box .container .user-review .form-box form ul:first-child label {
+  font-size: 14px;
+  width: 100%;
+}
+.wrapper .review-box .container .user-review .form-box form ul:first-child input[type=email] {
+  border: none;
+  padding: 3px 5px;
+  padding-left: 15px;
+  border-radius: 3px;
+}
+.wrapper .review-box .container .user-review .form-box form ul:first-child input[type=email]:focus {
+  outline: none;
+}
+.wrapper .review-box .container .user-review .form-box form ul:first-child input[type=email]::-moz-placeholder {
+  font-size: 12px;
+}
+.wrapper .review-box .container .user-review .form-box form ul:first-child input[type=email]::placeholder {
+  font-size: 12px;
+}
+.wrapper .review-box .container .user-review .form-box form ul:last-child input[type=text] {
   width: 100%;
   border: none;
   padding: 8px 0;
   padding-left: 20px;
 }
-.wrapper .review-box .container .user-review .form-box form input[type=text]:focus {
+.wrapper .review-box .container .user-review .form-box form ul:last-child input[type=text]:focus {
   outline: none;
 }
-.wrapper .review-box .container .user-review .form-box form input[type=submit] {
+.wrapper .review-box .container .user-review .form-box form ul:last-child input[type=submit] {
   padding: 8px 20px;
   font-weight: 600;
   background: #FFBB02;
@@ -220,36 +225,30 @@ body {
   border: none;
   transition: all 0.3s;
 }
-.wrapper .review-box .container .user-review .form-box form input[type=submit]:hover {
+.wrapper .review-box .container .user-review .form-box form ul:last-child input[type=submit]:hover {
   background: #333;
   color: #ffe400;
-}
-.wrapper .review-box .container .reviews li .result-stars {
-  display: flex;
-  gap: 15px;
-}
-.wrapper .review-box .container .reviews li .result-stars .stars {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-}
-.wrapper .review-box .container .reviews li .result-stars .stars i {
-  font-size: 10px;
-  color: #ffe400;
-}
-.wrapper .review-box .container .reviews li .result-stars .print {
-  line-height: 21px;
 }
 .wrapper .review-box .container .reviews li .result-review-box {
   display: flex;
   gap: 15px;
-  font-size: 15px;
+}
+.wrapper .review-box .container .reviews li .result-review-box .result-user {
+  font-size: 13px;
+}
+.wrapper .review-box .container .reviews li .result-review-box .result-review {
+  width: 379px;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .wrapper .review-box .container .reviews li .result-time {
   color: #999;
   font-size: 14px;
 }
 .wrapper .review-box .container .reviews li button {
+  margin-left: 15px;
   padding: 5px;
   border: none;
   border-radius: 5px;
@@ -260,4 +259,7 @@ body {
 .wrapper .review-box .container .reviews li button:hover {
   color: #111;
   background: #ffe400;
+}
+.wrapper .review-box .container .reviews li .new-review .result-review-box .result-user {
+  font-size: 13px;
 }

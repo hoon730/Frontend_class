@@ -43,7 +43,7 @@
           <div class="bar">
             <div class="user-ber"></div>
           </div>
-          <span class="perentage">22%</span>
+          <span class="percentage">22%</span>
         </div>
         <div class="ratio-box">
           <i class="fa-solid fa-star"></i>
@@ -51,7 +51,7 @@
           <div class="bar">
             <div class="user-ber"></div>
           </div>
-          <span class="perentage">63%</span>
+          <span class="percentage">63%</span>
         </div>
         <div class="ratio-box">
           <i class="fa-solid fa-star"></i>
@@ -59,7 +59,7 @@
           <div class="bar">
             <div class="user-ber"></div>
           </div>
-          <span class="perentage">15%</span>
+          <span class="percentage">15%</span>
         </div>
         <div class="ratio-box">
           <i class="fa-solid fa-star"></i>
@@ -67,7 +67,7 @@
           <div class="bar">
             <div class="user-ber"></div>
           </div>
-          <span class="perentage">0%</span>
+          <span class="percentage">0%</span>
         </div>
         <div class="ratio-box">
           <i class="fa-solid fa-star"></i>
@@ -75,44 +75,32 @@
           <div class="bar">
             <div class="user-ber"></div>
           </div>
-          <span class="perentage">0%</span>
+          <span class="percentage">0%</span>
         </div>
       </div>
     </div>
     <div class="review-box">
       <div class="container">
         <div class="user-review">
-          <div class="rate-stars">
-            <h3>별점을 선택해주세요</h3>
-            <ul class="stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </ul>
-          </div>
           <div class="form-box">
-            <form action="http://127.0.0.1:5500/" method="get">
-              <input type="text" name="review" id="review" placeholder="관람평을 입력해주세요.">
-              <input type="submit" value="등록">
+            <form action="http://127.0.0.1:5501" method="get">
+              <ul>
+              <li>
+                <label for="userId">이메일 주소와 관람평을 남겨주세요.</label>
+                <input type="email" name="userId" id="userId" placeholder="이메일 주소를 입력하세요.">
+              </li>  
+              <li>
+                <input type="text" name="review" id="review" placeholder="관람평을 입력해주세요.">
+                <input type="submit" value="등록">
+              </li>  
+              </ul>
             </form>
           </div>
         </div>
         <ul class="reviews">
           <li>
-            <div class="result-stars">
-              <ul class="stars">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </ul>
-              <div class="print">10</div>
-            </div>
             <div class="result-review-box">
-              <div class="result-user">염*훈</div>
+              <div class="result-user">ho**@gmail.com</div>
               <span class="result-review">감독이 좋아하는 걸 찍었을 따름인데 모두가 열광한다.</span>
             </div>
             <div class="result-time">
