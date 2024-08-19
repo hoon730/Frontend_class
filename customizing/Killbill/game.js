@@ -1,3 +1,17 @@
+const stars = document.querySelectorAll(".rate-stars ul .fa-star");
+
+stars.forEach((star, index) => {
+  star.addEventListener("click", () => {
+    stars.forEach((item, i) => {
+      console.log(index, i)
+      if(i <= index) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
+    });
+  });
+});
 
   window.onload = function() {
     

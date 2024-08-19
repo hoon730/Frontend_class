@@ -54,7 +54,7 @@ body {
   z-index: 2;
 }
 .intro.active {
-  animation: intro 0.8s 2.2s ease-in-out both;
+  animation: intro 0.8s 3s ease-in-out both;
 }
 .intro .line-box {
   width: 100%;
@@ -64,25 +64,26 @@ body {
 .intro .line-box .line {
   width: 12.5%;
   height: 100%;
-  border-right: 1px solid #EDC10E;
-  border-bottom: 1px solid #EDC10E;
+  border-right: 1px solid #edc10e;
+  border-bottom: 1px solid #edc10e;
   background: #000;
 }
 .intro .line-box .line.active {
   animation: movingBar 0.8s 2s ease-in-out both;
 }
-.intro .rising {
+
+.rising {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 2;
 }
-.intro .rising ul {
-  transform: scale(0);
+.rising ul {
   opacity: 0;
   transition: all 0.8s;
 }
-.intro .rising ul li {
+.rising ul li {
   font-family: "Ysabeau SC", sans-serif;
   font-size: 28px;
   font-weight: 600;
@@ -90,16 +91,16 @@ body {
   text-align: center;
   transition: all 0.8s;
   text-shadow: 2px 1px 0px #ff8800;
-  color: #EDC10E;
+  color: #edc10e;
 }
-.intro .rising ul li:nth-child(3), .intro .rising ul li:nth-child(4) {
+.rising ul li:nth-child(3), .rising ul li:nth-child(4) {
   font-weight: 900;
   font-size: 70px;
   text-shadow: 2px 3px 0px #ff8800;
 }
-.intro .rising.active ul {
-  transform: scale(1);
+.rising.active ul {
   opacity: 1;
+  animation: intro 1s 2.2s ease-in-out both;
 }
 
 @keyframes intro {
@@ -109,7 +110,7 @@ body {
   }
   100% {
     display: none;
-    transform: translateY(-100%);
+    transform: translateY(-250%);
   }
 }
 @keyframes movingBar {
@@ -262,7 +263,7 @@ body {
 .navigation .navigation_item {
   width: 100%;
   height: 33px;
-  background: linear-gradient(to bottom, #efda1c, #aa9c17, #55510F);
+  background: linear-gradient(to bottom, #efda1c, #aa9c17, #55510f);
   color: #000;
   text-align: center;
   line-height: 30px;

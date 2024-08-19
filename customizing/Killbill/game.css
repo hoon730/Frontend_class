@@ -243,9 +243,11 @@ body {
 .wrapper .review-box .container .reviews li .result-review-box {
   display: flex;
   gap: 15px;
+  font-size: 15px;
 }
 .wrapper .review-box .container .reviews li .result-time {
   color: #999;
+  font-size: 14px;
 }
 .wrapper .review-box .container .reviews li button {
   padding: 5px;
