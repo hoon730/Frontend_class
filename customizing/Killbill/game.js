@@ -7,23 +7,29 @@ window.onload = function () {
 
 //let number = 0;
 let currentIndex = 0;
-const numbers = [22, 63, 15];
+const numbers = [22, 63, 15, 0, 0];
 
 const startNumbering = (num) => {
   const percentages = document.querySelectorAll(".percentage");
 
+  for(let i = 0; i <= num; i++) {
+    percentages[currentIndex].innerText = `${i}%`;
+  }
   
-  let number = 0;
-  setTimeout(() => {
-    percentages[currentIndex].innerText = `${number}%`;
-      for (let i = 0; i < num; i++) {
-      }
-  }, 5);
-  
-  /*if (number < num) {
-    console.log(num + ", " + number);
-    setTimeout(startNumbering, 5);
-  }*/
+  // let number = 0;
+  // const countingNumber = () => {
+  //   number++;
+  //   console.log(number);
+  //   percentages[currentIndex].innerText = `${number}%`;
+  //     if(number < num) {
+  //       setTimeout(countingNumber, 5);
+  //     }
+  // }
+  // countingNumber();
+
+  // if (number < num) {
+  //   setTimeout(startNumbering, 5);
+  // }
 };
 
 const sendingNumbers = () => {
