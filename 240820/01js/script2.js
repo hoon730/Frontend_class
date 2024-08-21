@@ -15,6 +15,7 @@ subjects.forEach((subject) => {
 });
 
 console.log(resultList);
+console.log([...resultList]);
 
 
 result.innerHTML =

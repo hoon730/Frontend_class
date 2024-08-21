@@ -43,7 +43,11 @@ sendingNumbers();
 
 const form = document.querySelector("form");
 const input = document.querySelector("input[type='text']");
+const submit = document.querySelector("input[type='submit']");
 const ul = document.querySelector(".reviews");
+const userId = document.querySelector("#userId");
+
+console.log(submit);
 
 let todos = [];
 
@@ -100,19 +104,18 @@ const addItem = (todo) => {
     li.appendChild(button);
     ul.appendChild(li);
     li.id = todo.id;
+    li.email = todo.email;
 
     // email
-    const userId = document.querySelector("#userId");
-
-    if (userId.value !== "") {
-      let userName = userId.value.split("@")[0];
-      userName = userName.slice(0, 2);
-      const domain = userId.value.split("@")[1];
-      document.querySelector(
-        ".new-review .result-user"
-      ).innerText = `${userName}**@${domain}`;
-      userId.value = "";
-    }
+        if (userId.value !== "") {
+          let userName = userId.value.split("@")[0];
+          userName = userName.slice(0, 2);
+          const domain = userId.value.split("@")[1];
+          document.querySelector(
+            ".new-review .result-user"
+          ).innerText = `${userName}**@${domain}`;
+          userId.value = "";
+        } 
   }
 };
 
@@ -122,6 +125,7 @@ const handler = (e) => {
   const todo = {
     id: Date.now(),
     text: input.value,
+    email: userId.value,
   };
 
   todos.push(todo);
@@ -129,6 +133,7 @@ const handler = (e) => {
   save();
 
   input.value = "";
+  userId.value = "";
 };
 
 const init = () => {

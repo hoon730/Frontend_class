@@ -22,7 +22,7 @@ button.addEventListener("click", () => {
   if(current.done !== true) result.innerText = current.value;
     else {
     result.innerText = "종점"
-    button.setAttribute("disabled", "disabled");
+    button.setAttribute("disabled", true);
   }
 
 });

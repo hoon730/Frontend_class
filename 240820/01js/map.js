@@ -48,10 +48,13 @@ console.log(myCup.keys());
 console.log(myCup.values());
 console.log(myCup.entries());
 
-for(let key of myCup.values()) {
+for (let key of myCup.keys()) {
   console.log(key);
 }
-for(let key of myCup.entries()) {
+for (let key of myCup.values()) {
+  console.log(key);
+}
+for (let key of myCup.entries()) {
   console.log(key);
 }
 

@@ -225,10 +225,6 @@ body {
   border: none;
   transition: all 0.3s;
 }
-.wrapper .review-box .container .user-review .form-box form ul:last-child input[type=submit]:hover {
-  background: #333;
-  color: #ffe400;
-}
 .wrapper .review-box .container .reviews li .result-review-box {
   display: flex;
   gap: 15px;
