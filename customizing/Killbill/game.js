@@ -107,7 +107,7 @@ const addItem = (todo) => {
     li.email = todo.email;
 
     // email
-        if (userId.value !== "") {
+        if (userId.value !== "" ) {
           let userName = userId.value.split("@")[0];
           userName = userName.slice(0, 2);
           const domain = userId.value.split("@")[1];
