@@ -1,0 +1,9 @@
+디자인
+
+inner : 1280px
+
+반응형 화면 픽셀 정하기
+
+디자인 최대 2주 (wire frame + desktop + responsive)
+
+

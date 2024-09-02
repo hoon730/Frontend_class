@@ -1,0 +1,44 @@
+{
+    "data": [
+        {
+            "img": "./img/newsboy.png",
+            "alt": "newsboy",
+            "name": "newsboy jacket"
+        },
+        {
+            "img": "./img/mountain.png",
+            "alt": "mountain",
+            "name": "mountain paka"
+        },
+        {
+            "img": "./img/trucker.png",
+            "alt": "trucker",
+            "name": "trucker jacket"
+        },
+        {
+            "img": "./img/western.png",
+            "alt": "western",
+            "name": "western jacket"
+        },
+        {
+            "img": "./img/cargo.png",
+            "alt": "cargo",
+            "name": "cargo pantst"
+        },
+        {
+            "img": "./img/jean.png",
+            "alt": "jean",
+            "name": "washing jeans"
+        },
+        {
+            "img": "./img/braces.png",
+            "alt": "braces",
+            "name": "braces"
+        },
+        {
+            "img": "./img/back.png",
+            "alt": "back",
+            "name": "weekender back"
+        }
+    ]
+}

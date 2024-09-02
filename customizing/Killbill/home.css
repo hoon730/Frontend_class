@@ -1,0 +1,48 @@
+/* reset */
+@import url("./reset.css");
+/* built-in-function */
+/* common */
+html, body {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 14px;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 0 0 30px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.wrapper .wrapper_header {
+  width: 100%;
+}
+.wrapper .wrapper_header .video {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.wrapper .wrapper_body {
+  width: 100%;
+}
+.wrapper .wrapper_body .content_title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.wrapper .wrapper_body .content_title .cast {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+.wrapper .wrapper_body .content_title .story {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.wrapper .wrapper_body .content_title .story .desc {
+  font-size: 12px;
+}

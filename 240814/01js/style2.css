@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+body .box {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+body .box .squre {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  animation: loading 1.5s linear infinite;
+}
+body .box .squre:first-child {
+  background: crimson;
+}
+body .box .squre:last-child {
+  background: dodgerblue;
+  animation-delay: 0.8s;
+}
+
+@keyframes loading {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  25% {
+    top: 0;
+    left: calc(100% - 25px);
+    background: yellowgreen;
+  }
+  50% {
+    top: calc(100% - 25px);
+    left: calc(100% - 25px);
+    background: cyan;
+  }
+  75% {
+    top: calc(100% - 25px);
+    left: 0;
+    background: crimson;
+  }
+  100% {
+    top: 0;
+    left: 0;
+  }
+}

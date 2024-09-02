@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+body .stars-rating {
+  display: flex;
+  gap: 10px;
+  background: #111;
+  padding: 5px;
+  border-radius: 3px;
+  width: 250px;
+  justify-content: center;
+}
+body .stars-rating .stars {
+  display: flex;
+}
+body .stars-rating .stars .fa-star {
+  color: #333;
+}
+body .stars-rating .stars .fa-star.active {
+  color: yellow;
+}
+body .stars-rating .print {
+  color: #fff;
+}

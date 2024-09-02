@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+:root {
+    --font-color--: #fff;
+}
+
+body {
+    background: rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+}
+
+#spain {
+    height: 100vh;
+    color: var(--font-color--);
+    
+    #slide {
+        height: 100%;
+        position: relative;
+
+        .wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 500%;
+            display: flex;
+            transition: all 0.5s;
+
+            .city  {
+                width: calc(100% / 5);
+                height: 100vh;
+                background: url('./img/madrid.jpg') center/cover no-repeat;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.7));
+                }
+
+                .text_box {
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+
+                    h3 {
+                        position: absolute;
+                        top: 27%;
+                        left: -20%;
+                        font-size: 4rem;
+                        opacity: 0;
+                    }
+            
+                    p {
+                        position: absolute;
+                        top: 40%;
+                        left: -20%;
+                        width: 600px;
+                        font-size: 1.3rem;
+                        text-align: justify;
+                        opacity: 0;
+                    }
+                }
+
+                &:first-child .text_box h3,
+                &:first-child .text_box p {
+                    opacity: 1;
+                    left: 10%;
+                }
+                
+                &.active .text_box h3 {
+                    animation: blur 0.6s ease-in-out forwards;
+                }
+                &.active .text_box p {
+                    animation: blur 0.6s 0.2s ease-in forwards;
+                }
+            }
+        }
+    }
+    
+    #thumnails {
+        position: absolute;
+        bottom: 3%;
+        left: 10%;
+        width: 100%;
+        height: 220px;
+        display: flex;
+        gap: 20px;
+        
+        div {
+            width: 150px;
+            height: 100%;
+            position: relative;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.3);
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                transition: all 0.3s;
+            }
+            
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+            }
+            
+            span{
+                position: absolute;
+                left: 10px;
+                bottom: 10px;
+            }
+            
+            &.active {
+                transform: translateY(-10%);
+                
+                &::before {
+                    background: rgba(0, 0, 0, 0);
+                }
+            }
+        }
+    }
+}
+        
+@keyframes blur {
+    0% {
+        left: -20%;
+        opacity: 0;
+        filter: blur(20px);
+    }
+    100% {
+        left: 10%;
+        opacity: 1;
+        filter: blur(0);
+    }
+}

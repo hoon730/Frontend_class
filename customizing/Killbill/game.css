@@ -1,0 +1,261 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* variable */
+/* mixin */
+/* common */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 0 0 30px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.wrapper > div {
+  width: 100%;
+}
+.wrapper .score-box {
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper .score-box > div {
+  width: 48%;
+  padding: 20px 25px;
+}
+.wrapper .score-box .audience-score {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+  border: 1px solid #999;
+  border-radius: 8px;
+}
+.wrapper .score-box .audience-score h3 {
+  font-size: 16px;
+  font-weight: 300;
+}
+.wrapper .score-box .audience-score .score {
+  color: #ffe400;
+  font-size: 26px;
+  font-weight: 600;
+}
+.wrapper .score-box .audience-score .score em {
+  font-size: 22px;
+  font-style: normal;
+  color: #999;
+}
+.wrapper .score-box .audience-score .stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+.wrapper .score-box .audience-score .stars li i {
+  font-size: 13px;
+  position: relative;
+  color: #ffe400;
+}
+.wrapper .score-box .audience-score .stars li:nth-child(5) i {
+  color: #333;
+}
+.wrapper .score-box .audience-score .participants {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 15px;
+}
+.wrapper .score-box .audience-score .gender-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.wrapper .score-box .audience-score .gender-box > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.wrapper .score-box .audience-score .gender-box > div h6 {
+  font-size: 14px;
+}
+.wrapper .score-box .audience-score .gender-box > div span {
+  font-size: 16x;
+}
+.wrapper .score-box .audience-score .gender-box > div span i {
+  font-size: 17px;
+  margin-right: 7px;
+}
+.wrapper .score-box .audience-score .gender-box .male i {
+  color: blue;
+}
+.wrapper .score-box .audience-score .gender-box .female i {
+  color: crimson;
+}
+.wrapper .score-box .score-ratio {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #999;
+  border-radius: 8px;
+}
+.wrapper .score-box .score-ratio h3 {
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+.wrapper .score-box .score-ratio .ratio-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+.wrapper .score-box .score-ratio .ratio-box i {
+  font-size: 13px;
+}
+.wrapper .score-box .score-ratio .ratio-box .bar {
+  width: 80px;
+  height: 10px;
+  background: #333;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+.wrapper .score-box .score-ratio .ratio-box .bar .user-ber {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #ffe400;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+.wrapper .score-box .score-ratio .ratio-box .percentage {
+  text-align: right;
+  width: 30px;
+}
+.wrapper .score-box .score-ratio .ratio-box:nth-of-type(1) .bar .user-ber.active {
+  width: 22%;
+}
+.wrapper .score-box .score-ratio .ratio-box:nth-of-type(2) .bar .user-ber.active {
+  width: 63%;
+}
+.wrapper .score-box .score-ratio .ratio-box:nth-of-type(3) .bar .user-ber.active {
+  width: 15%;
+}
+.wrapper .review-box .container .user-review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.wrapper .review-box .container .user-review .form-box {
+  width: 100%;
+}
+.wrapper .review-box .container .user-review .form-box form ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.wrapper .review-box .container .user-review .form-box form ul li {
+  width: 100%;
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.wrapper .review-box .container .user-review .form-box form ul:first-child {
+  justify-content: space-between;
+  align-items: center;
+}
+.wrapper .review-box .container .user-review .form-box form ul:first-child label {
+  font-size: 14px;
+  width: 100%;
+}
+.wrapper .review-box .container .user-review .form-box form ul:first-child input[type=email] {
+  border: none;
+  padding: 3px 5px;
+  padding-left: 15px;
+  border-radius: 3px;
+}
+.wrapper .review-box .container .user-review .form-box form ul:first-child input[type=email]:focus {
+  outline: none;
+}
+.wrapper .review-box .container .user-review .form-box form ul:first-child input[type=email]::-moz-placeholder {
+  font-size: 12px;
+}
+.wrapper .review-box .container .user-review .form-box form ul:first-child input[type=email]::placeholder {
+  font-size: 12px;
+}
+.wrapper .review-box .container .user-review .form-box form ul:last-child input[type=text] {
+  width: 100%;
+  border: none;
+  padding: 8px 0;
+  padding-left: 20px;
+}
+.wrapper .review-box .container .user-review .form-box form ul:last-child input[type=text]:focus {
+  outline: none;
+}
+.wrapper .review-box .container .user-review .form-box form ul:last-child input[type=submit] {
+  padding: 8px 20px;
+  font-weight: 600;
+  background: #FFBB02;
+  border-radius: 0 5px 5px 0;
+  color: #111;
+  border: none;
+  transition: all 0.3s;
+}
+.wrapper .review-box .container .reviews li .result-review-box {
+  display: flex;
+  gap: 15px;
+}
+.wrapper .review-box .container .reviews li .result-review-box .result-user {
+  font-size: 13px;
+}
+.wrapper .review-box .container .reviews li .result-review-box .result-review {
+  width: 379px;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.wrapper .review-box .container .reviews li .result-time {
+  color: #999;
+  font-size: 14px;
+}
+.wrapper .review-box .container .reviews li button {
+  margin-left: 15px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background: #222;
+  color: #ffe400;
+  transition: all 0.3s;
+}
+.wrapper .review-box .container .reviews li button:hover {
+  color: #111;
+  background: #ffe400;
+}
+.wrapper .review-box .container .reviews li .new-review .result-review-box .result-user {
+  font-size: 13px;
+}

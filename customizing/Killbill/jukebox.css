@@ -1,0 +1,69 @@
+/* reset */
+@import url("./reset.css");
+/* variables */
+/* common */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 0 0 30px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.wrapper .soundtrack-music {
+  width: 220px;
+}
+.wrapper .wrapper_body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 0 0;
+  border-radius: 12px;
+  background: url("./img/ost.jpg") left/contain no-repeat;
+  filter: saturate(1.5);
+  position: relative;
+  overflow: hidden;
+}
+.wrapper .wrapper_body::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 60%;
+  width: 120%;
+  height: 200%;
+  background: #000;
+  z-index: -1;
+  transform: rotate(-75deg);
+}
+.wrapper .wrapper_body .contents_title {
+  text-align: right;
+  margin-bottom: 15px;
+}
+.wrapper .wrapper_body .albumTable {
+  width: 100%;
+  font-size: 12px;
+  padding: 2px;
+  border-spacing: 0;
+}
+.wrapper .wrapper_body .albumTable .albumTable_number {
+  text-align: center;
+  color: #ffe400;
+}
+.wrapper .wrapper_body .albumTable .albumTable_song {
+  padding: 0 10px;
+  color: #FFBB02;
+}
+.wrapper .wrapper_body .albumTable .albumTable_artist {
+  text-align: right;
+}

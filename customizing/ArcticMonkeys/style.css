@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Fugaz+One&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, li, ol {
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  display: flex;
+  color: #fff;
+}
+
+/* aside */
+#aside {
+  width: 200px;
+  height: 100vh;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  border-right: 2px solid #ccc;
+  background-image: linear-gradient(to right, #434343 0%, #111 100%);
+}
+
+#aside .logo {
+  font-family: "Fugaz One", sans-serif;
+  font-style: italic;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+}
+
+#aside  .logo img {
+  width: 100%;
+  height: 100%;
+}
+#aside  .gnb {
+  border-radius: 5px;
+}
+
+#aside  .gnb > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#aside  .gnb > ul > li {
+  width: 100%;
+  &:hover > a {
+    color: #999;
+  }
+  &:hover a::before {
+    width: 100%;
+  }
+}
+
+#aside  .gnb > ul > li > a {
+  display: block;
+  font-size: 20px;
+}
+
+
+#aside  .gnb ul  li .lnb {
+  height: 0;
+  opacity: 0;
+  margin-top: 20px;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+#aside  .gnb ul  li .lnb.active{
+  opacity: 1;
+  height: 100%;
+}
+
+#aside  .gnb ul  li .lnb li {
+  &:hover a{
+    background: #ccc;
+  }
+}
+#aside  .gnb ul  li .lnb li a {
+  display: block;
+  height: 30px;
+  padding: 5px;
+  margin: 3px 0;
+  text-align: center;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+
+#aside .sns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+#aside .sns div {
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(1.2);
+}
+}
+
+#aside .sns div i {
+  font-size: 24px;
+}
+
+/* album */
+#album {
+  width: 100%;
+  height: 100vh;
+}
+
+#album .album_desc {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 0;
+}
+
+#album .album_desc .album_text {
+  width: 650px;
+  margin-left: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #fff;
+}
+
+#album .album_desc .album_images {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+#album .album_desc .album_images .album_image {
+  width: 200px;
+  transition: all 0.3s;
+  cursor: pointer;
+  &:hover .album_image_box::before {
+    opacity: 1;
+  }
+  &:hover .album_detail {
+    background: rgba(255, 255, 255, 0.4);
+  }
+  &:hover .album_image_box .album_btns {
+    opacity: 1;
+  }
+}
+#album .album_desc .album_images .album_image.active {
+  transform: translateY(-30px) scale(1.05);
+} 
+
+#album .album_desc .album_images .album_image .album_image_box {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+#album .album_desc .album_images .album_image .album_image_box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 0 0 ;
+}
+
+#album .album_desc .album_images .album_image .album_image_box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px 10px 0 0;
+  z-index: 2;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+#album .album_desc .album_images .album_image .album_image_box .album_btns {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 3;
+  opacity: 0;
+}
+
+#album .album_desc .album_images .album_image .album_btns i {
+  color: #fff;
+  font-size: 25px;
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+#album .album_desc .album_images .album_image .album_btns i:nth-child(2) {
+  font-size: 50px;
+  border-radius: 100%;
+}
+
+#album .album_desc .album_images .album_image .album_detail {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 13px 5px;
+  border-radius: 0 0 10px 10px;
+  span {
+    color: #fff;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    &:first-child {
+      font-size: 15px;
+      font-weight: 400;
+    }
+    &:last-child {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+}
+
+

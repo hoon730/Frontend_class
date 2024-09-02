@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "id": 1236547,
+      "name" : "Cup",
+      "price": 9000,
+      "category": "life",
+      "img" :"./img/cup.jpg"
+    },
+    {
+      "id": 789564321,
+      "name" : "Mouse",
+      "price": 15000,
+      "category": "it",
+      "img" :"./img/mouse.jpg"
+    },
+    {
+      "id": 1236547,
+      "name" : "Keyboard",
+      "price": 21000,
+      "category": "it",
+      "img" :"./img/keyboard.jpg"
+    },
+    {
+      "id": 99541,
+      "name" : "Book",
+      "price": 10000,
+      "category": "book",
+      "img" :"./img/book.jpg"
+    },
+    {
+      "id": 32154,
+      "name" : "Pen",
+      "price": 1500,
+      "category": "book",
+      "img" :"./img/pen.jpg"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Hoon",
+    "major": "영문학과",
+    "grade": 3
+  },
+  {
+    "name": "Woo",
+    "major": "컴퓨터공학과",
+    "grade": 1
+  },
+  {
+    "name": "Han",
+    "major": "디자인학과",
+    "grade": 2
+  },
+  {
+    "name": "reum",
+    "major": "경제학과",
+    "grade": 4
+  }
+]

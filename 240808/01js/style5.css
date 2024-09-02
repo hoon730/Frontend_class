@@ -1,0 +1,67 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, li {
+  list-style: none;
+}
+
+/* common */
+html {
+  font-size: 16px;
+}
+
+/* variable */
+/* content */
+body {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+body #container {
+  width: 500px;
+}
+body #container h1 {
+  text-align: center;
+}
+body #container form {
+  margin: 30px 0;
+  width: 100%;
+}
+body #container form li {
+  margin-bottom: 10px;
+}
+body #container form li label {
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+  font-weight: bold;
+}
+body #container form li input[type=text] {
+  width: 400px;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid #eee;
+}
+body #container form input[type=submit] {
+  width: 100%;
+  padding: 12px;
+}
+body #container table {
+  border: 1px solid #eee;
+  border-collapse: collapse;
+}
+body #container table th, body #container table td {
+  border: 1px solid #eee;
+  text-align: center;
+  padding: 10px;
+}
+body #container table th:nth-child(1) {
+  width: 200px;
+}
+body #container table th:nth-child(2) {
+  width: 300px;
+}

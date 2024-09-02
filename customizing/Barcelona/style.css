@@ -1,0 +1,247 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: 'Pretendard-Regular';
+    color: #fff;
+}
+
+/* wrapper */
+#wrapper {
+    width: 100%;
+    height: 100vh;
+    background: url("./img/background4.jpg") center/cover no-repeat;
+    position: relative;
+    
+}
+
+/* header */
+header {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    input {
+        width: 150px;
+        height: 40px;
+        font-weight: 600;
+        color: #fff;
+        background-color: #CF122D;
+        border: none;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+        border-radius: 5px;
+        transition: all 0.3s;
+        &:hover {
+            background: linear-gradient(to right,#CF122D, #8D234B, #49356C, #223F7F);
+        }
+    }
+}
+
+
+/* signup */
+#signup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    transform: translate(-50%, -50%);
+    background: #181733;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    position: relative;
+    
+    input {
+        height: 40px;
+        background: #181733;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        color: #fff;
+        padding-left: 20px;
+        &::placeholder {
+            color: #fff;
+        }
+    }
+    
+    .signup_title {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        margin-bottom: 30px;
+        
+        #logo {
+            width: 50px;
+            height: 50px;
+            background: url('./img/logo2.png') center/contain no-repeat;
+        }
+        span {
+            font-size: 1.5rem;
+            color: #FDC52C;
+        }
+    }
+
+    #nationality {
+        width: 100%;
+        display: flex;
+        gap: 5px;
+        div {
+            width: 100%;
+            button {
+                width: 100%;
+                height: 40px;
+                color: #CF122D;
+                background-color: #eee;
+                border: none;
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+                font-weight: 600;
+                transition: all 0.3s;
+                
+                &.active {
+                    background: #CF122D;
+                    color: #fff;
+                }
+            }
+        }
+    
+    }
+
+    .calander_title {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    article{
+        margin-bottom: 20px;
+    }
+
+    #signup_calander {
+        width: 100%;
+        display: flex;
+        gap: 5px;
+
+        select {
+            width: 100%;
+            height: 30px;
+            padding-left: 20px;
+            background: #181733;
+            color: #fff;
+            border: none;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    #signup_name {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        
+        label{
+        }
+        input{
+            
+        }
+    }
+
+    #signup_password {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+    }
+
+    #signup_checkbox1,
+    #signup_checkbox2 {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        input {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    #signup_button {
+        input{
+            width: 100%;
+            background: #CF122D;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            border: none;
+            padding: 0;
+            &:hover {
+                background: linear-gradient(to right,#CF122D, #8D234B, #49356C, #223F7F);
+            }
+        }
+    }
+
+    #sinup_sns {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;        
+
+        .or {
+            text-align: center;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                width: 100%;
+                height: 2px;
+                background: #fff;
+            }
+
+            span {
+                position: relative;
+                margin: 0 auto;
+                background: #181733;
+                padding: 0 15px;
+            }
+        }
+
+        .sns {
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            color: #000;
+            background: #eee;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: all 0.3s;
+
+            &:hover {
+                background: #70143d;
+                color: #FDC52C;
+                border: 1px solid #70143d;
+            }
+        }
+    }
+}
