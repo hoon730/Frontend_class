@@ -1,13 +1,52 @@
 import './App.css';
+import { useState, useRef } from 'react';
 import Header from './components/Header';
 import TodoEditor from './components/TodoEditor';
+import TodoList from './components/TodoList';
+
+const mockTodo = [
+  {
+    id: 0,
+    isDone: false,
+    content: "React 공부하기",
+    createDate: new Date().getTime(),
+  },
+  {
+    id: 1,
+    isDone: false,
+    content: "Javascript 공부하기",
+    createDate: new Date().getTime(),
+  },
+  {
+    id: 2,
+    isDone: false,
+    content: "여행가기",
+    createDate: new Date().getTime(),
+  },
+]
 
 function App() {
+
+  const [todo, setTodo] = useState(mockTodo);
+  const idRef = useRef(3);
+
+  const onCreate = (content) => {
+    const newItem = {
+      id: idRef.current,
+      isDone: false,
+      content,
+      createDate: new Date().getTime(),
+    };
+
+    setTodo([newItem, ...todo])
+    idRef.current += 1;
+  };
+
   return (
     <div className="App">
       <Header />
-      <TodoEditor />
-      <div>Todo List</div>
+      <TodoEditor onCreate={onCreate}/>
+      <TodoList todo={todo}/>
     </div>
   );
 }
@@ -40,3 +79,26 @@ export default App;
 // useRef() : 특정 노드를 제어하고자 할 때, 혹은 컴포넌트 그 자체를 제어할 때
 
 // useEffect() :컴포넌트가 어떤 단계 및 상황에 도착했을 때에 무언가를 실행시켜야할 때
+
+// > Mockup Data 만드는 과정에서, 어떤 데이터가 필요한지 예측을 해보는 과정
+
+// 제품 = 웹사이트 // 모바일앱
+// > CRUD
+// > Create
+// > Read
+// > Update
+// > Delete
+// > 
+
+// useRef()
+
+// 1.VD => Node를 찾아와서, 제어하고자 할 때
+// 2.컴포넌트 제어하고자 할 때
+// > useRef(false)
+
+// useState() VS useRef()
+// > 컴포넌트 update가 될 요소 관리 => useState()
+// > 컴포넌트 mount // rendering
+// > state의 값은 => 컴포넌트가 렌더링이 되면 update가 필수적으로 일어남!!
+
+// current: 렌더링의 영향을 받지 않음
