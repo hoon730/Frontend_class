@@ -60,6 +60,7 @@ fetch(productInfo).then((response) => response.json()).then((data) => {
     });
   };
 
+  
   // importing Items
   const importData = () => {
     products.data.map((product) => {
