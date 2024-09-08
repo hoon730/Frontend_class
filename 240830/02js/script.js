@@ -7,7 +7,7 @@
 // 2px / 스크롤이 가능한 full 영역 * 100
 
 const h1 = document.querySelector("h1");
-const progressBar = document.querySelector(".bar")
+const progressBar = document.querySelector(".bar");
 
 const percent = (scrollNum, documentHeight) => {
   return ((scrollNum / documentHeight) * 100).toFixed(0);

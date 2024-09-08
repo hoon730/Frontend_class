@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 const Controller = ({ handleSetCount }) => {
 
+  console.log(handleSetCount)
+  
   return (
     <div>
       <button onClick={() => handleSetCount(-1)}>-1</button>

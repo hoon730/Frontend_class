@@ -80,7 +80,7 @@ const startLotto = () => {
   // const maxNumber = luckyNumber.maxNumber;
   
   let myNumber = new Set();
-  for(let i = 0; i < digitCount; i++) {
+  for(let i = 0; i < digitCount + 1; i++) {
     myNumber.add(Math.floor(Math.random() * maxNumber) + 1);
   }
   if(myNumber.size === 6) {

@@ -13,6 +13,7 @@ const TodoList = ({ todo }) => {
       ? todo
       : todo.filter((it) => it.content.toLowerCase().includes(search.toLowerCase()));
   };
+  
   return (
     <div className="TodoList">
       <h4>Todo List 🤠</h4>

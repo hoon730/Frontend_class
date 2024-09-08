@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Freeman&family=Oleo+Script:wght@400;700&display=swap");
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* variable */
+/* Mix-in */
+/* common */
+body {
+  color: #222;
+  background: #fff;
+  font-family: "Freeman", sans-serif;
+  letter-spacing: 2px;
+}
+body .cd-section {
+  height: 100vh;
+}
+body .cd-section > div {
+  height: 100%;
+  position: relative;
+}
+body .cd-section > div .content {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 80px);
+  overflow: hidden;
+}
+body .cd-section > div .content .inner {
+  width: 100%;
+  height: 100%;
+}
+body .cd-section > div .content .inner > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+header .gnb-inner {
+  width: calc(100% - 40px);
+  height: 60px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .gnb-inner .logo {
+  width: 120px;
+  height: 60px;
+}
+header .gnb-inner .logo a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+header .gnb-inner .logo a img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+header .gnb-inner .gnb .slogan {
+  font-size: 16px;
+  font-style: italic;
+}
+header .gnb-inner .gnb .menu {
+  display: none;
+}
+header .gnb-inner .trigger {
+  display: none;
+}
+
+/* Home */
+.home {
+  display: flex;
+  background: url("./images/attraction2.jpg") center/cover no-repeat;
+}
+.home .home-left {
+  width: 50%;
+  height: 100%;
+}
+.home .home-left .top-text {
+  width: 100px;
+  height: 60px;
+  margin-top: 10%;
+  background: rgba(255, 255, 255, 0.7);
+  position: relative;
+}
+.home .home-left .top-text span {
+  padding-left: 10px;
+  font-family: "Oleo Script", system-ui;
+  font-size: 35px;
+  letter-spacing: -3px;
+}
+.home .home-left .top-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -30px;
+  width: 30px;
+  height: 60px;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 30px solid rgba(255, 255, 255, 0.7);
+}
+.home .home-left .center-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(75% - 60px);
+}
+.home .home-left .center-text span {
+  font-family: "Oleo Script", system-ui;
+  font-size: 90px;
+  letter-spacing: -3px;
+  color: #fff;
+}
+.home .home-right {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home .home-right .slide {
+  width: 100%;
+  overflow: hidden;
+}
+.home .home-right .slide .slide-wrapper {
+  display: flex;
+  gap: 20px;
+  width: 200%;
+}
+.home .home-right .slide .slide-wrapper .slide {
+  width: 230px;
+  height: 350px;
+  background: url("./images/activites1.jpg") center/cover no-repeat;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  align-items: flex-end;
+}
+.home .home-right .slide .slide-wrapper .slide .text-box {
+  color: #fff;
+}
+.home .home-right .slide .slide-wrapper .slide .text-box span {
+  font-size: 18px;
+  font-weight: 600;
+}
+.home .home-right .slide .slide-wrapper .slide .text-box p {
+  font-size: 16px;
+}
+.home .home-right .slide .slide-num {
+  display: flex;
+  margin-top: 20px;
+}
+.home .home-right .slide .slide-num span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  font-size: 23px;
+  color: #fff;
+  font-weight: 600;
+}
+.home .home-right .slide .slide-num .bar-box {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home .home-right .slide .slide-num .bar-box .bar {
+  width: 100%;
+  height: 1.5px;
+  background: #fff;
+  border-radius: 2px;
+}
+.home .home-right .slide .slide-btns {
+  display: flex;
+  gap: 40px;
+  margin-top: 10px;
+}
+.home .home-right .slide .slide-btns .btn {
+  width: 45px;
+  height: 45px;
+  background: rgba(3, 199, 90, 0.4);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+.home .home-right .slide .slide-btns .btn i {
+  font-size: 20px;
+  color: #fff;
+}
+.home .home-right .slide .slide-btns .btn:hover {
+  background: rgba(3, 199, 90, 0.8);
+}
+
+.city h3 {
+  font-size: 42px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+.city .city-contents {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.city .city-contents .city-left {
+  width: 40%;
+}
+.city .city-contents .city-left .city-box {
+  width: 300px;
+  height: 470px;
+  background: url("./images/city1.jpg") center/cover no-repeat;
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-end;
+}
+.city .city-contents .city-left .city-box .city-desc {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border-radius: 5px;
+}
+.city .city-contents .city-left .city-box .city-desc span {
+  text-transform: capitalize;
+}
+.city .city-contents .city-left .city-box .city-desc p {
+  font-size: 14px;
+}
+.city .city-contents .city-left .city-btns {
+  margin-top: 15px;
+}
+.city .city-contents .city-left .city-btns .input-box {
+  width: 300px;
+  display: flex;
+}
+.city .city-contents .city-left .city-btns .input-box input[type=text] {
+  width: calc(100% - 35px);
+  height: 35px;
+  border: none;
+  border-bottom: 1px solid #00875A;
+  padding-left: 15px;
+}
+.city .city-contents .city-left .city-btns .input-box input[type=text]:focus {
+  outline: none;
+}
+.city .city-contents .city-left .city-btns .input-box button {
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #03C75A;
+  background: #03C75A;
+  color: #fff;
+  transition: all 0.3s;
+}
+.city .city-contents .city-left .city-btns .input-box button:hover {
+  background: #fff;
+  color: #03C75A;
+}
+.city .city-contents .city-left .goto-map {
+  margin-top: 15px;
+  width: 300px;
+  height: 35px;
+  border: 1px solid transparent;
+  background: #00875a;
+  color: #fff;
+  border-radius: 5px;
+  text-transform: capitalize;
+  transition: all 0.3s;
+}
+.city .city-contents .city-left .goto-map:hover {
+  background: rgba(0, 135, 90, 0.7);
+}
+.city .city-contents .city-right {
+  width: 60%;
+  height: 612px;
+  background: url("./images/map1.png") center/contain no-repeat;
+}
