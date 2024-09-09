@@ -1,8 +1,9 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useContext } from "react";
+import { TodoContext } from "../App";
 import "./TodoEditor.css";
 
-const TodoEditor = ({ onCreate }) => {
-
+const TodoEditor = () => {
+  const { onCreate } = useContext(TodoContext);
   const [content, setContent] = useState("");
   const inputRef = useRef();
 
@@ -15,23 +16,28 @@ const TodoEditor = ({ onCreate }) => {
   };
 
   const onSubmit = () => {
-    if(!content) {
+    if (!content) {
       inputRef.current.focus();
       return;
     }
     onCreate(content);
     setContent("");
-  }
-
+  };
   return (
-    <div className='TodoEditor'>
-      <h4>새로운 Todo 작성하기🚏</h4>
-      <div className='editor_wrapper'>
-        <input ref={inputRef} onKeyDown={onKeyDown} value={content} onChange={onChangeContent} placeholder='새로운 ToDo...' />
+    <div className="TodoEditor">
+      <h4>새로운 Todo 작성하기 🧾</h4>
+      <div className="editor_wrapper">
+        <input
+          ref={inputRef}
+          value={content}
+          onChange={onChangeContent}
+          onKeyDown={onKeyDown}
+          placeholder="새로운 ToDo..."
+        />
         <button onClick={onSubmit}>추가</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TodoEditor
+export default TodoEditor;
