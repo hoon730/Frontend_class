@@ -1,8 +1,10 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useContext } from "react";
 import "./TodoList.css";
 import TodoItem from "./TodoItem";
+import { TodoContext } from "../App";
 
-const TodoList = ({ todo, onUpdate, onDelete }) => {
+const TodoList = () => {
+  const { todo = [] } = useContext(TodoContext);
   const [search, setSearch] = useState("");
   const onChangeSearch = (e) => {
     setSearch(e.target.value);
@@ -52,14 +54,16 @@ const TodoList = ({ todo, onUpdate, onDelete }) => {
           <TodoItem
             key={it.id}
             {...it}
-            onUpdate={onUpdate}
-            onDelete={onDelete}
           />
         ))}
       </div>
     </div>
   );
 };
+
+TodoList.defaultProps = {
+  todo: [],
+}
 
 export default TodoList;
 

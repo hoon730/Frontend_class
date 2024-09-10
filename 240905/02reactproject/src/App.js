@@ -1,10 +1,10 @@
 import "./App.css";
-import { useRef, useReducer, useCallback } from "react";
+import React, { useRef, useReducer, useCallback, } from "react";
 import Header from "./components/Header";
 import TodoEditor from "./components/TodoEditor";
 import TodoList from "./components/TodoList";
-import TextComp from "./components/TextComp";
-import { type } from "@testing-library/user-event/dist/type";
+
+export const TodoContext = React.createContext();
 
 const mockTodo = [
   {
@@ -82,10 +82,11 @@ function App() {
 
   return (
     <div className="App">
-      <TextComp />
       <Header />
-      <TodoEditor onCreate={onCreate} />
-      <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
+      <TodoContext.Provider value={{todo, onCreate, onUpdate, onDelete}}>
+        <TodoEditor />
+        <TodoList />
+      </TodoContext.Provider>
     </div>
   );
 }
@@ -173,5 +174,20 @@ export default App;
 
 // *Context => 책 "목록" => 맥락
 
-// > 
+// > props처리 비효율적으로 진행 
 
+// 미들웨어
+// 하드웨어
+// 소프트웨어
+
+// 1. React.js는 왜 사용하는가?
+// - Component 기반 프로제특 웹.앱 제작 // Module
+// Virtual DOM 효율적인 업데이트 // DOM
+
+// 2. JSX = Javascript XML 문법
+// - props = property 약어 => 객체 (key + value)
+// (컴포넌트 간 데이터 자료를 주고 받을 때, 함수 인자 & 매개변수)
+// - 함수형 컴포넌트
+// - props Drilling > context > useContext
+
+// - state = 상태
