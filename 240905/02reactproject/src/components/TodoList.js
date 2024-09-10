@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import "./TodoList.css";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ todo }) => {
+const TodoList = ({ todo, onUpdate, onDelete }) => {
   const [search, setSearch] = useState("");
   const onChangeSearch = (e) => {
     setSearch(e.target.value);
@@ -11,12 +11,33 @@ const TodoList = ({ todo }) => {
   const getSearchResult = () => {
     return search === ""
       ? todo
-      : todo.filter((it) => it.content.toLowerCase().includes(search.toLowerCase()));
+      : todo.filter((it) =>
+          it.content.toLowerCase().includes(search.toLowerCase())
+        );
   };
-  
+
+  const analyzeTodo = useMemo(() => {
+      // console.log("analyzeTodo 함수 호출")
+      const totalCount = todo.length;
+      const doneCount = todo.filter((it) => it.isDone).length;
+      const notDoneCount = totalCount - doneCount;
+      return {
+        totalCount,
+        doneCount,
+        notDoneCount,
+      };
+    }, [todo]);
+
+  const { totalCount, doneCount, notDoneCount } = analyzeTodo;
+
   return (
     <div className="TodoList">
       <h4>Todo List 🤠</h4>
+      <div>
+        <div>총 개수 : {totalCount}</div>
+        <div>완료된 할 일 : {doneCount}</div>
+        <div>아직 완료하지 못한 일 : {notDoneCount}</div>
+      </div>
       <input
         value={search}
         onChange={onChangeSearch}
@@ -27,11 +48,14 @@ const TodoList = ({ todo }) => {
         {/* {todo.map((it) => (
           <TodoItem key={it.id} {...it} />
         ))} */}
-        {
-          getSearchResult().map((it) => (
-          <TodoItem key={it.id} {...it} />    
-          ))
-        }
+        {getSearchResult().map((it) => (
+          <TodoItem
+            key={it.id}
+            {...it}
+            onUpdate={onUpdate}
+            onDelete={onDelete}
+          />
+        ))}
       </div>
     </div>
   );
@@ -50,3 +74,7 @@ export default TodoList;
 // *배열 > 메서드들 중에서 특정값에 일치하는지 혹은 포함하는지 여부 체크할 수 있는 메서드!!!
 
 // filter > include
+
+// Props Drilling
+
+// App > TodoList > TodoItem

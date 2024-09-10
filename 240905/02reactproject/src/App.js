@@ -1,8 +1,10 @@
-import './App.css';
-import { useState, useRef } from 'react';
-import Header from './components/Header';
-import TodoEditor from './components/TodoEditor';
-import TodoList from './components/TodoList';
+import "./App.css";
+import { useRef, useReducer, useCallback } from "react";
+import Header from "./components/Header";
+import TodoEditor from "./components/TodoEditor";
+import TodoList from "./components/TodoList";
+import TextComp from "./components/TextComp";
+import { type } from "@testing-library/user-event/dist/type";
 
 const mockTodo = [
   {
@@ -23,46 +25,80 @@ const mockTodo = [
     content: "여행가기",
     createDate: new Date().getTime(),
   },
-]
+];
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "CREATE": {
+      return [action.newItem, ...state];
+    }
+    case "UPDATE": {
+      return state.map((it) =>
+        it.id === action.targetId ? { ...it, isDone: !it.isDone } : it
+      );
+    }
+    case "DELETE": {
+      return state.filter((it) => it.id !== action.targetId );
+    }
+    default:
+      return state;
+  }
+};
 
 function App() {
-
-  const [todo, setTodo] = useState(mockTodo);
+  const [todo, dispatch] = useReducer(reducer, mockTodo);
   const idRef = useRef(3);
 
-  const onCreate = (content) => {
-    const newItem = {
-      id: idRef.current,
-      isDone: false,
-      content,
-      createDate: new Date().getTime(),
-    };
+  const onCreate = useCallback(
+    (content) => {
+      dispatch({
+        type: "CREATE",
+        newItem: {
+          id: idRef.current,
+          isDone: false,
+          content,
+          createDate: new Date().getTime(),
+        },
+      });
+      idRef.current += 1;
+    }, []); 
 
-    setTodo([newItem, ...todo])
-    idRef.current += 1;
-  };
+  const onUpdate = useCallback(
+
+    (targetId) => {
+      dispatch({
+        type: "UPDATE",
+        targetId,
+      });
+    }, []);
+
+  const onDelete = useCallback(
+    (targetId) => {
+      dispatch({
+        type: "DELETE",
+        targetId,
+      })
+    }, []);
 
   return (
     <div className="App">
+      <TextComp />
       <Header />
-      <TodoEditor onCreate={onCreate}/>
-      <TodoList todo={todo}/>
+      <TodoEditor onCreate={onCreate} />
+      <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
     </div>
   );
 }
 
 export default App;
 
-
 // Todo List
 
 // Header Component : 오늘이 며칠인지 알려주는 컴포넌트 역할
 
-// Editor Component  : 사용자가 오늘 해야 할 일을 입력할 수 있는도록 도와주는 컴포넌트 역활 
+// Editor Component  : 사용자가 오늘 해야 할 일을 입력할 수 있는도록 도와주는 컴포넌트 역활
 
 // List Component : Editor 컴포넌트를 통해서 사용자가 입력한 오늘 할 일이 출력되어지는 목록, 공간 역할
-
-
 
 // 리액트 공부법
 
@@ -88,7 +124,7 @@ export default App;
 // > Read
 // > Update
 // > Delete
-// > 
+// >
 
 // useRef()
 
@@ -102,3 +138,40 @@ export default App;
 // > state의 값은 => 컴포넌트가 렌더링이 되면 update가 필수적으로 일어남!!
 
 // current: 렌더링의 영향을 받지 않음
+
+// React Hooks
+// - useState()
+// - useRef()
+// - useEffect()
+// - useReducer()
+// - useMemo()
+// - useCallback()
+
+// useMemo(callback, [의존성배열])
+
+// 최적화!!!
+
+// > 컴포넌트
+// > 마운트 // 렌더링 // 언마운트
+// > 메모이제이션
+// > Memoizaion 기법
+// > useMemo()
+// > React.memo 속성!!
+// > 고차 컴포넌트 // Higher Component
+// > 기준 => state에 따라서 렌더링 여부
+// > 횡단 관심사 = Cross Cutting Concerns
+
+// 특정컴포넌트를 고차컴포넌트로 업그레이드 시킴으로인해서 부모컴포넌트 
+// 아래에 있는 모든 자식 요소의 컴포넌트들이 고차 컴포넌트화 되어있는 해당 요소의 상태변화에 따라 같이 렌더링되지 않도록 조치를 취한 형태 =>
+// 횡단 관심사로부터 벗어나게 했다!!표현
+
+// > 최적화!!
+
+// 1. 최적화는 반드시 웹앱 제작 및 기능구현이 마무리되는 단계에서 해야함
+// 2. 모든 기능 최적화할 필요는 없음!!!
+// 3. 최적화 => 컴포넌트 구조 > 정상 // 잘짜여져있는지
+
+// *Context => 책 "목록" => 맥락
+
+// > 
+
