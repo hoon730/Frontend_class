@@ -10,6 +10,7 @@ const Wrapper = styled.div`
 `;
 
 const PostList = ({ posts, onClickItem }) => {
+
   return (
     <Wrapper>
       {posts.map((post, onClick) => (
