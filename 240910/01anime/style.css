@@ -1,10 +1,15 @@
+@font-face {
+  font-family: "Back to Black";
+  src: url("./font/Back_to_Black_Demo.otf"), url("./font/Back_to_Black_Demo.ttf");
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-ul, li {
+ul,
+li {
   list-style: none;
 }
 
@@ -84,7 +89,8 @@ nav ul li a {
 .section#sec0 {
   background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
 }
-.section#sec0 svg, .section#sec0 img {
+.section#sec0 svg,
+.section#sec0 img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -143,7 +149,7 @@ nav ul li a {
   transition: all 0.3s;
 }
 .section#sec2 .inner h1 {
-  opacity: 1;
+  opacity: 0;
   transform: translateY(-50px);
 }
 .section#sec2 .inner h1 img {
@@ -155,7 +161,7 @@ nav ul li a {
   height: 35vw;
   max-height: 550px;
   margin-left: 50px;
-  opacity: 1;
+  opacity: 0;
   transform: translateY(-50px);
 }
 .section#sec2 .inner .slider_wrap .sec2_slider {
@@ -230,8 +236,45 @@ nav ul li a {
 .section#sec3 {
   background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
 }
+.section#sec3 h1 {
+  font-family: "Back to Black";
+  font-size: 100px;
+  color: #fff;
+  letter-spacing: -3px;
+  transform: translate(-100px);
+  position: relative;
+  z-index: 2;
+}
+.section#sec3 h1 span {
+  opacity: 0;
+}
+.section#sec3 .sec3_svg {
+  fill: #667eea;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
 .section#sec4 {
   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+.section#sec4 img {
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.section#sec4 .img_wrap {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.section#sec4 .img_wrap .tail {
+  background: #009efd;
+  width: 5%;
+  height: 5%;
 }
 .section .inner {
   width: 1200px;
