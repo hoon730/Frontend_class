@@ -1,7 +1,12 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const Diary = () => {
-  return <div>Diary Page</div>;
+  const { id } = useParams();
+  console.log(id);
+  return <div>{id}번 Diary Page</div>;
 };
 
 export default Diary;
+
+// json데이터 id값 필수 !!!!!
