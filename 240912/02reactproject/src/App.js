@@ -61,6 +61,7 @@ const App = () => {
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [data, dispatch] = useReducer(reducer, []);
   const idRef = useRef(0);
+
   useEffect(() => {
     dispatch({
       type: "INIT",
@@ -140,7 +141,7 @@ export default App;
 
 // 3) 이미지
 // - 멀티미디어(*동영상 // 이미지) 소스 public
-// - 동영상 => 무저건 public
+// - 동영상 => 무조건 public
 
 // 4) 컴포넌트 기반
 // - 중복 및 반복해서 사용될 요소들을 컴포넌트 만들어놓고 상황에 따라서 가져다가 사용할 수 있는 장점!!

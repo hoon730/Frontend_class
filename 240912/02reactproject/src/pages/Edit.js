@@ -8,7 +8,7 @@ const Edit = () => {
     if(e.target === "value") navigate("/diary");
     else {
       alert("미가입 회원은 다이어리 리뷰 불가!");
-      navigate("/home");
+      navigate("/");
     }
     // e.target === "value"
     //   ? navigate("/diary")
