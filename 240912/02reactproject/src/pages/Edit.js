@@ -5,9 +5,9 @@ const Edit = () => {
   const navigate = useNavigate();
 
   const goToDiary = (e) => {
-    if(e.target === "value") navigate("/diary");
+    if (e.target === "value") navigate("/diary");
     else {
-      alert("미가입 회원은 다이어리 리뷰 불가!");
+      alert("염동훈은 다이어리 리뷰 불가!");
       navigate("/");
     }
     // e.target === "value"

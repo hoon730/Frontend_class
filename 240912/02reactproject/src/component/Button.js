@@ -6,7 +6,7 @@ const ButtonItem = styled.button`
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 30px;
-  font-family: "Fugaz One", sans-serif;
+  font-family: "Nanum Pen Script", cursive;
   cursor: pointer;
   ${({ type }) =>
     type === "positive"
