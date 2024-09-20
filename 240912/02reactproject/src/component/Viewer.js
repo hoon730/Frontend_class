@@ -62,7 +62,7 @@ const ContentBg = styled.div`
 
 const Content = styled.p`
   padding: 20px;
-  font-size: 20px
+  font-size: 20px;
   font-weight: 400;
   line-height: 3rem;
 `;
