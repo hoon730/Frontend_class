@@ -20,7 +20,7 @@ const Textarea = styled.textarea`
   font-size: 20px;
   background: #ececec;
   font-family: "Nanum Pen Script", cursive;
-  width: 100%;
+  width: 93%;
   min-height: 200px;
   resize: none;
 `;

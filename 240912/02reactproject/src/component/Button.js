@@ -5,7 +5,7 @@ const ButtonItem = styled.button`
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
-  font-size: 30px;
+  font-size: 16px;
   font-family: "Nanum Pen Script", cursive;
   cursor: pointer;
   ${({ type }) =>
