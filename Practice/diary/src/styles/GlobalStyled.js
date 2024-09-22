@@ -1,0 +1,20 @@
+import React from "react";
+import styled, { createGlobalStyle } from "styled-components";
+
+const GlobalStyled = createGlobalStyle`
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    ul, ol {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+`;
+
+export default GlobalStyled;
