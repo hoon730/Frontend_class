@@ -90,7 +90,9 @@ const DiaryList = ({ data }) => {
         </RightContent>
       </DiaryContents>
       <ListContent>
-        {sortedData.map((it) => <DiaryItem key={it.id} {...it}/>)}
+        {sortedData.map((it) => (
+          <DiaryItem key={it.id} {...it} />
+        ))}
       </ListContent>
     </Wrapper>
   );

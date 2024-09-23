@@ -4,7 +4,7 @@ import Button from "../component/Button";
 import DiaryList from "../component/DiaryList";
 import Editor from "../component/Editor";
 import { DiaryStateContext } from "../App";
-import { getMonthRangeByDate } from "../util";
+import { getMonthRangeByDate,setPageTitle } from "../util";
 // import { useSearchParams } from "react-router-dom";
 
 const Home = () => {
@@ -25,6 +25,10 @@ const Home = () => {
       setFilteredData([]);
     }
   }, [data, pivotDate]);
+
+  useEffect(() => {
+    setPageTitle("Welcome Hoon's Diary")
+  }, [])
 
   const headerTitle = `${pivotDate.getFullYear()}년 ${
     pivotDate.getMonth() + 1

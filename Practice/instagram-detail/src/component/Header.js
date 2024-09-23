@@ -11,7 +11,7 @@ const StlyedHeader = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid var()--li;
 `;
 
 const StyledNav = styled.nav`

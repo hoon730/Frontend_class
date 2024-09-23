@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { DispatchDataContext } from "../App";
+import { DispatchDataContext, DiaryDataContext } from "../App";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import styled from "styled-components";
@@ -14,6 +14,7 @@ const Wrapper = styled.div`
 `;
 
 const Edit = () => {
+  const data = useContext(DiaryDataContext);
   const { id } = useParams();
   const navigate = useNavigate();
   const { onDelete } = useContext(DispatchDataContext);
@@ -29,17 +30,21 @@ const Edit = () => {
     }
   };
 
-  return (
-    <Wrapper>
-      <Header
-        leftChild={<Button text={"< 뒤로가기"} onClick={goBack} />}
-        date={"일기 수정하기"}
-        rightChild={
-          <Button text={"삭제하기"} type={"positive"} onClick={handleDelete} />
-        }
-      />
-    </Wrapper>
-  );
+  if(!data) {
+    <div>데이터를 불러오는 중입니다...</div>
+  } else {
+    return (
+      <Wrapper>
+        <Header
+          leftChild={<Button text={"< 뒤로가기"} onClick={goBack} />}
+          date={"일기 수정하기"}
+          rightChild={
+            <Button text={"삭제하기"} type={"positive"} onClick={handleDelete} />
+          }
+        />
+      </Wrapper>
+    );
+  }
 };
 
 export default Edit;
