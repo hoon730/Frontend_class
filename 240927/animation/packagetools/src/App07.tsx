@@ -76,8 +76,8 @@ const Button = styled.button`
 const box = {
   initial: (back: boolean) => ({
     x: back ? -500 : 500,
-    opacity: 0,
-    scale: 0,
+    opacity: 1,
+    scale: 1,
   }),
   visible: {
     x: 0,
@@ -87,7 +87,7 @@ const box = {
   exits: (back: boolean) => ({
     x: back ? 500 : -500,
     opacity: 1,
-    scale: 0,
+    scale: 1,
     transition: {
       duration: 0.3,
     },
