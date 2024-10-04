@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "react-bootstrap";
-import { ResultData } from "../assets/resultData";
+import { ResultData } from "../assets/resultdata";
+import KakaoShareButton from "../components/KakaoShareButton";
 
 const Wrapper = styled.div`
   display: flex;
@@ -41,7 +42,16 @@ const LogoImg = styled.div`
 
 const Desc = styled.div`
   margin: 10px 0;
+  padding: 8px 14px;
   font-size: 20px;
+  text-align: center;
+  background: crimson;
+  border-radius: 8px;
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 10px;
 `;
 
 const Result = () => {
@@ -57,8 +67,6 @@ const Result = () => {
     setResultData(result);
   }, [mbti]);
 
-  console.log(resultData);
-
   return (
     <Wrapper>
       <Header>예비집사 판별기</Header>
@@ -70,7 +78,10 @@ const Result = () => {
         <Desc>
           예비집사님과 찰떡궁합인 고양이는 {resultData.best}형 {resultData.name}
         </Desc>
-        <Button onClick={handleClickButton}>테스트 다시시작하기</Button>
+        <ButtonGroup>
+          <Button onClick={handleClickButton}>테스트 다시시작하기</Button>
+          <KakaoShareButton data={resultData} />
+        </ButtonGroup>
       </Contents>
     </Wrapper>
   );

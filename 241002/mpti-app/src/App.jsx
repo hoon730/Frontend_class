@@ -97,6 +97,30 @@ export default App;
 // 2) public폴더 해당 값을 가져오는 방법
 // > 절대위치 좌표를 기준으로 문자열 형태의 주소값을 사용!!
 
-
 // 최초 MBTI 시작하는 단계 => 0개
-// + 1 
+// + 1
+
+// 카카오톡 공유하기
+
+// 카카오 AdFit 광고설정
+
+// 또다른 Deploy방법
+// - Netify (*Deploy 사이트)
+// > git-hub 친밀함 (*push)
+// - Firebase (*Authentication // Storage // Database // Depoly)
+// -cafe24 // 도메인 > 사이트 구축
+// dothome & filezilla (*매우 번거로움)
+
+// 네이버 포털사이트 SEO 설정
+
+// https://app.netlify.com/
+
+// 지난주 금요일 MBTI 프로젝트
+
+// > git init
+// > git-hub 저장소 > respository 생성 (*catmbti)
+// > git remote add origin repository 주소 입력
+// > git add .
+// > git commit -m "first commit"
+// > git push origin master
+
