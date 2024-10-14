@@ -1,0 +1,43 @@
+Redux : JS 앱 // 제품을 개발 => state를 관리해주는 라이브러리
+
+> React.js에서만 사용할 수 있는게 아니다!!
+
+실직적 이유 
+
+React Query
+
+Hooks(*함수)
+
+Redux(*동기처리 방식)
+
+Redux를 비동기적인 방식으로 처리할 수 있도록 toolkit => middware
+
+> Redux-saga(*바닐라자바스크립트)
+- 제너레이터 기반 Redux 상태관리 라이브러리 toolkit
+- 학습량이 조금 많음
+- 대기업
+
+> Redux-thunk (*우리가 배울것)
+- action // reducer // middleware(*비동기처리) // store - 영화정보 (*api) // 장르 (*api)
+
+> useDispatch():
+사용자가 UI를 보고 어떤 이벤트를 실행하면 실행했다라는 action값으로 정의할 수 있도록 도와주는 Reactjs. Hooks(*함수)
+
+> useSelector() : 
+사용자의 action으로 인해 발생한 state변경값이 reducer 함수를 거쳐서 store에 저장되었을 때, store안에 있는 해당 stat의 
+값을 찾아 오고자 할때,
+
+Redux : 과도한 props drilling을 제어하고 
+
+
+Redux-thunk : 비동기처리
+일반적인 복수의 reducer의 처리값을 받아서 비동기적으로 처리하는 행위
+
+1) 상품정보를 가져오는 reducer
+2) 회원정보를 가져오는 reducer
+>root-reducer (*비동기처리)
+
+UI 화면을 구성하는 곳에서 EVENT 사용자 처리 EVENT
+외부 REST API 방식으로 json 찾아오는 EVENT 
+
+productAction.js => 액션 객체를 반환 함수
