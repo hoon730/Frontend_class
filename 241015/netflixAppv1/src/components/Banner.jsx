@@ -2,9 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const BgImg = styled.div`
-  width: 100px;
+  width: 100%;
   height: 800px;
-  border: 1px solid #f00;
   position: relative;
   color: #fff;
   &::before {
@@ -27,7 +26,7 @@ const Img = styled.img`
 const BannerInfo = styled.div`
   position: absolute;
   top: 50%;
-  left: 30px;
+  left: 40px;
   transform: translateY(-50%);
 `;
 
@@ -40,15 +39,14 @@ const MovieTitle = styled.h1`
 const MovieOverView = styled.p`
   width: 800px;
   font-size: 22px;
-  line-height: 40px;
+  line-height: 30px;
 `;
 
 const Banner = ({ movie }) => {
-  console.log(movie);
   return (
     <BgImg>
       <Img
-        src={`https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces${movie.poster_path}`}
+        src={`https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces${movie.backdrop_path}`}
       />
       <BannerInfo>
         <MovieTitle>{movie.title}</MovieTitle>

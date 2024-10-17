@@ -5,3 +5,4 @@ const Movie = () => {
 };
 
 export default Movie;
+Movie;

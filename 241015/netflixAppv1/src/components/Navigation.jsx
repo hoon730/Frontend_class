@@ -1,18 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  Navbar,
-  Button,
-  Container,
-  Nav,
-  NavDropdown,
-  Form,
-} from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Navbar, Container, Button, Nav, Form } from "react-bootstrap";
 
 const Wrapper = styled.div`
-  padding: 0 10px;
+  .inner-item {
+    padding: 0 40px;
+  }
 `;
 
 const Logo = styled.img`
@@ -29,9 +24,9 @@ const BtnItem = styled.span`
 
 const Navigation = () => {
   return (
-    <Navbar bg="dark" variant="dark">
-      <Wrapper>
-        <Container fluid>
+    <Wrapper>
+      <Navbar bg="dark" variant="dark">
+        <Container fluid className="inner-item">
           <Navbar.Brand href="#">
             <Logo
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1024px-Netflix_2015_logo.svg.png"
@@ -45,10 +40,10 @@ const Navigation = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="#action1">
+              <Nav.Link href="/">
                 <BtnItem>Home</BtnItem>
               </Nav.Link>
-              <Nav.Link href="#action2">
+              <Nav.Link href="/movie">
                 <BtnItem>Movie</BtnItem>
               </Nav.Link>
             </Nav>
@@ -63,8 +58,8 @@ const Navigation = () => {
             </Form>
           </Navbar.Collapse>
         </Container>
-      </Wrapper>
-    </Navbar>
+      </Navbar>
+    </Wrapper>
   );
 };
 

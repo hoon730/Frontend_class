@@ -1,11 +1,11 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "./components/Layout";
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
+import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Movie from "./pages/Movie";
-import MoiveDetail from "./pages/MoiveDetail";
+import MovieDetail from "./pages/MovieDetail";
 
 const GlobalStyles = createGlobalStyle`
   ${reset}
@@ -27,6 +27,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     background: #000;
+    color: #fff
   }
 `;
 
@@ -40,24 +41,24 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/movie",
+        path: "movie",
         element: <Movie />,
       },
       {
-        path: "/movie/:id",
-        element: <MoiveDetail />,
+        path: "movie/:id",
+        element: <MovieDetail />,
       },
     ],
   },
 ]);
 
-function App() {
+const App = () => {
   return (
     <>
       <GlobalStyles />
       <RouterProvider router={router} />
     </>
   );
-}
+};
 
 export default App;
