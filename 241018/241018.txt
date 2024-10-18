@@ -1,0 +1,40 @@
+개념적인 용어
+URL을 통해서 앱 & 앱 소통
+
+Method
+- GET
+- POST
+- DELETE
+- PUT
+
+불편한점 => 새로운 것
+1. 모든 요청을 URL // 무한한게 동적경로 생성 무리 
+2. 항상 메서드 정의를 꼭 챙겨야함
+3. 필요한 메서드 정의를 꼭 챙겨야함(Over-fetching
+4. 꼭 필요한 데이터가 누락되어 있는 경우 (Under-fetching)
+
+https://developer.x.com/en
+
+우리만의 간단한 서버를 구현  > graphQL > 영화소개 페이지!! 목업데이터!!
+
+https://grapql.org/swapi-graphql
+> 스타워즈
+
+GET - https://graphql.org/allfilms/totalcount
+
+로우 데이터를 제공해주는 Server Rest API 
+
+Apollo Server // REST API 소스를 GraphQL형식으로 변환 시켜줄 수 
+있도록 도와주는 서버 구현 하는 서버에서는 GraphQL
+
+node.js를 기반으로 프로그래밍을 하겠다!!
+npm init : node package manager 초기화
+npm init -y
+
+nodemon
+
+npm i nodemon -d
+
+nodemon server.js
+
+JS : CJS // ESM
