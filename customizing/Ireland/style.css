@@ -228,13 +228,14 @@ header .gnb-inner .trigger {
 }
 
 .city h3 {
+  height: 20%;
+  display: flex;
+  align-items: center;
   font-size: 42px;
   font-weight: 500;
-  margin-bottom: 30px;
 }
 .city .city-contents {
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
 }
@@ -262,7 +263,7 @@ header .gnb-inner .trigger {
   font-size: 14px;
 }
 .city .city-contents .city-left .city-btns {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 .city .city-contents .city-left .city-btns .input-box {
   width: 300px;
@@ -272,7 +273,7 @@ header .gnb-inner .trigger {
   width: calc(100% - 35px);
   height: 35px;
   border: none;
-  border-bottom: 1px solid #00875A;
+  border-bottom: 1px solid #00875a;
   padding-left: 15px;
 }
 .city .city-contents .city-left .city-btns .input-box input[type=text]:focus {
@@ -282,19 +283,19 @@ header .gnb-inner .trigger {
   width: 35px;
   height: 35px;
   border-radius: 5px;
-  border: 1px solid #03C75A;
-  background: #03C75A;
+  border: 1px solid #03c75a;
+  background: #03c75a;
   color: #fff;
   transition: all 0.3s;
 }
 .city .city-contents .city-left .city-btns .input-box button:hover {
   background: #fff;
-  color: #03C75A;
+  color: #03c75a;
 }
 .city .city-contents .city-left .goto-map {
-  margin-top: 15px;
+  margin-top: 30px;
   width: 300px;
-  height: 35px;
+  height: 40px;
   border: 1px solid transparent;
   background: #00875a;
   color: #fff;
@@ -308,5 +309,38 @@ header .gnb-inner .trigger {
 .city .city-contents .city-right {
   width: 60%;
   height: 612px;
-  background: url("./images/map1.png") center/contain no-repeat;
+  background: url("./images/map1.png") center/cover no-repeat;
+  position: relative;
+}
+.city .city-contents .city-right .city-pin {
+  position: absolute;
+  padding: 2px 5px;
+  letter-spacing: -20%;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+  color: #222;
+}
+.city .city-contents .city-right .city-pin.belfast {
+  top: 150px;
+  right: 45px;
+}
+.city .city-contents .city-right .city-pin.galway {
+  bottom: 260px;
+  left: 370px;
+}
+.city .city-contents .city-right .city-pin.dublin {
+  bottom: 300px;
+  right: 110px;
+}
+.city .city-contents .city-right .city-pin.limerick {
+  bottom: 200px;
+  right: 280px;
+}
+.city .city-contents .city-right .city-pin.cork {
+  bottom: 120px;
+  right: 330px;
+}
+.city .city-contents .city-right .city-pin.waterford {
+  bottom: 150px;
+  right: 200px;
 }
