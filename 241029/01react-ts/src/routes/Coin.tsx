@@ -4,6 +4,7 @@ import {
   Link,
   useMatch,
   Outlet,
+  useOutletContext,
 } from "react-router-dom";
 import styled from "styled-components";
 import Chart from "./Chart";
@@ -77,9 +78,9 @@ const Tab = styled.span<IsActive>`
   font-size: 14px;
   font-weight: bold;
   background: ${(props) =>
-    props.isActive ? props.theme.textColor : props.theme.accentColor};
+    props.$isActive ? props.theme.textColor : props.theme.accentColor};
   color: ${(props) =>
-    props.isActive ? props.theme.accentColor : props.theme.textColor};
+    props.$isActive ? props.theme.accentColor : props.theme.textColor};
   padding: 8px 0;
   border-radius: 8px;
   transition: background 0.3s, color 0.3s;
@@ -143,7 +144,7 @@ interface PriceData {
 }
 
 interface IsActive {
-  isActive: boolean;
+  $isActive: boolean;
 }
 
 const Coin = () => {
@@ -154,8 +155,6 @@ const Coin = () => {
   const { state } = useLocation() as LocationState;
   const priceMatch = useMatch("/:coinId/price");
   const chartMatch = useMatch("/:coinId/chart");
-  console.log(priceMatch);
-  console.log(chartMatch);
 
   // useEffect(() => {
   //   (async () => {
@@ -196,7 +195,11 @@ const Coin = () => {
         <title>{state ? state : loading ? "Loading..." : infoData?.name}</title>
       </Helmet>
       <Header>
-        <Title>{state ? state : loading ? "Loading..." : infoData?.name}</Title>
+        <Link to={"/"}>
+          <Title>
+            {state ? state : loading ? "Loading..." : infoData?.name}
+          </Title>
+        </Link>
       </Header>
       {loading ? (
         <Loader>Loading...</Loader>
@@ -234,10 +237,10 @@ const Coin = () => {
             </OverviewItem>
           </Overview>
           <Tabs>
-            <Tab isActive={chartMatch !== null}>
+            <Tab $isActive={chartMatch !== null}>
               <Link to={`/${coinId}/chart`}>Chart</Link>
             </Tab>
-            <Tab isActive={priceMatch !== null}>
+            <Tab $isActive={priceMatch !== null}>
               <Link to={`/${coinId}/price`}>Price</Link>
             </Tab>
           </Tabs>

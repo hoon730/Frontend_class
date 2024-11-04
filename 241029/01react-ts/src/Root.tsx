@@ -4,9 +4,10 @@ import { createGlobalStyle } from "styled-components";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ThemeProvider } from "styled-components";
 import { darktheme, lighttheme } from "./theme";
+import { isDarkAtom } from "./atoms";
+import { useRecoilValue } from "recoil";
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
   * {
     margin: 0;
     padding: 0;
@@ -23,16 +24,19 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: "Source Sans 3", serif;
     background: ${({ theme }) => theme.bgColor};
     color: ${({ theme }) => theme.textColor};
   }
 `;
 
 const App = () => {
+  // const [isDark, setIsDark] = useState(false);
+  // const toggleDark = () => setIsDark((current) => !current);
+  const isDark = useRecoilValue(isDarkAtom);
+
   return (
     <>
-      <ThemeProvider theme={lighttheme}>
+      <ThemeProvider theme={isDark ? darktheme : lighttheme}>
         <GlobalStyle />
         <Outlet />
         <ReactQueryDevtools

@@ -1,0 +1,60 @@
+useContext > useReducer > Redux > Redux-thunk > Axios > React-Query
+=> Recoil
+
+Recoil!!!
+- 전역적으로 state관리
+- 1개의 컴포넌트 안에서 관리
+- props //
+- atom() : state를 전역요소로 저장.관리 함수
+=> 키메세지(*닉네임)
+
+useRecoilValue() : state값을 찾아와서 사용
+useSetRecoilState(): state값을 setting해줄 수 있는 역할
+useRecoilState() : state값을 찾아오기도 하고, 찾아온 해당 값을
+setting까지도 모두 할 수 있는 역할 
+
+selector() : atom 함수안에서 저장.관리되고 있는 state값을 
+원하는 형식으로 편입.제어 => UI 전달 역할
+> 식별자를 항상 달고 다닌다!!
+
+get : state 값을 찾아와서 연산작업을 거쳐서 우리가
+원하는 형태의 값을 최종 반환
+
+1. D&D 라이브러시 사용!!
+- 드래그 & 드롭 하고자 하는 문서를 반드시 DragDropContext로
+깜싸안아야한다
+
+- Droppable 이라는 background 영역이 존재
+
+- 실제 드래그를 하고자하는 요소들을 Draggable
+이라는 속성을 가지고 있어야함
+
+npm install react-beautiful-dnd
+npm install @types/react-beautiful-dnd -D
+
+Droppable & Draggable : 모두 기본적으로 함수의 형태를 
+띄고 있어야합니다!!
+
+> 함수 자료형태 : 매개변수 // 누군가 상호소통할 수 있는 자료
+형태
+
+> Droppable & Draggable : 고유의 아이디 id값을 가지고 있어야함
+
+> Droppable & Draggable : 자식요소로 태그를 가져갈 수 있다 => 함수
+
+> Draggable : 교유한 index값을 부여해줘야 함
+
+> DragEnd : D&D이 종료가 되면 실행 기능 정의
+
+
+destination : 이동하고자 하는 최종 위치에 대한 정보값을 가지고 있음
+(*droppable ID : todo || doing || done), index
+
+source : 이동하고자 하는 요소들의 원래 있었던 그 위치 정보값을 
+가지고 있음(*droppable ID : todo || doing || done), index
+
+누군가 어디론가 이동중에 있다는 사실
+
+snapshot: 찰나의
+
+필수 페이지 : 메인 + 검색 + 섬네일상세페이지 + 로그인 12월/9일
