@@ -1,4 +1,4 @@
-import { LinkedList } from "./linkedList.mjs";
+import { LinkedList } from "../01linkedList/linkedList.mjs";
 
 class Stack {
   constructor() {

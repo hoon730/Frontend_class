@@ -11,6 +11,7 @@ const Container = styled.div`
   height: 2000px;
   margin-top: 60px;
   background: ${(props) => props.theme.black.lighter};
+  overflow: hidden;
 `;
 const Loader = styled.div`
   width: 100%;
