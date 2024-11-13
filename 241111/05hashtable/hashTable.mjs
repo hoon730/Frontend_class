@@ -1,4 +1,4 @@
-import { DoublyLinkedList } from "./DoublyLinkedList.mjs";
+import { DoublyLinkedList } from "../DoublyLinkedList.mjs";
 
 class HashData {
   constructor(key, value) {
