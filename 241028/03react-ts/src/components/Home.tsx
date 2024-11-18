@@ -1,7 +1,7 @@
 import React from "react";
 import { users } from "../db";
 import { Link, useSearchParams } from "react-router-dom";
-g
+
 const Home = () => {
   const [readSearchParams, setSearchParams] = useSearchParams();
   // console.log(readSearchParams.get("geo"));

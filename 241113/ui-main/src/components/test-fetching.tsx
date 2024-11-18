@@ -1,10 +1,10 @@
 // React에서 Data-Fetching 과정!!!
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 const Page = () => {
-  const [state, setState] = useState("");
+  // const [state, setState] = useState("");
   const fetchData = async () => {
-    const response = fetch("...");
+    // const response = fetch("...");
     // const data = await response.json();
 
     // setState(data);
@@ -14,7 +14,7 @@ const Page = () => {
     fetchData();
   }, []);
 
-  return <div>{state}</div>;
+  // return <div>{state}</div>;
 };
 
 export default Page;

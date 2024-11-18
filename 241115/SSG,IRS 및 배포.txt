@@ -1,0 +1,77 @@
+- 목표
+- 페이지 라우터 : 배포!!!
+
+SSR 방식 Next.js
+- React.js의 프레임워크
+- CSR 방식 : index + Bundle => 클라이언트
+- Pre-Rendering 방식 도입
+
+1. Page Routing
+- Root Folder > 하위 폴더 | 하위 경로를 의미하는 파일을 생성
+
+2. supabase
+- scheme > data push
+
+서버용 vs-code
+npm run start : supabase => 백엔드용 서버로 오픈
+npx prisma studio : 요소를 활용한 데이터를 모니터링
+
+ui용 vscode
+npm run dev
+
+
+localhost: 3000
+
+data-fetching 개념
+data: 서버로 부터 받아오는 자료
+fetching: 받아오는 방법(*동명사)
+
+1. SSR : Server Side Rendering
+- Pre-Rendering : 사전 렌더링을 해야하는 그 과정이 혹여 많은 
+데이터를 처리해야하는 숙명 => 사전 렌더링을 하는 자체의 시간 많이 소요
+- 장점(늘 항상 언제나 Server로 부터 최신데이터) VS 단점 (과부화 걸릴경우,
+사전렌더링 의미 퇴색)
+
+2. SSG : Static Site Generation
+- 정적 사이트 생성
+- 장점 (사전 렌더링 자체를 npm run build가 되는 단계에 진행해버림)
+- 단점 (Server에 최신 데이터가 업데이트 // 실시간 반영)
+
+3. ISR : Incremental Static Regeneration
+- 정적 사이트 생성 + 개발자 특정 시간을 걸어놓고 
+
+npm run build : 
+- 코드를 작성한 후 베포 단계로 넘어가기 직전 최종 데이터 버전을 압축해서
+만들어 놓기 위한 명령어
+
+npm run start: 
+- 개발자 모드에서 개발을 위해서 만들어 놓은 코드가 실제 user환경 기반에서
+어떻게 작동되는지 테스트 하기 위한 버전을 실행시켜주는 명령어
+
+npm run dev: 
+- 개발자 모드로 개발에 필요한 코드를 작성 후 실시간을 테스트를 진행해보고자
+하는 버전을 실행시켜주는 명령어
+
+fallback : 
+- false : 사전에 정의되진 않은 페이지는 모두 404 메세지
+
+- blocking : SSG 방식 => SSR 방식 // 101
+
+- true : SSG 방식 => SSR 방식 // 사용자에게 우선 UI페이지 전달 
+=> 서버에서 데이터를 찾아서 전달
+
+SSR
+SSG
+ISR
+> 개발자가 정의해놓은 특정 시간에 맞춰서 업데이트!!!
+> 사용자가 굳이 업데이트가 된 정보 x
+> 사용자가 어떤 특정 이벤트를 싱행 > ISR
+> On-Demand-ISR = 주문형 재검증 ISR 데이터 패칭 방식
+
+React.js SEO가 굉장히 취약함!!
+
+배포 > Vercel
+
+npm install vercell -G
+
+npx vercel login
