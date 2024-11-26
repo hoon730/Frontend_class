@@ -1,0 +1,11 @@
+Server 구현
+
+Node.js
+
+Express
+
+Babel : JS 최신언어 통일
+
+Nodemon : Node 서버를 활용한 모니터링
+Morgan : Client의 접속 현황 체크
+Pug : html 템플릿 양식을 보다 효율적을 작성 도와주는 역할

@@ -1,16 +1,16 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BookData } from "@/types";
 import BookItem from "@/components/book-item";
+import delay from "@/util/delay";
 
-const Page = async ({
-  searchParams,
-}: {
-  searchParams: Promise<{ q: string }>;
-}) => {
-  const { q } = await searchParams;
+// export const dynamic = "force-dynamic";
+const SearchResult = async ({ q }: { q: string }) => {
+  // const { q } = await searchParams;
+  await delay(1500);
   console.log(q);
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/search?q=${q}`
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/search?q=${q}`,
+    { cache: "force-cache" }
   );
   if (!response.ok) {
     return <div>오류가 발생했습니다...</div>;
@@ -23,6 +23,21 @@ const Page = async ({
         <BookItem key={book.id} {...book} />
       ))}
     </div>
+  );
+};
+
+const Page = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ q: string }>;
+}) => {
+  return (
+    <Suspense
+      key={(await searchParams).q || ""}
+      fallback={<div>로딩중...</div>}
+    >
+      <SearchResult q={(await searchParams).q || ""} />
+    </Suspense>
   );
 };
 

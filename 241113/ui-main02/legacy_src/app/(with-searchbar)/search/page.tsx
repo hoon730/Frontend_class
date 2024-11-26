@@ -1,4 +1,4 @@
-import ClientComponent from "../../../components/client-component";
+// import ClientComponent from "../../../components/client-component";
 import React from "react";
 
 const Page = async ({
@@ -11,9 +11,9 @@ const Page = async ({
   return (
     <div>
       Search 페이지 : {q}
-      <ClientComponent>
+      {/* <ClientComponent> */}
         <></>
-      </ClientComponent>
+      {/* </ClientComponent> */}
     </div>
   );
 };
