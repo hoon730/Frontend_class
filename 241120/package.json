@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hoon730/node-reloaded.git"
+    "url": "git+https://github.com/Divjason/node-reloaded.git"
   },
-  "author": "Hoon",
+  "author": "David",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hoon730/node-reloaded/issues"
+    "url": "https://github.com/Divjason/node-reloaded/issues"
   },
-  "homepage": "https://github.com/hoon730/node-reloaded#readme",
+  "homepage": "https://github.com/Divjason/node-reloaded#readme",
   "dependencies": {
     "express": "^4.21.1",
     "mongoose": "^8.8.2",
