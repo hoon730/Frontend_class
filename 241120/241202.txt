@@ -1,0 +1,20 @@
+> Interception Route = 인터셉팅 라우트
+=> user가 어떤 페이지로 이동하려고 할 대, user의 어떤 
+
+
+2) 최적화 
+> jpeg > webp // avif => 경량화된 이미지 포맷 변경
+
+deployment 배포
+> vercel 사이트
+
+npm i vercel - g
+
+vercel login
+
+vercel
+onebite-books-page
+
+https://onebite-books-server-six-smoky.vercel.app/
+
+1차로 정상적인 배보 > vercel --prod
