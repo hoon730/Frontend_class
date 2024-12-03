@@ -1,0 +1,8 @@
+*암호화
+- hash (해시화)
+- 입력 => 출력 // 
+- 일방향 함수 실행
+
+*rainbow table 전략
+
+genSalt( ) => deterministic Function => 결정적 함수

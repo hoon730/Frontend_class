@@ -1,7 +1,6 @@
 import express from "express";
-import { edit, logout, remove, see } from "../controllers/userController";
+import { edit, remove, logout, see } from "../controllers/userController";
 
-// Global Router
 const userRouter = express.Router();
 
 userRouter.get("/logout", logout);

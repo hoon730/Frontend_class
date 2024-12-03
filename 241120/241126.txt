@@ -1,0 +1,13 @@
+mongoDB
+> 
+mongoose
+> schema : DB의 형태 및 구조
+> model : 
+
+6743fa54efed3d7ba4d11b45 : 24자
+
+
+use nodejs
+
+db.videos.find()
+db.videos.remove({})

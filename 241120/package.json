@@ -4,20 +4,24 @@
   "description": "watch videos.",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev": "nodemon --exec babel-node src/init.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hoon730/node-reloaded.git"
+    "url": "git+https://github.com/Divjason/node-reloaded.git"
   },
-  "author": "Hoon",
+  "author": "David",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hoon730/node-reloaded/issues"
+    "url": "https://github.com/Divjason/node-reloaded/issues"
   },
-  "homepage": "https://github.com/hoon730/node-reloaded#readme",
+  "homepage": "https://github.com/Divjason/node-reloaded#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-mongo": "^5.1.0",
     "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.8.2",
     "morgan": "^1.10.0",
     "pug": "^3.0.3"
   },

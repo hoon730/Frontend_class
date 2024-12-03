@@ -1,25 +1,36 @@
 import express from "express";
 import morgan from "morgan";
+import rootRouter from "./routers/rootRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
-import globalRouter from "./routers/globalRouter";
-
-const PORT = 4000;
-
-console.log(process.cwd());
+import { localMiddleware } from "./middlewares";
 
 const app = express();
-const logger = morgan("combined");
+const session = require("express-session");
+const logger = morgan("dev");
+const MongoStore = require("connect-mongo");
 
-app.use(logger);
 app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
-app.use("/", globalRouter);
+app.use(logger);
+app.use(express.urlencoded({ extended: true }));
+app.use(
+  session({
+    secret: "Hello!",
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: "mongodb://127.0.0.1:27017/nodejs" }),
+  })
+);
+// app.use((req, res, next) => {
+//   req.sessionStore.all((error, session) => {
+//     next();
+//   });
+// });
+
+app.use(localMiddleware);
+app.use("/", rootRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
 
-const handleListening = () => {
-  console.log(`Listening on ${PORT}`);
-};
-
-app.listen(4000, handleListening);
+export default app;

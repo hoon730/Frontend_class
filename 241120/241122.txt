@@ -1,0 +1,10 @@
+1. IT 업계
+- Node.js VS (*Startup /F/E + B/E)
+> JS : Type Strict 현저하게 부족 => 신뢰 & 안정
+> TS : Bug // any
+
+- Java Spring (*전통적인 B/E)
+
+/ Dynamic Parameter => Absolute URL
+
+Dynamic Parameter => Relative URL
