@@ -14,14 +14,21 @@ app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
+
+// console.log(process.env.COOKIE_SECRET);
+
 app.use(
   session({
-    secret: "Hello!",
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: "mongodb://127.0.0.1:27017/nodejs" }),
+    secret: process.env.COOKIE_SECRET,
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: 20000,
+    },
+    store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
   })
 );
+
 // app.use((req, res, next) => {
 //   req.sessionStore.all((error, session) => {
 //     next();
