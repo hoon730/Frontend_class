@@ -118,7 +118,7 @@ export const finishGithubLogin = async (req, res) => {
         socialOnly: true,
         username: userData.login,
         password: "",
-        name: userData.name,
+        name: userData.login,
         location: userData.location,
       });
       req.session.loggedIn = true;
@@ -129,7 +129,56 @@ export const finishGithubLogin = async (req, res) => {
     return res.redirect("/login");
   }
 };
-export const edit = (req, res) => res.send("edit");
+
+export const getEdit = (req, res) => {
+  return res.render("edit-profile"), { pageTitle: "Edit Profile" };
+};
+
+export const postEdit = async (req, res) => {
+  // const { user } = req.session;
+  // const { name, email, username, location } = req.body;
+  const {
+    session: {
+      user: { _id, email: sessionEmail, username: sessionUsername },
+    },
+    body: { name, email, username, location },
+  } = req;
+
+  const usernameExists =
+    username !== sessionUsername ? await User.exists({ username }) : undefined;
+
+  const emailExists =
+    email !== sessionEmail ? await User.exists({ email }) : undefined;
+
+  if (usernameExists || emailExists) {
+    return res
+      .status(400)
+      .render("edit-profile", {
+        pageTitle: "Edit Profile",
+        usernameErrorMessage: usernameExists
+          ? "This username is already taken"
+          : 0,
+        emailErrorMessage: emailExists ? "This email is already taken" : 0,
+      });
+  }
+
+  console.log(_id, email);
+
+  const updateUser = await User.findByIdAndUpdate(
+    _id,
+    {
+      name,
+      email,
+      username,
+      location,
+    },
+    { new: true }
+  );
+
+  req.session.user = updateUser;
+  return res.redirect("/users/edit");
+};
+
 export const remove = (req, res) => res.send("remove");
 export const getLogin = (req, res) => res.render("login");
 export const postLogin = async (req, res) => {
