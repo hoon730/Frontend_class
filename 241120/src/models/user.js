@@ -7,14 +7,14 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  avatar_url: String,
+  avatarUrl: String,
   socialOnly: {
     type: Boolean,
     default: false,
   },
   username: {
     type: String,
-    required: true,
+    // required: true,
     unique: true,
   },
   password: {
@@ -31,7 +31,9 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre("save", async function () {
   this.password = await bcrypt.hash(this.password, 5);
+  // salsRound는 몇번 해싱할꺼냐 => 5
 });
 
 const User = mongoose.model("User", userSchema);
+
 export default User;

@@ -16,6 +16,9 @@ export const search = async (req, res) => {
     videos = await Video.find({
       title: {
         $regex: new RegExp(keyword, "i"),
+        // 몽구스 문법 : 해당 내용이 포함되어있으면 결과를 찾아줌
+        //$regex: new RegExp(`^${keyword}`, "i") 해당 키워드로 시작되는 걸로 찾아와라
+        //$regex: new RegExp(`${keyword}$`, "i") 해당 키워드로 끝나는 걸로 찾아와라
       },
     });
   }
@@ -31,13 +34,12 @@ export const watch = async (req, res) => {
   }
   return res.render("watch", { pageTitle: video.title, video });
 };
-
 export const getEdit = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
 
   if (!video) {
-    return res.render("404", { pageTitle: "Video not found." });
+    return res.status(404).render("404", { pageTitle: "Video not found." });
   }
   return res.render("edit", { pageTitle: `Edit : ${video.title}`, video });
 };
@@ -57,14 +59,16 @@ export const postEdit = async (req, res) => {
   return res.redirect(`/videos/${id}`);
 };
 
-export const getUplold = (req, res) => {
+export const getUpload = (req, res) => {
   return res.render("upload", { pageTitle: "Upload Video" });
 };
 
-export const postUplold = async (req, res) => {
+export const postUpload = async (req, res) => {
+  const { file } = req;
   const { title, description, hashtags } = req.body;
   try {
     await Video.create({
+      fileUrl: file.path.replace(/\\/g, "/"),
       title,
       description,
       hashtags: Video.formatHashtags(hashtags),
@@ -81,6 +85,5 @@ export const postUplold = async (req, res) => {
 export const deleteVideo = async (req, res) => {
   const { id } = req.params;
   await Video.findByIdAndDelete(id);
-  console.log(id);
   return res.redirect("/");
 };

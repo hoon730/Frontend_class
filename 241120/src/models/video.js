@@ -14,6 +14,7 @@ const videoSchema = new mongoose.Schema({
     maxLength: 80,
     required: true,
   },
+  fileUrl: { type: String, required: true },
   description: { type: String, trim: true, minLength: 20, required: true },
   createdAt: { type: Date, required: true, default: Date.now },
   hashtags: [{ type: String, trim: true }],
@@ -29,6 +30,8 @@ videoSchema.static("formatHashtags", (hashtags) => {
     .map((word) => (word.startsWith("#") ? word : `#${word}`));
 });
 
+// pre는 미들웨어 함수
+// save가 실행되기 전에 콜백이 실행됨
 // videoSchema.pre("save", async function () {
 //   this.hashtags = this.hashtags[0]
 //     .split(",")
