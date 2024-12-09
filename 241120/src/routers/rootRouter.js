@@ -4,11 +4,10 @@ import {
   postJoin,
   getLogin,
   postLogin,
-} from "../controllers/userContoller";
+} from "../controllers/userController";
 import { home, search } from "../controllers/videoController";
 import { publicOnlyMiddleware } from "../middlewares";
 
-// 메인,로그인,서치 페이지는 글로벌 라우터에서 관리
 const rootRouter = express.Router();
 
 rootRouter.get("/", home);

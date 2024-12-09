@@ -3,21 +3,19 @@ import {
   watch,
   getEdit,
   postEdit,
-  getUpload,
-  postUpload,
+  getUplold,
+  postUplold,
   deleteVideo,
 } from "../controllers/videoController";
 import { protectorMiddleware, videoUpload } from "../middlewares";
 
 const videoRouter = express.Router();
 
-// (\\d+)는 숫자만 받겠다
-// ([0-9a-f]{24}) 16진수 24자
 videoRouter
   .route("/upload")
   .all(protectorMiddleware)
-  .get(getUpload)
-  .post(videoUpload.single("video"), postUpload);
+  .get(getUplold)
+  .post(videoUpload.single("video"), postUplold);
 videoRouter.route("/:id([0-9a-f]{24})").get(watch);
 videoRouter
   .route("/:id([0-9a-f]{24})/edit")

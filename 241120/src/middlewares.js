@@ -8,7 +8,6 @@ export const localMiddleware = (req, res, next) => {
   next();
 };
 
-// 로그인이 안되어있으면 로그인으로 보내기
 export const protectorMiddleware = (req, res, next) => {
   if (req.session.loggedIn) {
     return next();
@@ -17,7 +16,6 @@ export const protectorMiddleware = (req, res, next) => {
   }
 };
 
-// 로그인이 되어있으면 홈으로 보내기
 export const publicOnlyMiddleware = (req, res, next) => {
   if (!req.session.loggedIn) {
     return next();

@@ -1,3 +1,4 @@
+import User from "../models/user";
 import Video from "../models/video";
 
 export const home = async (req, res) => {
@@ -16,9 +17,6 @@ export const search = async (req, res) => {
     videos = await Video.find({
       title: {
         $regex: new RegExp(keyword, "i"),
-        // 몽구스 문법 : 해당 내용이 포함되어있으면 결과를 찾아줌
-        //$regex: new RegExp(`^${keyword}`, "i") 해당 키워드로 시작되는 걸로 찾아와라
-        //$regex: new RegExp(`${keyword}$`, "i") 해당 키워드로 끝나는 걸로 찾아와라
       },
     });
   }
@@ -27,13 +25,14 @@ export const search = async (req, res) => {
 
 export const watch = async (req, res) => {
   const { id } = req.params;
-  const video = await Video.findById(id);
-
+  const video = await Video.findById(id).populate("owner");
+  console.log(video);
   if (!video) {
     return res.render("404", { pageTitle: "Video not found." });
   }
   return res.render("watch", { pageTitle: video.title, video });
 };
+
 export const getEdit = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
@@ -59,20 +58,27 @@ export const postEdit = async (req, res) => {
   return res.redirect(`/videos/${id}`);
 };
 
-export const getUpload = (req, res) => {
+export const getUplold = (req, res) => {
   return res.render("upload", { pageTitle: "Upload Video" });
 };
 
-export const postUpload = async (req, res) => {
-  const { file } = req;
+export const postUplold = async (req, res) => {
+  const {
+    user: { _id },
+  } = req.session;
+  const { path } = req.file;
   const { title, description, hashtags } = req.body;
   try {
-    await Video.create({
-      fileUrl: file.path.replace(/\\/g, "/"),
+    const newVideo = await Video.create({
+      fileUrl: path.replace(/\\/g, "/"),
       title,
       description,
       hashtags: Video.formatHashtags(hashtags),
+      owner: _id,
     });
+    const user = await User.findById(_id);
+    user.videos.push(newVideo._id);
+    user.save();
     return res.redirect("/");
   } catch (error) {
     return res.render("upload", {

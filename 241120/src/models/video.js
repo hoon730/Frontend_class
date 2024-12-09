@@ -22,6 +22,11 @@ const videoSchema = new mongoose.Schema({
     views: { type: Number, required: true, default: 0 },
     rating: { type: Number, required: true, default: 0 },
   },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "User",
+  },
 });
 
 videoSchema.static("formatHashtags", (hashtags) => {
@@ -30,8 +35,6 @@ videoSchema.static("formatHashtags", (hashtags) => {
     .map((word) => (word.startsWith("#") ? word : `#${word}`));
 });
 
-// pre는 미들웨어 함수
-// save가 실행되기 전에 콜백이 실행됨
 // videoSchema.pre("save", async function () {
 //   this.hashtags = this.hashtags[0]
 //     .split(",")
