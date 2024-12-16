@@ -1,20 +1,30 @@
 .search__form {
   display: flex;
-  flex-direction: column;
-  max-width: 320px;
-  margin: 0 auto;
+  margin-bottom: 60px;
+  position: relative;
   input {
     margin-bottom: 5px;
     padding: 15px 20px;
-    border: 1px solid rgba($color: #fff, $alpha: 0.2);
+    border: 1px solid rgba($color: #ffffff, $alpha: 0.2);
     border-radius: 5px;
     background: #000;
     color: #fff;
     cursor: pointer;
   }
-  input[type="submit"] {
-    background: rgba($color: #000000, $alpha: 0.3);
+  input[type="text"] {
+    width: 100%;
+  }
+  button {
+    background: transparent;
     text-align: center;
     padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-60%);
+    border: none;
+    font-size: 18px;
+    color: $red;
   }
 }
