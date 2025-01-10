@@ -2,6 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 import Home from "./pages/Home";
 import Header from "./components/Header";
+import Weather from "./pages/Weather";
 
 const GlobalsStyle = createGlobalStyle`
   ${reset}
@@ -50,6 +51,7 @@ const App = () => {
       <Wrapper>
         <Header />
         <Home />
+        <Weather />
       </Wrapper>
     </>
   );
