@@ -72,7 +72,16 @@ const Right = styled.div`
         font-size: 24px;
       }
     }
-    .swiper-rtl {
+    .swiper-slide {
+      display: flex;
+      align-items: flex-end;
+      p {
+        padding: 15px;
+        font-size: 18px;
+        font-weight: 500;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+      }
     }
   }
 `;
@@ -136,7 +145,7 @@ const Home = () => {
                 background: `url(${activity.imgPath}) center/cover no-repeat`,
               }}
             >
-              {activity.desc}
+              <p>{activity.desc}</p>
             </SwiperSlide>
           ))}
         </Swiper>

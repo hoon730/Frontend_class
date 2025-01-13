@@ -1,8 +1,9 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import reset from "styled-reset";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import Weather from "./pages/Weather";
+import { theme } from "./theme";
 
 const GlobalsStyle = createGlobalStyle`
   ${reset}
@@ -10,6 +11,10 @@ const GlobalsStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  body {
+    color: ${(props) => props.theme.fontColor};
 
     ul, li {
       list-style: none;
@@ -29,7 +34,7 @@ const GlobalsStyle = createGlobalStyle`
     border: none;
     cursor: pointer;
     font-family: "Noto Sans KR", sans-serif;
-  }
+    }
   }
 `;
 
@@ -47,12 +52,14 @@ const Wrapper = styled.div`
 const App = () => {
   return (
     <>
-      <GlobalsStyle />
-      <Wrapper>
-        <Header />
-        <Home />
-        <Weather />
-      </Wrapper>
+      <ThemeProvider theme={theme}>
+        <GlobalsStyle />
+        <Wrapper>
+          <Header />
+          <Home />
+          <Weather />
+        </Wrapper>
+      </ThemeProvider>
     </>
   );
 };

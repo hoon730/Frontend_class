@@ -11,6 +11,8 @@ const Container = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 0 4%;
+  z-index: 1000;
+  background: #fff;
 `;
 const LogoBox = styled.div`
   display: flex;

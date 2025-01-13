@@ -3,6 +3,6 @@ import { DefaultTheme } from "./styled";
 export const theme: DefaultTheme = {
   bgColor: "#fff",
   fontColor: "#222",
-  mainColor: "#03c75a",
-  subColor: "#00875a",
+  mainColor: "#19da33",
+  subColor: "#5c0084",
 };
