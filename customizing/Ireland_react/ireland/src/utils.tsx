@@ -19,7 +19,6 @@ import { FaVolcano } from "react-icons/fa6";
 import { BsCloudLightningRainFill } from "react-icons/bs";
 import { FaTornado } from "react-icons/fa6";
 
-
 export const transInfo = [
   {
     id: 1,
@@ -125,3 +124,19 @@ export const weatherIcons = [
     icon: <FaTornado />,
   },
 ];
+
+const countryToLangMap: { [key: string]: string } = {
+  KR: "ko",
+  US: "en",
+  FR: "fr",
+  DE: "de",
+  ES: "es",
+  JP: "ja",
+  CN: "zh",
+  RU: "ru",
+  IT: "it",
+};
+
+export const getLanguageByCountry = (countryCode: string): string => {
+  return countryToLangMap[countryCode] || "en";
+};

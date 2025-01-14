@@ -1,8 +1,16 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import {
+  getWeatherByCurrentLocation,
+  getCoordinates,
+  getForecastData,
+} from "../api";
+import { cityState, searchedCityState, forecastDataState } from "../atom";
+
 import { transInfo, weatherIcons } from "../utils";
 
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
+import { useRecoilState, useSetRecoilState } from "recoil";
 
 const Container = styled.div``;
 
@@ -77,8 +85,6 @@ const InputBox = styled.div`
   }
 `;
 
-const Form = styled.form``;
-
 const SearchInput = styled.input`
   width: 70%;
   padding: 10px 0 10px 30px;
@@ -137,46 +143,51 @@ const Trans = styled.div`
   }
 `;
 
+interface WeatherIcon {
+  name: string;
+  icon: JSX.Element;
+}
+
 const Weather = () => {
   const searchRef = useRef<HTMLInputElement>(null);
-  const WEATHER_KEY = import.meta.env.VITE_WEATHER_KEY;
+  const [city, setCity] = useRecoilState(cityState);
+  const setSearchedCity = useSetRecoilState(searchedCityState);
+  const setForecastData = useSetRecoilState(forecastDataState);
 
   const getWeatherIcon = (weather: string) => {
     const targetIcon = weatherIcons.find((item) => item.name === weather);
-    return targetIcon;
-  };
-
-  const getWeatherByCurrentLocation = async (lat: number, lon: number) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_KEY}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    const weather = data.weather[0]?.main;
-    getWeatherIcon(weather);
-  };
-
-  // const getCurrentLocation = () => {
-  //   window.navigator.geolocation.getCurrentPosition(({ coords }) => {
-  //     let lat = coords.latitude;
-  //     let lon = coords.longitude;
-  //     getWeatherByCurrentLocation(lat, lon);
-  //   });
-  // };
-
-  const getCoordinates = async (city: string) => {
-    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${WEATHER_KEY}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
-    return { lat: data[0]?.lat, lon: data[0]?.lon };
+    if (targetIcon) {
+    } else {
+    }
   };
 
   const handleSearch = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      const city = searchRef.current?.value || "";
-      const { lat, lon } = await getCoordinates(city);
-      getWeatherByCurrentLocation(lat, lon);
+      const cityName = searchRef.current?.value || "";
+      const { lat, lon } = await getCoordinates(cityName);
+      if (lat && lon) {
+        const weatherData = await getWeatherByCurrentLocation(lat, lon);
+        const forecast = await getForecastData(lat, lon);
+        setCity(weatherData);
+        setSearchedCity({ name: cityName, lat, lon });
+        setForecastData(forecast);
+      }
     }
   };
+
+  useEffect(() => {
+    const getCurrentLocation = async () => {
+      window.navigator.geolocation.getCurrentPosition(async ({ coords }) => {
+        const lat = coords.latitude;
+        const lon = coords.longitude;
+        const weatherData = await getWeatherByCurrentLocation(lat, lon);
+        const forecast = await getForecastData(lat, lon);
+        setCity(weatherData);
+        setForecastData(forecast);
+      });
+    };
+    getCurrentLocation();
+  }, [setCity, setForecastData]);
 
   return (
     <Container>
@@ -208,7 +219,10 @@ const Weather = () => {
                 </SubmitLabel>
                 <SubmitInput id="enter" type="button" value="" />
               </InputBox>
-              <City>Today in: </City>
+              <City>
+                Today in: {city?.name || "Unknown"}
+                {/* {searchedCituy ? searchedCituy.name : city?.name || "Unknown"} */}
+              </City>
             </Desc>
           </WeatherBox>
           <Transportation>
