@@ -1,4 +1,9 @@
-import { getLanguageByCountry } from "./utils";
+import {
+  fahrenheitToCelsius,
+  getLanguageByCountry,
+  weatherDescKo,
+  weatherIcons,
+} from "./utils";
 
 const WEATHER_KEY = import.meta.env.VITE_WEATHER_KEY;
 
@@ -6,28 +11,40 @@ export const getForecastData = async (lat: number, lon: number) => {
   const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_KEY}`;
   const response = await fetch(url);
   const data = await response.json();
+  console.log(data);
   return data;
 };
 
 export const getWeatherByCurrentLocation = async (lat: number, lon: number) => {
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_KEY}&lang=ru`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=ko&appid=${WEATHER_KEY}`;
   let response = await fetch(url);
   let data = await response.json();
-  const {
-    sys: { country },
-  } = data;
-  // const formattedLanguage = getLanguageByCountry(country);
-  // url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_KEY}&lang=${formattedLanguage}`;
-  // console.log(url);
-  // response = await fetch(url);
-  // data = await response.json();
-
   console.log(data);
 
-  return data;
+  const cityName = data.name;
+  const langId = data.weather[0].id as keyof typeof weatherDescKo;
+  const weather = data.weather[0].main;
+  const weatherImg = weatherIcons.find((icon) => icon.name === weather);
+  const weatherIcon = data.weather[0].icon;
+  const weatherIconPath = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
+  const weatherDesc = weatherDescKo[langId];
+  const currentTemp = fahrenheitToCelsius(data.main.temp);
+  const tempMin = fahrenheitToCelsius(data.main.temp_min);
+  const tempMax = fahrenheitToCelsius(data.main.temp_max);
 
-  // const weather = data.weather[0]?.main;
-  // getWeatherIcon(weather);
+  const weatherInfo = {
+    cityName,
+    weatherIconPath,
+    img: weatherImg?.icon,
+    desc: weatherDesc,
+    currentTemp,
+    tempMin,
+    tempMax,
+  };
+
+  // console.log(weatherInfo);
+
+  return weatherInfo;
 };
 
 export const getCoordinates = async (city: string) => {

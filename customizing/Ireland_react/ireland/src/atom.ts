@@ -1,8 +1,13 @@
 import { atom } from "recoil";
 
 interface WeatherData {
-  name: string;
-  weather: Array<{ main: string }>;
+  cityName: string;
+  weatherIconPath: string;
+  img: JSX.Element | undefined;
+  desc: string;
+  currentTemp: number | undefined;
+  tempMin: number | undefined;
+  tempMax: number | undefined;
 }
 
 interface CityInfo {

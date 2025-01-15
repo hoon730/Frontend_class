@@ -7,7 +7,7 @@ import {
 } from "../api";
 import { cityState, searchedCityState, forecastDataState } from "../atom";
 
-import { transInfo, weatherIcons } from "../utils";
+import { fahrenheitToCelsius, transInfo, weatherIcons } from "../utils";
 
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import { useRecoilState, useSetRecoilState } from "recoil";
@@ -123,6 +123,12 @@ const City = styled.div`
   text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.6);
 `;
 
+const WeatherIcon = styled.div``;
+const WeatherDesc = styled.div``;
+const CurrentTemp = styled.div``;
+const TempMax = styled.div``;
+const TempMin = styled.div``;
+
 const Transportation = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -143,23 +149,11 @@ const Trans = styled.div`
   }
 `;
 
-interface WeatherIcon {
-  name: string;
-  icon: JSX.Element;
-}
-
 const Weather = () => {
   const searchRef = useRef<HTMLInputElement>(null);
   const [city, setCity] = useRecoilState(cityState);
   const setSearchedCity = useSetRecoilState(searchedCityState);
   const setForecastData = useSetRecoilState(forecastDataState);
-
-  const getWeatherIcon = (weather: string) => {
-    const targetIcon = weatherIcons.find((item) => item.name === weather);
-    if (targetIcon) {
-    } else {
-    }
-  };
 
   const handleSearch = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
@@ -219,10 +213,23 @@ const Weather = () => {
                 </SubmitLabel>
                 <SubmitInput id="enter" type="button" value="" />
               </InputBox>
-              <City>
-                Today in: {city?.name || "Unknown"}
-                {/* {searchedCituy ? searchedCituy.name : city?.name || "Unknown"} */}
-              </City>
+              <City>Today in: {city?.cityName || "Unknown"}</City>
+              <WeatherIcon>
+                {/* <img src={city?.weatherIconPath} alt={city?.desc} /> */}
+                {city?.img}
+              </WeatherIcon>
+              <WeatherDesc>{city?.desc}</WeatherDesc>
+              <CurrentTemp>
+                {city?.currentTemp
+                  ? `${Math.floor(city.currentTemp)}°C`
+                  : "N/A"}
+              </CurrentTemp>
+              <TempMax>
+                {city?.tempMax ? `${Math.floor(city.tempMax)}°C` : "N/A"}
+              </TempMax>
+              <TempMin>
+                {city?.tempMin ? `${Math.floor(city.tempMin)}°C` : "N/A"}
+              </TempMin>
             </Desc>
           </WeatherBox>
           <Transportation>
