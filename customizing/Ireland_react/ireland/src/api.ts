@@ -1,6 +1,5 @@
 import {
   fahrenheitToCelsius,
-  getLanguageByCountry,
   weatherDescKo,
   weatherIcons,
 } from "./utils";
@@ -11,7 +10,7 @@ export const getForecastData = async (lat: number, lon: number) => {
   const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_KEY}`;
   const response = await fetch(url);
   const data = await response.json();
-  console.log(data);
+
   return data;
 };
 

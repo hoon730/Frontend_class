@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import {
   getWeatherByCurrentLocation,
@@ -7,9 +7,11 @@ import {
 } from "../api";
 import { cityState, searchedCityState, forecastDataState } from "../atom";
 
-import { fahrenheitToCelsius, transInfo, weatherIcons } from "../utils";
+import { transInfo } from "../utils";
 
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
+import { ImArrowUp } from "react-icons/im";
+import { ImArrowDown } from "react-icons/im";
 import { useRecoilState, useSetRecoilState } from "recoil";
 
 const Container = styled.div``;
@@ -123,11 +125,72 @@ const City = styled.div`
   text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.6);
 `;
 
-const WeatherIcon = styled.div``;
-const WeatherDesc = styled.div``;
-const CurrentTemp = styled.div``;
-const TempMax = styled.div``;
-const TempMin = styled.div``;
+const WeatherInfo = styled.div`
+  display: flex;
+  > div {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+const Left = styled.div`
+  flex-direction: column;
+`;
+const Right = styled.div``;
+
+const WeatherIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`;
+const WeatherDesc = styled.div`
+  font-size: 14px;
+  font-weight: bold;
+`;
+const CurrentTemp = styled.div`
+  font-size: 4rem;
+`;
+
+const TempInfo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 50%;
+  padding: 15px 0;
+
+  > div {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    font-size: 1.5rem;
+  }
+`;
+
+const TempMax = styled.div`
+  svg {
+    color: #ffc107;
+  }
+`;
+const TempMin = styled.div`
+  svg {
+    color: #1e8eff;
+  }
+`;
+
+const ByDateInfo = styled.div``;
+
+const DateInfo = styled.div``;
+const Date = styled.div``;
+const DateWeatherIcon = styled.div``;
+const Temp = styled.div``;
 
 const Transportation = styled.div`
   display: grid;
@@ -149,11 +212,25 @@ const Trans = styled.div`
   }
 `;
 
+interface ForecastItem {
+  dt: number;
+  main: {
+    temp: number;
+    temp_min: number;
+    temp_max: number;
+  };
+  weather: Array<{
+    main: string;
+    description: string;
+    icon: string;
+  }>;
+}
+
 const Weather = () => {
   const searchRef = useRef<HTMLInputElement>(null);
   const [city, setCity] = useRecoilState(cityState);
   const setSearchedCity = useSetRecoilState(searchedCityState);
-  const setForecastData = useSetRecoilState(forecastDataState);
+  const [forecastData, setForecastData] = useRecoilState(forecastDataState);
 
   const handleSearch = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
@@ -182,6 +259,8 @@ const Weather = () => {
     };
     getCurrentLocation();
   }, [setCity, setForecastData]);
+
+  console.log(forecastData);
 
   return (
     <Container>
@@ -214,22 +293,49 @@ const Weather = () => {
                 <SubmitInput id="enter" type="button" value="" />
               </InputBox>
               <City>Today in: {city?.cityName || "Unknown"}</City>
-              <WeatherIcon>
-                {/* <img src={city?.weatherIconPath} alt={city?.desc} /> */}
-                {city?.img}
-              </WeatherIcon>
-              <WeatherDesc>{city?.desc}</WeatherDesc>
-              <CurrentTemp>
-                {city?.currentTemp
-                  ? `${Math.floor(city.currentTemp)}°C`
-                  : "N/A"}
-              </CurrentTemp>
-              <TempMax>
-                {city?.tempMax ? `${Math.floor(city.tempMax)}°C` : "N/A"}
-              </TempMax>
-              <TempMin>
-                {city?.tempMin ? `${Math.floor(city.tempMin)}°C` : "N/A"}
-              </TempMin>
+              <WeatherInfo>
+                <Left>
+                  <WeatherIcon>
+                    <img src={city?.weatherIconPath} alt={city?.desc} />
+                    {/* {city?.img} */}
+                  </WeatherIcon>
+                  <WeatherDesc>{city?.desc}</WeatherDesc>
+                </Left>
+                <Right>
+                  <CurrentTemp>
+                    {city?.currentTemp
+                      ? `${Math.floor(city.currentTemp)}°`
+                      : "N/A"}
+                  </CurrentTemp>
+                </Right>
+              </WeatherInfo>
+              <TempInfo>
+                <TempMax>
+                  <span>
+                    <ImArrowUp />
+                  </span>
+                  <span>
+                    {city?.tempMax ? `${Math.floor(city.tempMax)}°` : "N/A"}
+                  </span>
+                </TempMax>
+                <TempMin>
+                  <span>
+                    <ImArrowDown />
+                  </span>
+                  <span>
+                    {city?.tempMin ? `${Math.floor(city.tempMin)}°` : "N/A"}
+                  </span>
+                </TempMin>
+              </TempInfo>
+              <ByDateInfo>
+                {forecastData?.list?.map((item: ForecastItem, idx: number) => {
+                  <DateInfo>
+                    <Date></Date>
+                    <DateWeatherIcon></DateWeatherIcon>
+                    <Temp></Temp>
+                  </DateInfo>;
+                })}
+              </ByDateInfo>
             </Desc>
           </WeatherBox>
           <Transportation>
