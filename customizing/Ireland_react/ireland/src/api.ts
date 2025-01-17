@@ -1,5 +1,6 @@
 import {
   fahrenheitToCelsius,
+  getWeatherIconPath,
   weatherDescKo,
   weatherIcons,
 } from "./utils";
@@ -25,7 +26,7 @@ export const getWeatherByCurrentLocation = async (lat: number, lon: number) => {
   const weather = data.weather[0].main;
   const weatherImg = weatherIcons.find((icon) => icon.name === weather);
   const weatherIcon = data.weather[0].icon;
-  const weatherIconPath = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
+  const weatherIconPath = getWeatherIconPath(weatherIcon);
   const weatherDesc = weatherDescKo[langId];
   const currentTemp = fahrenheitToCelsius(data.main.temp);
   const tempMin = fahrenheitToCelsius(data.main.temp_min);

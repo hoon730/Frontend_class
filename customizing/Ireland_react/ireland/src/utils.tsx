@@ -207,18 +207,82 @@ export const fahrenheitToCelsius = (fahrenheit: number | undefined) => {
   return Math.floor(celsius);
 };
 
-const countryToLangMap: { [key: string]: string } = {
-  KR: "ko",
-  US: "en",
-  FR: "fr",
-  DE: "de",
-  ES: "es",
-  JP: "ja",
-  CN: "zh",
-  RU: "ru",
-  IT: "it",
+export const getWeatherIconPath = (data: string) => {
+  const iconPath = `http://openweathermap.org/img/wn/${data}@2x.png`;
+  return iconPath;
 };
 
-export const getLanguageByCountry = (countryCode: string): string => {
-  return countryToLangMap[countryCode] || "en";
+export const getFormattedDate = (time: number) => {
+  const targetDate = new Date(time * 1000);
+  const month = targetDate.getMonth() + 1;
+  const date = targetDate.getDate();
+  const day = targetDate.getDay();
+
+  let dayName;
+
+  switch (day) {
+    case 0:
+      dayName = "일요일";
+      break;
+    case 1:
+      dayName = "월요일";
+      break;
+    case 2:
+      dayName = "화요일";
+      break;
+    case 3:
+      dayName = "수요일";
+      break;
+    case 4:
+      dayName = "목요일";
+      break;
+    case 5:
+      dayName = "금요일";
+      break;
+    case 6:
+      dayName = "토요일";
+      break;
+    default:
+      dayName = "알 수 없음";
+  }
+
+  const paddedMonth = month < 10 ? `0${month}` : String(month);
+  const paddedDate = date < 10 ? `0${date}` : String(date);
+
+  return `${paddedMonth}월${paddedDate}일 ${dayName}`;
+};
+
+export const getFormattedDay = (time: number) => {
+  const targetDate = new Date(time * 1000);
+  const day = targetDate.getDay();
+
+  let dayName;
+
+  switch (day) {
+    case 0:
+      dayName = "일요일";
+      break;
+    case 1:
+      dayName = "월요일";
+      break;
+    case 2:
+      dayName = "화요일";
+      break;
+    case 3:
+      dayName = "수요일";
+      break;
+    case 4:
+      dayName = "목요일";
+      break;
+    case 5:
+      dayName = "금요일";
+      break;
+    case 6:
+      dayName = "토요일";
+      break;
+    default:
+      dayName = "알 수 없음";
+  }
+
+  return dayName;
 };

@@ -6,13 +6,20 @@ import {
   getForecastData,
 } from "../api";
 import { cityState, searchedCityState, forecastDataState } from "../atom";
+import { useRecoilState, useSetRecoilState } from "recoil";
 
-import { transInfo } from "../utils";
+import {
+  fahrenheitToCelsius,
+  getFormattedDate,
+  getFormattedDay,
+  getWeatherIconPath,
+  transInfo,
+} from "../utils";
 
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import { ImArrowUp } from "react-icons/im";
 import { ImArrowDown } from "react-icons/im";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { FaLocationArrow } from "react-icons/fa";
 
 const Container = styled.div``;
 
@@ -185,9 +192,14 @@ const TempMin = styled.div`
   }
 `;
 
-const ByDateInfo = styled.div``;
+const ByDateInfo = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
-const DateInfo = styled.div``;
+const DateInfo = styled.div`
+  text-align: center;
+`;
 const Date = styled.div``;
 const DateWeatherIcon = styled.div``;
 const Temp = styled.div``;
@@ -292,7 +304,10 @@ const Weather = () => {
                 </SubmitLabel>
                 <SubmitInput id="enter" type="button" value="" />
               </InputBox>
-              <City>Today in: {city?.cityName || "Unknown"}</City>
+              <City>
+                <FaLocationArrow />
+                {city?.cityName || "Unknown"}
+              </City>
               <WeatherInfo>
                 <Left>
                   <WeatherIcon>
@@ -328,13 +343,24 @@ const Weather = () => {
                 </TempMin>
               </TempInfo>
               <ByDateInfo>
-                {forecastData?.list?.map((item: ForecastItem, idx: number) => {
-                  <DateInfo>
-                    <Date></Date>
-                    <DateWeatherIcon></DateWeatherIcon>
-                    <Temp></Temp>
-                  </DateInfo>;
-                })}
+                {forecastData?.list?.map((item: ForecastItem, idx: number) =>
+                  idx % 8 === 0 ? (
+                    <DateInfo key={idx}>
+                      <Date>{getFormattedDay(item.dt)}</Date>
+                      <DateWeatherIcon>
+                        <img
+                          src={getWeatherIconPath(item.weather[0].icon)}
+                          alt={`${item.dt}_weather`}
+                        />
+                      </DateWeatherIcon>
+                      <Temp>
+                        {fahrenheitToCelsius(
+                          (item.main.temp_max + item.main.temp_min) / 2
+                        )}
+                      </Temp>
+                    </DateInfo>
+                  ) : null
+                )}
               </ByDateInfo>
             </Desc>
           </WeatherBox>
