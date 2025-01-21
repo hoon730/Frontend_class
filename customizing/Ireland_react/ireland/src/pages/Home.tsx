@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 const Container = styled.div`
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 120px);
   margin: 60px 0;
   background: url("/img/banner.jpg") center/cover no-repeat;
 `;

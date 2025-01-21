@@ -39,7 +39,7 @@ const Text = styled.div`
 `;
 const Nav = styled.ul`
   display: flex;
-  gap: 25px;
+  gap: 60px;
 
   li {
     display: flex;

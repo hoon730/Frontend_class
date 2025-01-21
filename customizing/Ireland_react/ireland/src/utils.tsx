@@ -45,82 +45,77 @@ export const transInfo = [
 export const weatherIcons = [
   {
     name: "Thunderstorm",
+    path: "https://media.citizen.co.za/wp-content/uploads/2024/08/Thunderstorms.jpg",
     icon: <IoIosThunderstorm />,
   },
   {
     name: "Drizzle",
+    path: "https://images.unsplash.com/photo-1719038850147-2778f06ccae0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     icon: <BsCloudDrizzleFill />,
   },
   {
     name: "Rain",
+    path: "https://images.unsplash.com/photo-1527571083252-f24c32e9d8c1?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     icon: <IoRainy />,
   },
   {
-    name: "Snow",
-    icon: <TbSnowflake />,
-  },
-  {
-    name: "Clear ",
-    icon: <IoSunny />,
-  },
-  {
-    name: "Thunderstorm",
-    icon: <IoIosThunderstorm />,
-  },
-  {
-    name: "Drizzle",
-    icon: <BsCloudDrizzleFill />,
-  },
-  {
-    name: "Rain",
-    icon: <IoRainy />,
+    name: "Clouds",
+    path: "https://knews.kathimerini.com.cy/assets/modules/wnp/articles/202304/13713/images/b_cloudy_skies_2.jpg",
+    icon: <FaCloud />,
   },
   {
     name: "Snow",
+    path: "https://images.unsplash.com/photo-1516715094483-75da7dee9758?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     icon: <TbSnowflake />,
   },
   {
     name: "Clear",
+    path: "https://images.pexels.com/photos/281260/pexels-photo-281260.jpeg?cs=srgb&dl=pexels-francesco-ungaro-281260.jpg&fm=jpg",
     icon: <IoSunny />,
   },
   {
-    name: "Clouds",
-    icon: <FaCloud />,
-  },
-  {
     name: "Mist",
+    path: "https://upload.wikimedia.org/wikipedia/en/3/33/Dense_Tule_fog_in_Bakersfield%2C_California.jpg",
     icon: <RiFoggyFill />,
   },
   {
     name: "Smoke",
+    path: "https://i.natgeofe.com/n/0df55dc0-654e-4cb0-aaa2-f9035c6229e9/GettyImages-1334936959_2x1.jpg",
     icon: <WiSmoke />,
   },
   {
     name: "Haze",
+    path: "https://images.unsplash.com/photo-1638708777796-7d282110defe?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8",
     icon: <BsCloudHaze2Fill />,
   },
   {
     name: "Dust",
+    path: "https://bloximages.newyork1.vip.townnews.com/denvergazette.com/content/tncms/assets/v3/editorial/e/57/e5722be2-83e0-5c4b-95af-035a9aad79bf/64649c9f85c0b.image.jpg?crop=1113%2C835%2C71%2C0&resize=1200%2C900&order=crop%2Cresize",
     icon: <WiDust />,
   },
   {
     name: "Fog",
+    path: "https://riverheadlocal.com/wp-content/uploads/2022/03/fog-road-headlightsadobe.jpeg",
     icon: <BsCloudFog2Fill />,
   },
   {
     name: "Sand",
+    path: "https://adminassets.devops.arabiaweather.com/sites/default/files/field/image/Dust-storm-12-7-2023.jpg",
     icon: <WiSandstorm />,
   },
   {
     name: "Ash",
+    path: "https://www.rolls-royce.com/~/media/Images/R/Rolls-Royce/Stories/2019/Discover/volcanic-ash-banner.jpg",
     icon: <FaVolcano />,
   },
   {
     name: "Squall",
+    path: "https://wallpapercrafter.com/sizes/1366x768/123-clouds-cloudy-storm-sky-4k.jpg",
     icon: <BsCloudLightningRainFill />,
   },
   {
     name: "Tornado",
+    path: "https://bpsfuelforthought.wordpress.com/wp-content/uploads/2015/06/supercell.jpg",
     icon: <FaTornado />,
   },
 ];
@@ -260,25 +255,32 @@ export const getFormattedDay = (time: number) => {
 
   switch (day) {
     case 0:
-      dayName = "일요일";
+      // dayName = "일요일";
+      dayName = "Sun";
       break;
     case 1:
-      dayName = "월요일";
+      // dayName = "월요일";
+      dayName = "Mon";
       break;
     case 2:
-      dayName = "화요일";
+      // dayName = "화요일";
+      dayName = "Tue";
       break;
     case 3:
-      dayName = "수요일";
+      // dayName = "수요일";
+      dayName = "Wen";
       break;
     case 4:
-      dayName = "목요일";
+      // dayName = "목요일";
+      dayName = "Thu";
       break;
     case 5:
-      dayName = "금요일";
+      // dayName = "금요일";
+      dayName = "Fri";
       break;
     case 6:
-      dayName = "토요일";
+      // dayName = "토요일";
+      dayName = "Sat";
       break;
     default:
       dayName = "알 수 없음";

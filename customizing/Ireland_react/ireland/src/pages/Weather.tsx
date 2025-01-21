@@ -14,6 +14,7 @@ import {
   getFormattedDay,
   getWeatherIconPath,
   transInfo,
+  weatherIcons,
 } from "../utils";
 
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
@@ -32,12 +33,14 @@ const Top = styled.div`
     display: block;
     color: ${(props) => props.theme.subColor};
     font-weight: 600;
-    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
   }
 
   h3 {
-    margin-bottom: 40px;
-    font-size: 2rem;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+    font-size: 2.5rem;
     span {
       position: relative;
 
@@ -54,7 +57,8 @@ const Top = styled.div`
   }
 
   & > span:last-child {
-    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
   }
 `;
 
@@ -69,6 +73,7 @@ const Bottom = styled.div`
 `;
 
 const WeatherBox = styled.div`
+  color: #fff;
   padding: 30px 20px;
 `;
 
@@ -77,17 +82,17 @@ const Title = styled.div`
   font-size: 24px;
   color: #fff;
   text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.6);
-  margin-bottom: 30px;
+  margin-bottom: 45px;
 `;
 
 const Desc = styled.div`
   padding: 15px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
 `;
 
 const InputBox = styled.div`
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   input {
     background: #fff;
     border: none;
@@ -95,8 +100,8 @@ const InputBox = styled.div`
 `;
 
 const SearchInput = styled.input`
-  width: 70%;
-  padding: 10px 0 10px 30px;
+  width: 50%;
+  padding: 8px 0 8px 30px;
   font-size: 18px;
 
   &::placeholder {
@@ -113,10 +118,10 @@ const SubmitLabel = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #19da33;
+  background: #fff;
 
   svg {
-    color: #fff;
+    color: #111;
     font-size: 24px;
   }
 `;
@@ -126,10 +131,18 @@ const SubmitInput = styled.input`
 `;
 
 const City = styled.div`
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
   font-size: 20px;
   font-weight: 600;
   color: #fff;
-  text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.6);
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+  margin-bottom: 20px;
+
+  svg {
+    font-size: 16px;
+  }
 `;
 
 const WeatherInfo = styled.div`
@@ -137,72 +150,131 @@ const WeatherInfo = styled.div`
   > div {
     width: 50%;
     display: flex;
-    justify-content: center;
-    align-items: center;
   }
+
+  margin-bottom: 40px;
 `;
 const Left = styled.div`
-  flex-direction: column;
+  align-items: center;
 `;
-const Right = styled.div``;
+
+const Right = styled.div`
+  flex-direction: column;
+  align-items: flex-end;
+`;
 
 const WeatherIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
+  width: 47px;
+  height: 47px;
+  font-size: 1.7rem;
+  border-radius: 50%;
+  margin-bottom: 5px;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 0, 51, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(3, 123, 208, 1) 77%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* width: 50px;
+  height: 50px;
   img {
     width: 100%;
     height: 100%;
-  }
+  } */
 `;
 const WeatherDesc = styled.div`
   font-size: 14px;
   font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 `;
 const CurrentTemp = styled.div`
-  font-size: 4rem;
+  font-size: 6rem;
+  font-weight: bold;
 `;
 
 const TempInfo = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  gap: 20px;
-  width: 50%;
-  padding: 15px 0;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 0;
 
   > div {
     display: flex;
+    justify-content: center;
     align-items: flex-end;
-    gap: 10px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    gap: 5px;
+
+    svg {
+      font-size: 1rem;
+    }
   }
 `;
 
 const TempMax = styled.div`
   svg {
-    color: #ffc107;
+    color: #fdc40a;
   }
 `;
 const TempMin = styled.div`
   svg {
-    color: #1e8eff;
+    color: #004080;
   }
 `;
 
 const ByDateInfo = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
 `;
 
 const DateInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   text-align: center;
 `;
-const Date = styled.div``;
-const DateWeatherIcon = styled.div``;
-const Temp = styled.div``;
+const Date = styled.div`
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+`;
+const DateWeatherIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 47px;
+  height: 47px;
+  font-size: 1.7rem;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 0, 51, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(3, 123, 208, 1) 77%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  border-radius: 50%;
+`;
+const Temp = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  font-weight: bold;
+
+  > span:first-child {
+    color: #fdc40a;
+  }
+
+  /* > span:last-child {
+    color: #004080;
+  } */
+`;
 
 const Transportation = styled.div`
   display: grid;
@@ -216,11 +288,16 @@ const Trans = styled.div`
   align-items: center;
   width: 120px;
   font-weight: bold;
-  gap: 60px;
+  gap: 45px;
   text-align: center;
 
-  svg {
-    font-size: 4rem;
+  > span:first-child {
+    background: #eee;
+    border-radius: 50%;
+    padding: 15px;
+    svg {
+      font-size: 4rem;
+    }
   }
 `;
 
@@ -272,13 +349,11 @@ const Weather = () => {
     getCurrentLocation();
   }, [setCity, setForecastData]);
 
-  console.log(forecastData);
-
   return (
     <Container>
       <Inner className="inner">
         <Top>
-          <span>Plan your trip</span>
+          <span>PLAN YOUR TRIP</span>
           <h3>
             <span>All</span> the useful information you need
           </h3>
@@ -287,7 +362,7 @@ const Weather = () => {
         <Bottom>
           <WeatherBox
             style={{
-              background: `url(/img/weather.jpg) center/cover no-repeat`,
+              background: `url(${city?.bgImg}) center/cover no-repeat`,
             }}
           >
             <Title>The weather in Ireland</Title>
@@ -305,58 +380,66 @@ const Weather = () => {
                 <SubmitInput id="enter" type="button" value="" />
               </InputBox>
               <City>
+                {city?.cityName || ""}
                 <FaLocationArrow />
-                {city?.cityName || "Unknown"}
               </City>
               <WeatherInfo>
                 <Left>
-                  <WeatherIcon>
-                    <img src={city?.weatherIconPath} alt={city?.desc} />
-                    {/* {city?.img} */}
-                  </WeatherIcon>
-                  <WeatherDesc>{city?.desc}</WeatherDesc>
-                </Left>
-                <Right>
                   <CurrentTemp>
                     {city?.currentTemp
                       ? `${Math.floor(city.currentTemp)}°`
-                      : "N/A"}
+                      : ""}
                   </CurrentTemp>
+                </Left>
+                <Right>
+                  <WeatherIcon>
+                    {/* <img src={city?.weatherIconPath} alt={city?.desc} /> */}
+                    {city?.img}
+                  </WeatherIcon>
+                  <WeatherDesc>{city?.desc}</WeatherDesc>
+                  <TempInfo>
+                    <TempMax>
+                      <span>
+                        <ImArrowUp />
+                      </span>
+                      <span>
+                        {city?.tempMax ? `${Math.floor(city.tempMax)}°` : ""}
+                      </span>
+                    </TempMax>
+                    <TempMin>
+                      <span>
+                        <ImArrowDown />
+                      </span>
+                      <span>
+                        {city?.tempMin ? `${Math.floor(city.tempMin)}°` : ""}
+                      </span>
+                    </TempMin>
+                  </TempInfo>
                 </Right>
               </WeatherInfo>
-              <TempInfo>
-                <TempMax>
-                  <span>
-                    <ImArrowUp />
-                  </span>
-                  <span>
-                    {city?.tempMax ? `${Math.floor(city.tempMax)}°` : "N/A"}
-                  </span>
-                </TempMax>
-                <TempMin>
-                  <span>
-                    <ImArrowDown />
-                  </span>
-                  <span>
-                    {city?.tempMin ? `${Math.floor(city.tempMin)}°` : "N/A"}
-                  </span>
-                </TempMin>
-              </TempInfo>
               <ByDateInfo>
                 {forecastData?.list?.map((item: ForecastItem, idx: number) =>
                   idx % 8 === 0 ? (
                     <DateInfo key={idx}>
                       <Date>{getFormattedDay(item.dt)}</Date>
                       <DateWeatherIcon>
-                        <img
+                        {/* <img
                           src={getWeatherIconPath(item.weather[0].icon)}
                           alt={`${item.dt}_weather`}
-                        />
+                        /> */}
+                        {
+                          weatherIcons.find(
+                            (icon) => icon.name === item.weather[0].main
+                          )?.icon
+                        }
                       </DateWeatherIcon>
                       <Temp>
-                        {fahrenheitToCelsius(
-                          (item.main.temp_max + item.main.temp_min) / 2
-                        )}
+                        <span>
+                          {fahrenheitToCelsius(item.main.temp_max) + "°"}
+                        </span>
+                        <span>
+                          {fahrenheitToCelsius(item.main.temp_min) + "°"}
+                        </span>
                       </Temp>
                     </DateInfo>
                   ) : null
@@ -367,7 +450,7 @@ const Weather = () => {
           <Transportation>
             {transInfo.map((item) => (
               <Trans key={item.id}>
-                {item.icon}
+                <span>{item.icon}</span>
                 <span>{item.text}</span>
               </Trans>
             ))}

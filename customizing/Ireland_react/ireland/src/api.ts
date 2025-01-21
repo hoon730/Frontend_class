@@ -22,17 +22,20 @@ export const getWeatherByCurrentLocation = async (lat: number, lon: number) => {
   console.log(data);
 
   const cityName = data.name;
-  const langId = data.weather[0].id as keyof typeof weatherDescKo;
+  // const langId = data.weather[0].id as keyof typeof weatherDescKo;
   const weather = data.weather[0].main;
   const weatherImg = weatherIcons.find((icon) => icon.name === weather);
   const weatherIcon = data.weather[0].icon;
   const weatherIconPath = getWeatherIconPath(weatherIcon);
-  const weatherDesc = weatherDescKo[langId];
+  const weatherDesc = data.weather[0].description;
+  // const weatherDesc = weatherDescKo[langId];
   const currentTemp = fahrenheitToCelsius(data.main.temp);
   const tempMin = fahrenheitToCelsius(data.main.temp_min);
   const tempMax = fahrenheitToCelsius(data.main.temp_max);
+  const weatherImgPath = weatherIcons.find((item) => item.name === weather);
 
   const weatherInfo = {
+    bgImg: weatherImgPath?.path,
     cityName,
     weatherIconPath,
     img: weatherImg?.icon,

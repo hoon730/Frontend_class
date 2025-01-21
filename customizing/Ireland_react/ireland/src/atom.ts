@@ -1,6 +1,7 @@
 import { atom } from "recoil";
 
 interface WeatherData {
+  bgImg: string | undefined;
   cityName: string;
   weatherIconPath: string;
   img: JSX.Element | undefined;
