@@ -54,7 +54,7 @@ function App() {
   const cities = ["paris", "new york", "tokyo", "seoul"];
 
   const getWeatherByCurrentLocation = async (lat, lon) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_KEY}&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_KEY}`;
     setLoading(true);
     const response = await fetch(url);
     const data = await response.json();
@@ -163,7 +163,6 @@ export default App;
 // 마지막으로 설정이 완료되면 반드시 서버를 껐다켜줘야 된다. (이건 cra, vite 상관없이 다 해당)
 
 // 2. 굳이 1개의 key로 그냥
-
 
 // 1개의 API 서버에서 복수의 API 데이터를 가져와야 하는 경우!!
 // > useEffect
