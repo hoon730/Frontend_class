@@ -1,14 +1,12 @@
+import { useEffect, useState } from "react";
 import {
   useLocation,
   useParams,
   Link,
   useMatch,
   Outlet,
-  useOutletContext,
 } from "react-router-dom";
 import styled from "styled-components";
-import Chart from "./Chart";
-import Price from "./Price";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCoinInfo, fetchPriceInfo } from "../api";
 import { Helmet } from "react-helmet";
@@ -148,33 +146,33 @@ interface IsActive {
 }
 
 const Coin = () => {
-  // const [loading, setLoading] = useState(true);
-  // const [info, setInfo] = useState<InfoData>();
-  // const [priceInfo, setPriceInfo] = useState<PriceData>();
+  const [info, setInfo] = useState<InfoData>();
+  const [priceInfo, setPriceInfo] = useState<PriceData>();
   const { coinId } = useParams<RouterParams | any>();
   const { state } = useLocation() as LocationState;
   const priceMatch = useMatch("/:coinId/price");
   const chartMatch = useMatch("/:coinId/chart");
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const infoData = await (
-  //       await fetch(
-  //         `https://my-json-server.typicode.com/Divjason/coinlist/coins/${coinId}`
-  //       )
-  //     ).json();
-  //     console.log(infoData);
-  //     const priceData = await (
-  //       await fetch(
-  //         `https://my-json-server.typicode.com/Divjason/coinprice/coinprice/${coinId}`
-  //       )
-  //     ).json();
-  //     console.log(priceData);
-  //     setInfo(infoData);
-  //     setPriceInfo(priceData);
-  //     setLoading(false);
-  //   })();
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      const infoData = await (
+        await fetch(
+          `https://my-json-server.typicode.com/Divjason/coinlist/coins/${coinId}`
+        )
+      ).json();
+      console.log(infoData);
+      const priceData = await (
+        await fetch(
+          `https://my-json-server.typicode.com/Divjason/coinprice/coinprice/${coinId}`
+        )
+      ).json();
+      console.log(priceData);
+      setInfo(infoData);
+      setPriceInfo(priceData);
+    })();
+  }, []);
+
+  console.log(info, priceInfo)
 
   const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>({
     queryKey: ["info", coinId],
