@@ -4,11 +4,8 @@ import {
   Link,
   useMatch,
   Outlet,
-  useOutletContext,
 } from "react-router-dom";
 import styled from "styled-components";
-import Chart from "./Chart";
-import Price from "./Price";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCoinInfo, fetchPriceInfo } from "../api";
 import { Helmet } from "react-helmet";
@@ -147,44 +144,24 @@ interface IsActive {
   $isActive: boolean;
 }
 
-const Coin = () => {
-  // const [loading, setLoading] = useState(true);
-  // const [info, setInfo] = useState<InfoData>();
-  // const [priceInfo, setPriceInfo] = useState<PriceData>();
-  const { coinId } = useParams<RouterParams | any>();
+interface CoinProp {
+  targetCoin: string;
+}
+
+const Coin = ({ targetCoin }: CoinProp) => {
+  // const { coinId } = useParams<RouterParams | any>();
   const { state } = useLocation() as LocationState;
   const priceMatch = useMatch("/:coinId/price");
   const chartMatch = useMatch("/:coinId/chart");
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const infoData = await (
-  //       await fetch(
-  //         `https://my-json-server.typicode.com/Divjason/coinlist/coins/${coinId}`
-  //       )
-  //     ).json();
-  //     console.log(infoData);
-  //     const priceData = await (
-  //       await fetch(
-  //         `https://my-json-server.typicode.com/Divjason/coinprice/coinprice/${coinId}`
-  //       )
-  //     ).json();
-  //     console.log(priceData);
-  //     setInfo(infoData);
-  //     setPriceInfo(priceData);
-  //     setLoading(false);
-  //   })();
-  // }, []);
-
   const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>({
-    queryKey: ["info", coinId],
-    queryFn: () => fetchCoinInfo(coinId),
+    queryKey: ["info", targetCoin],
+    queryFn: () => fetchCoinInfo(targetCoin),
   });
 
   const { isLoading: priceLoading, data: priceData } = useQuery<PriceData>({
-    queryKey: ["price", coinId],
-    queryFn: () => fetchPriceInfo(coinId),
-    // refetchInterval: 5000,
+    queryKey: ["price", targetCoin],
+    queryFn: () => fetchPriceInfo(targetCoin),
   });
 
   const loading = infoLoading || priceLoading;
@@ -238,10 +215,10 @@ const Coin = () => {
           </Overview>
           <Tabs>
             <Tab $isActive={chartMatch !== null}>
-              <Link to={`/${coinId}/chart`}>Chart</Link>
+              <Link to={`/${targetCoin}/chart`}>Chart</Link>
             </Tab>
             <Tab $isActive={priceMatch !== null}>
-              <Link to={`/${coinId}/price`}>Price</Link>
+              <Link to={`/${targetCoin}/price`}>Price</Link>
             </Tab>
           </Tabs>
         </>

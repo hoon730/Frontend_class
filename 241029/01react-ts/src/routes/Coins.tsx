@@ -6,6 +6,7 @@ import { fetchCoins } from "../api";
 import { Helmet } from "react-helmet";
 import { isDarkAtom } from "../atoms";
 import { useSetRecoilState } from "recoil";
+import Coin from "./Coin";
 
 const Container = styled.main`
   width: 100%;
@@ -23,6 +24,10 @@ const Header = styled.header`
   gap: 20px;
 `;
 
+const Inner = styled.div`
+  display: flex;
+`;
+
 const Title = styled.h1`
   color: ${({ theme }) => theme.accentColor};
 `;
@@ -31,7 +36,7 @@ const CoinList = styled.ul`
   width: 700px;
 `;
 
-const Coin = styled.li`
+const CoinInfo = styled.li`
   background: ${({ theme }) => theme.textColor};
   color: ${({ theme }) => theme.bgColor};
   padding: 20px;
@@ -81,55 +86,16 @@ interface CoinInterface {
   tpye: string;
 }
 
-// const coins = [
-//   {
-//     id: "btc-bitcoin",
-//     name: "Bitcoin",
-//     symbol: "BTC",
-//     rank: 1,
-//     is_new: false,
-//     is_active: true,
-//     type: "coin",
-//   },
-//   {
-//     id: "eth-ethereum",
-//     name: "Ethereum",
-//     symbol: "ETH",
-//     rank: 2,
-//     is_new: false,
-//     is_active: true,
-//     type: "coin",
-//   },
-//   {
-//     id: "hex-hex",
-//     name: "HEX",
-//     symbol: "HEX",
-//     rank: 3
-//     is_new: false,
-//     is_active: true,
-//     type: "coin",
-//   },
-// ];
-
 const Coins = () => {
-  // const [coins, setCoins] = useState<CoinInterface[]>([]);
-  // const [loading, setLoding] = useState(true);
-
-  // useEffect(() => {
-  //   (async () => {
-  //     const response = await fetch(
-  //       "https://raw.githubusercontent.com/Divjason/coindata/refs/heads/main/coins.json"
-  //     );
-  //     const json = await response.json();
-  //     setCoins(json.slice(0, 101));
-  //     setLoding(false);
-  //   })();
-  // }, []);
+  const [targetCoin, setTargetCoin] = useState<string>("");
   const { isLoading, data } = useQuery<CoinInterface[]>({
     queryKey: ["allCoins"],
     queryFn: fetchCoins,
   });
   const setterFn = useSetRecoilState(isDarkAtom);
+
+  // console.log(data?.slice(0, 100));
+  console.log(targetCoin);
 
   return (
     <Container>
@@ -140,23 +106,33 @@ const Coins = () => {
         <Title>Coin List</Title>
         <Button onClick={() => setterFn((prev) => !prev)}>Mode</Button>
       </Header>
-      {isLoading ? (
-        <Loader>Loading...</Loader>
-      ) : (
-        <CoinList>
-          {data?.slice(0, 100).map((coin) => (
-            <Coin key={coin.id}>
-              <Link to={`/${coin.id}`} state={coin.name}>
-                🏆Now Rank: {coin.rank}
-                <Img
-                  src={`https://cryptoicon-api.pages.dev/api/icon/${coin.symbol.toLocaleLowerCase()}`}
-                />
-                {coin.name} ({coin.symbol}) &rarr; {coin.name} Information
-              </Link>
-            </Coin>
-          ))}
-        </CoinList>
-      )}
+      <Inner>
+        {isLoading ? (
+          <Loader>Loading...</Loader>
+        ) : (
+          <>
+            <Coin targetCoin={targetCoin} />
+            <CoinList>
+              {data?.slice(0, 100).map((coin) => (
+                <CoinInfo
+                  key={coin.id}
+                  onClick={() => {
+                    setTargetCoin(coin.id);
+                  }}
+                >
+                  {/* <Link to={`/${coin.id}`} state={coin.name}> */}
+                  🏆Now Rank: {coin.rank}
+                  <Img
+                    src={`https://cryptoicon-api.pages.dev/api/icon/${coin.symbol.toLocaleLowerCase()}`}
+                  />
+                  {coin.name} ({coin.symbol}) &rarr; {coin.name} Information
+                  {/* </Link> */}
+                </CoinInfo>
+              ))}
+            </CoinList>
+          </>
+        )}
+      </Inner>
     </Container>
   );
 };
