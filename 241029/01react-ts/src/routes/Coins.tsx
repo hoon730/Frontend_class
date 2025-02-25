@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
+import {
+  useLocation,
+  useParams,
+  Link,
+  useMatch,
+  Outlet,
+  useOutletContext,
+} from "react-router-dom";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCoins } from "../api";
 import { Helmet } from "react-helmet";
