@@ -5,31 +5,15 @@ window.onload = function () {
   });
 };
 
-//let number = 0;
 let currentIndex = 0;
 const numbers = [22, 63, 15, 0, 0];
 
 const startNumbering = (num) => {
   const percentages = document.querySelectorAll(".percentage");
 
-  for(let i = 0; i <= num; i++) {
+  for (let i = 0; i <= num; i++) {
     percentages[currentIndex].innerText = `${i}%`;
   }
-  
-  // let number = 0;
-  // const countingNumber = () => {
-  //   number++;
-  //   console.log(number);
-  //   percentages[currentIndex].innerText = `${number}%`;
-  //     if(number < num) {
-  //       setTimeout(countingNumber, 5);
-  //     }
-  // }
-  // countingNumber();
-
-  // if (number < num) {
-  //   setTimeout(startNumbering, 5);
-  // }
 };
 
 const sendingNumbers = () => {
@@ -46,8 +30,7 @@ const input = document.querySelector("input[type='text']");
 const submit = document.querySelector("input[type='submit']");
 const ul = document.querySelector(".reviews");
 const userId = document.querySelector("#userId");
-
-console.log(submit);
+const review = document.querySelector("#review");
 
 let todos = [];
 
@@ -107,20 +90,27 @@ const addItem = (todo) => {
     li.email = todo.email;
 
     // email
-        if (userId.value !== "" ) {
-          let userName = userId.value.split("@")[0];
-          userName = userName.slice(0, 2);
-          const domain = userId.value.split("@")[1];
-          document.querySelector(
-            ".new-review .result-user"
-          ).innerText = `${userName}**@${domain}`;
-          userId.value = "";
-        } 
+    if (userId.value !== "") {
+      let userName = userId.value.split("@")[0];
+      userName = userName.slice(0, 2);
+      const domain = userId.value.split("@")[1];
+      resultId.innerText = `${userName}**@${domain}`;
+      userId.value = "";
+    }
   }
 };
 
 const handler = (e) => {
   e.preventDefault();
+
+  if (userId.value.trim() === "") {
+    alert("아이디를 입력해주세요");
+    return;
+  }
+  if (review.value.trim() === "") {
+    alert("리뷰를 입력해주세요");
+    return;
+  }
 
   const todo = {
     id: Date.now(),
@@ -137,7 +127,6 @@ const handler = (e) => {
 };
 
 const init = () => {
-  //다시 불러올때 객체의 형태로 가져와야 하므로 parse 함수를 사용한다.
   const userTodos = JSON.parse(localStorage.getItem(`todos`));
 
   if (userTodos) {

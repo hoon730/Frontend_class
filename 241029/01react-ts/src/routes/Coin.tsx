@@ -10,6 +10,8 @@ import styled from "styled-components";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCoinInfo, fetchPriceInfo } from "../api";
 import { Helmet } from "react-helmet";
+import Chart from "./Chart";
+import Price from "./Price";
 
 const Container = styled.main`
   width: 100%;
@@ -17,7 +19,6 @@ const Container = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
 `;
 
 const Header = styled.header`
@@ -89,10 +90,6 @@ const Tab = styled.span<IsActive>`
   }
 `;
 
-interface RouterParams {
-  coinId: string;
-}
-
 interface LocationState {
   state: string;
 }
@@ -150,10 +147,9 @@ interface CoinProp {
 }
 
 const Coin = ({ targetCoin }: CoinProp) => {
-  // const { coinId } = useParams<RouterParams | any>();
   const { state } = useLocation() as LocationState;
-  const priceMatch = useMatch("/:coinId/price");
-  const chartMatch = useMatch("/:coinId/chart");
+  const priceMatch = useMatch("/:targetCoin/price");
+  const chartMatch = useMatch("/:targetCoin/chart");
 
   const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>({
     queryKey: ["info", targetCoin],
@@ -216,10 +212,12 @@ const Coin = ({ targetCoin }: CoinProp) => {
           </Overview>
           <Tabs>
             <Tab $isActive={chartMatch !== null}>
-              <Link to={`/${targetCoin}/chart`}>Chart</Link>
+              {/* <Link to={`/${targetCoin}/chart`}>Chart</Link> */}
+              <Chart targetCoin={targetCoin} />
             </Tab>
             <Tab $isActive={priceMatch !== null}>
-              <Link to={`/${targetCoin}/price`}>Price</Link>
+              {/* <Link to={`/${targetCoin}/price`}>Price</Link> */}
+              <Price />
             </Tab>
           </Tabs>
         </>

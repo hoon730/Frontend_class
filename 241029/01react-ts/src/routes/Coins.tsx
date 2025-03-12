@@ -1,12 +1,4 @@
-import React, { useState, useEffect } from "react";
-import {
-  useLocation,
-  useParams,
-  Link,
-  useMatch,
-  Outlet,
-  useOutletContext,
-} from "react-router-dom";
+import { useState } from "react";
 import styled from "styled-components";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCoins } from "../api";
@@ -33,6 +25,7 @@ const Header = styled.header`
 
 const Inner = styled.div`
   display: flex;
+  justify-content: space-between;
 `;
 
 const Title = styled.h1`
@@ -40,7 +33,6 @@ const Title = styled.h1`
 `;
 
 const CoinList = styled.ul`
-  width: 700px;
 `;
 
 const CoinInfo = styled.li`
@@ -127,13 +119,11 @@ const Coins = () => {
                     setTargetCoin(coin.id);
                   }}
                 >
-                  {/* <Link to={`/${coin.id}`} state={coin.name}> */}
                   🏆Now Rank: {coin.rank}
                   <Img
                     src={`https://cryptoicon-api.pages.dev/api/icon/${coin.symbol.toLocaleLowerCase()}`}
                   />
                   {coin.name} ({coin.symbol}) &rarr; {coin.name} Information
-                  {/* </Link> */}
                 </CoinInfo>
               ))}
             </CoinList>

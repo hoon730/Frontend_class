@@ -1,7 +1,7 @@
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import reset from "styled-reset";
 import Home from "./pages/Home";
-import Header from "./components/Header";
+import Header from "./components/header/Header";
 import Weather from "./pages/Weather";
 import { theme } from "./theme";
 

@@ -86,6 +86,8 @@ const Right = styled.div`
   }
 `;
 
+const NumBox = styled.div``;
+
 const activites = [
   {
     id: 1,
@@ -132,21 +134,22 @@ const Home = () => {
         <Swiper
           modules={[Navigation, Pagination]}
           navigation
-          pagination={{ clickable: true }}
           spaceBetween={30}
           slidesPerView={3}
           onSlideChange={() => console.log("Slide changed")}
           onSwiper={(swiper) => console.log(swiper)}
         >
           {activites.map((activity) => (
-            <SwiperSlide
-              key={activity.id}
-              style={{
-                background: `url(${activity.imgPath}) center/cover no-repeat`,
-              }}
-            >
-              <p>{activity.desc}</p>
-            </SwiperSlide>
+            <>
+              <SwiperSlide
+                key={activity.id}
+                style={{
+                  background: `url(${activity.imgPath}) center/cover no-repeat`,
+                }}
+              >
+                <p>{activity.desc}</p>
+              </SwiperSlide>
+            </>
           ))}
         </Swiper>
       </Right>

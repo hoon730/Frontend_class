@@ -1,4 +1,3 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -30,8 +29,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
-  // const [isDark, setIsDark] = useState(false);
-  // const toggleDark = () => setIsDark((current) => !current);
   const isDark = useRecoilValue(isDarkAtom);
 
   return (
@@ -39,10 +36,6 @@ const App = () => {
       <ThemeProvider theme={isDark ? darktheme : lighttheme}>
         <GlobalStyle />
         <Outlet />
-        <ReactQueryDevtools
-          initialIsOpen={false}
-          buttonPosition="bottom-left"
-        />
       </ThemeProvider>
     </>
   );
