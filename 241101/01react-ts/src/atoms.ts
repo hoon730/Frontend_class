@@ -1,22 +1,24 @@
 import { atom } from "recoil";
 
-export interface ToDo {
+export interface List {
   id: number;
-  text: string;
+  song: string;
+  singer: string;
+  albumImg: string;
 }
 
-interface ToDoState {
-  [key: string]: ToDo[];
+interface PlaylistState {
+  [key: string]: List[];
 }
 
-export const toDoState = atom<ToDoState>({
-  key: "toDo",
+export const PlaylistState = atom<PlaylistState>({
+  key: "list",
   default: {
-    ToDo: [
-      { id: 1, text: "Hello" },
-      { id: 2, text: "World" },
+    공부: [
+      { id: 1, song: "Hello", singer: "Adele", albumImg: "https://i.scdn.co/image/ab6761610000e5eb200000000000000000000000" },
+      { id: 2, song: "World", singer: "Adele", albumImg: "https://i.scdn.co/image/ab6761610000e5eb200000000000000000000000" },
     ],
-    Doing: [],
-    Done: [],
+    운동: [],
+    드라이브: [],
   },
 });

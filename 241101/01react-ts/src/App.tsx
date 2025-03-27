@@ -1,9 +1,8 @@
 import { createGlobalStyle, styled } from "styled-components";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { useRecoilState } from "recoil";
-import { toDoState } from "./atoms";
+import { PlaylistState } from "./atoms";
 import Board from "./components/Board";
-
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -44,64 +43,39 @@ const Boards = styled.div`
 `;
 
 const App = () => {
-  const [toDos, setToDos] = useRecoilState(toDoState);
+  const [playList, setPlayList] = useRecoilState(PlaylistState);
   const onDragEnd = (info: DropResult) => {
     console.log(info);
     const { destination, source, draggableId } = info;
     if (!destination) return;
 
     if (destination.droppableId === source.droppableId) {
-      setToDos((oldToDos) => {
-        const boardCopy = [...oldToDos[source.droppableId]];
+      setPlayList((oldPlayList) => {
+        const boardCopy = [...oldPlayList[source.droppableId]];
         const taskObj = boardCopy[source.index];
         boardCopy.splice(source.index, 1);
         boardCopy.splice(destination.index, 0, taskObj);
         return {
-          ...oldToDos,
+          ...oldPlayList,
           [source.droppableId]: boardCopy,
         };
       });
     }
 
     if (destination.droppableId !== source.droppableId) {
-      setToDos((oldToDos) => {
-        const sourceBoard = [...oldToDos[source.droppableId]];
+      setPlayList((oldPlayList) => {
+        const sourceBoard = [...oldPlayList[source.droppableId]];
         const taskObj = sourceBoard[source.index];
-        const destinationBoard = [...oldToDos[destination.droppableId]];
+        const destinationBoard = [...oldPlayList[destination.droppableId]];
         sourceBoard.splice(source.index, 1);
         destinationBoard.splice(destination.index, 0, taskObj);
         return {
-          ...oldToDos,
+          ...oldPlayList,
           [source.droppableId]: sourceBoard,
           [destination.droppableId]: destinationBoard,
         };
       });
     }
-
-    // if (destination?.droppableId === source.droppableId) {
-    //   setToDos((oldToDos) => {
-    //     const boardCopy = [...oldToDos[source.droppableId]];
-    //     boardCopy.splice(source.index, 1);
-    //     boardCopy.splice(destination.index, 0, draggableId);
-    //     return {
-    //       ...oldToDos,
-    //       [source.droppableId]: boardCopy,
-    //     };
-    //   });
-    // }
-    // if (destination?.droppableId !== source.droppableId) {
-    //   setToDos((oldToDos) => {
-    //     const sourceBoard = [...oldToDos[source.droppableId]];
-    //     const destinationBoard = [...oldToDos[destination?.droppableId]];
-    //     sourceBoard.splice(source.index, 1);
-    //     destinationBoard.splice(destination.index, 0, draggableId);
-    //     return {
-    //       ...oldToDos,
-    //       [source.droppableId]: sourceBoard,
-    //       [destination?.droppableId]: destinationBoard,
-    //     };
-    //   });
-    // }
   };
   return (
     <>
@@ -109,8 +83,12 @@ const App = () => {
       <DragDropContext onDragEnd={onDragEnd}>
         <Wrapper>
           <Boards>
-            {Object.keys(toDos).map((boardId) => (
-              <Board key={boardId} toDos={toDos[boardId]} boardId={boardId} />
+            {Object.keys(playList).map((boardId) => (
+              <Board
+                key={boardId}
+                toDos={playList[boardId]}
+                boardId={boardId}
+              />
             ))}
           </Boards>
         </Wrapper>

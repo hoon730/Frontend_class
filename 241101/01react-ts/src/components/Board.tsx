@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { Droppable } from "react-beautiful-dnd";
 import DraggableCard from "./DraggableCard";
-import { ToDo, toDoState } from "../atoms";
+import { List, PlaylistState } from "../atoms";
 import { useSetRecoilState } from "recoil";
 
 const Wrapper = styled.div`
@@ -51,7 +51,7 @@ const Input = styled.input`
 `;
 
 interface BoardProps {
-  toDos: ToDo[];
+  toDos: List[];
   boardId: string;
 }
 
@@ -60,35 +60,27 @@ interface FormProps {
 }
 
 const Board = ({ toDos, boardId }: BoardProps) => {
-  const setToDos = useSetRecoilState(toDoState);
+  const setToDos = useSetRecoilState(PlaylistState);
   const { register, setValue, handleSubmit } = useForm<FormProps>();
   const onValid = ({ toDo }: FormProps) => {
+    const newTodo = {
+      id: Date.now(),
+      song: toDo,
+      singer: "Adele",
+      albumImg:
+        "https://i.scdn.co/image/ab6761610000e5eb200000000000000000000000",
+    };
+    setToDos((allBoards) => {
+      return {
+        ...allBoards,
+        [boardId]: [newTodo, ...allBoards[boardId]],
+      };
+    });
     setValue("toDo", "");
   };
 
-  const newTodo = {
-    id: Date.now(),
-    text: toDos,
-  };
-
-  setToDos((allBoards) => {
-    return {
-      ...allBoards,
-      [boardId]: [newTodo, ...allBoards[boardId]]
-    }
-  })
-  // const inputRef = useRef<HTMLInputElement>(null);
-  // const onClick = () => {
-  //   inputRef.current?.focus();
-  //   setTimeout(() => {
-  //     inputRef.current?.blur();
-  //   }, 5000);
-  // };
-
   return (
     <Wrapper>
-      {/* <input ref={inputRef} type="text" placeholder="Please..." />
-      <button onClick={onClick}>Click</button> */}
       <Title>{boardId}</Title>
       <Form onSubmit={handleSubmit(onValid)}>
         <Input
@@ -109,7 +101,7 @@ const Board = ({ toDos, boardId }: BoardProps) => {
               <DraggableCard
                 key={toDo.id}
                 toDoId={toDo.id}
-                toDoText={toDo.text}
+                toDoText={toDo.song}
                 index={index}
               />
             ))}

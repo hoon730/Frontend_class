@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
-import Menu from "./menu";
+import Menu from "./Menu";
 const Container = styled.header`
   position: fixed;
   top: 0;
